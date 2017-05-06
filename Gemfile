@@ -6,8 +6,6 @@ git_source(:github) do |repo_name|
 end
 
 gem 'devise'
-gem 'rolify'
-gem 'cancancan', '~> 1.10'
 gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 
 gem "font-awesome-rails"
