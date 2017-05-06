@@ -8,14 +8,17 @@
     <%= javascript_include_tag 'application' %>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.css" />
-    <script
+    <!-- <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script> -->
   </head>
 
-  <body>
+  <body id='body'>
     <%= render "layouts/navbar" %>
+
+<article>
+  <%= render "layouts/sidenav" %>
 
     <div class="container">
     <% if flash[:notice] %>
@@ -26,7 +29,9 @@
     </div>
 
 
+
       <%= yield %>
+    </article>
 
     <%= render "layouts/footer" %>
   </body>

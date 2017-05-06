@@ -1,0 +1,31 @@
+
+<!-- side navigation -->
+    <div id='sidenav' class="ui left visible vertical inverted sidebar labeled icon menu">
+
+      <div class="item"><br><br>
+        <!-- temp whitespace -->
+      </div>
+
+
+      <%= link_to dashboard_index_path, class: "#{'active' if current_page?(dashboard_index_path)} item" do %>
+      <i class="block layout icon"></i> Dashboard
+      <% end %>
+      <%= link_to tickets_path, class: "#{'active' if current_page?(tickets_path)} item" do %>
+      <i class="inbox icon"></i> Tickets
+      <% end %>
+      <%= link_to invoices_path, class: "#{'active' if current_page?(invoices_path)} item" do %>
+      <i class="tiny dollar icon"></i>Invoices
+      <% end %>
+      <%= link_to orders_path, class: "#{'active' if current_page?(orders_path)} item" do %>
+      <i class="file text outline icon"></i>Orders
+      <% end %>
+      <%= link_to calendar_index_path, class: "#{'active' if current_page?(calendar_index_path)} item" do %>
+      <i class="calendar icon"></i>Calendar
+      <% end %>
+      <%= link_to users_path, class: "#{'active' if current_page?(users_path)} item" do %>
+      <i class="users icon"></i>Users
+      <% end %>
+      <%= link_to reports_path, class: "#{'active' if current_page?(reports_path)} item" do %>
+        <i class="line chart icon"></i>Report
+      <% end %>
+    </div>

@@ -6,10 +6,11 @@ git_source(:github) do |repo_name|
 end
 
 gem 'devise'
+gem 'rolify'
+gem 'cancancan', '~> 1.10'
 gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 
 gem "font-awesome-rails"
-gem 'cancancan', '~> 1.10'
 # gem 'chosen-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
