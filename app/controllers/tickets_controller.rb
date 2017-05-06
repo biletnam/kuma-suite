@@ -22,12 +22,12 @@ class TicketsController < ApplicationController
   def show
     @ticket = Ticket.find params[:id]
     @tickets = Ticket.last(20)
-    @review = Review.new
+    # @review = Review.new
   end
 
   def index
     @tickets = Ticket.last(20)
-    @tags = Tag.all
+    # @tags = Tag.all
   end
 
   def edit
@@ -37,7 +37,7 @@ class TicketsController < ApplicationController
 
   def update
     @ticket = Ticket.find params[:id]
-    ticket_params = params.require(:ticket).permit([:title, :body, :department, :category_id, ])
+    ticket_params = params.require(:ticket).permit([:title, :body, :department ])
 
     if !(can? :edit, @ticket)
       redirect_to root_path, alert: 'access denied'
@@ -62,7 +62,7 @@ class TicketsController < ApplicationController
   end
 
   def ticket_params
-    params.require(:ticket).permit([:title, :body, :department, :category_id, { tag_ids: [] }])
+    params.require(:ticket).permit([:title, :body, :department])
   end
 
 end

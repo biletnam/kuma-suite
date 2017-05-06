@@ -1,33 +1,15 @@
 class Ticket < ApplicationRecord
   belongs_to :department
-  belongs_to :client
+  belongs_to :user
   # has_many :comments, dependent: :destroy
-  # has flag
-  # has priority
-  # has status
+  # has_many :votes, dependent: :destroy
+  # has_many :voters, through: :votes, source: :user
+  # has_many :taggings, dependent: :destroy
+  # has_many :tags, through: :taggings
+  # before_save :capitalize_title
 
-  validates :title, presence: { message: 'must be present!' }
-  validates :body, presence: { message: 'must be present!' }
-  validates :department, { presence: true}
+  validates :title, { presence: true }
+  validates :body, { presence: true}
+  validates :department, { presence: true }
 
-  private
-
-  def set_defaults
-    self.status ||= nil
-  end
 end
-
-# new ticket
-# department TECH SUP
-# title      TITLE
-# body       BODY
-# agent      AGENTNAME
-# client     CLIENTNAME
-# email      CLIENT EMAIL
-# created
-# updated
-#
-# can set:
-# flag     TYPE
-# priority HIGH
-# status   COMPLETE

@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'welcome#index'
+
+  # unauthenticated do
+  #    root :to => 'home#index'
+  # end
+  #
+  # authenticated do
+  #   root :to => 'dashboard#index'
+  # end
 
   resources :users
   resources :sessions
@@ -9,7 +18,7 @@ Rails.application.routes.draw do
 
   resources :dashboard, only: [:index]
   resources :calendar, only: [:index]
-  resources :tickets, only: [:index, :show]
+  resources :tickets
   # resources :users, only: [:index, :show]
     # resources :reviews, only: [:create, :destroy]
   # end

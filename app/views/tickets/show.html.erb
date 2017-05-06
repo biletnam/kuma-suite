@@ -1,0 +1,46 @@
+
+<div class="row">
+  <div class="col-md-6">
+
+    <% if can? :edit, @ticket %>
+      <div class="pull-right">
+      <%= link_to 'Edit', edit_ticket_path(@ticket) %> |
+      <%# Rails enables us to make links end non-GET requests by setting the `method`
+      attribute for `link_to`. Rails uses Javascript to accomplish that. %>
+      <%= link_to 'Delete', ticket_path(@ticket),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <p><strong>Tags: </strong><%#= @ticket.tags.pluck(:name).join(', ') %></p>
+    <p><strong>Subject: </strong><%#= @ticket.subject&.name %></p>
+
+    <p>Posted by: <%= @ticket.user %></p>
+    <p>Created on: <%= standard_date_format(@ticket.created_at) %></p>
+
+    <hr>
+    <h1><%= @ticket.title %></h1>
+    <br>
+    <p><%= @ticket.body %></p>
+
+  </div>
+  <div class="col-md-6">
+
+    <h2>Comments</h2>
+      <%#= form_for [ @ticket, @comment ] do |f| %>
+      <%#= f.text_area :body, :class => "form-control"  %>
+      <%#= f.submit %>
+    <%# end %>
+
+    <hr />
+
+    <%# @ticket.comments.each do |comment| %>
+      <strong><%#= comment.user.name %></strong> says:
+      <p><%#= comment.body %></p>
+
+      <%#= link_to 'Delete', ticket_comment_path(@ticket, comment), method: :delete, data: {confirm: "Are you sure?"} %>
+      <hr />
+    <%# end %>
+  </div>
+</div>

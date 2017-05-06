@@ -7,6 +7,8 @@ end
 
 gem 'devise'
 gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
+gem 'cancancan', '~> 1.10'
+gem 'faker', github: 'stympy/faker'
 
 gem "font-awesome-rails"
 # gem 'chosen-rails'

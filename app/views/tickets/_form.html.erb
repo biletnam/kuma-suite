@@ -1,0 +1,34 @@
+<%= form_for @ticket do |f| %>
+<!-- <div class="well"> -->
+
+  <div class="field">
+
+    <label for="exampleSelect1">Department select</label>
+    <select class="form-control" id="exampleSelect1">
+      <option>Department</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+<!-- categories for each erb loop -->
+
+
+    <div class="field">
+      <%#= f.label :title %>
+      <%= f.text_field :title, placeholder: 'Ticket title', autofocus: true %>
+    </div>
+    <div class="field">
+      <%#= f.label :body %>
+      <%= f.text_area :body, class: 'form-control', rows: 9 %>
+    </div>
+    <!-- <div class="field"> -->
+      <%#= f.label :tag %>
+      <%#= f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, { multiple: true, class: 'chosen-select form-control'} %>
+    <!-- </div> -->
+    <%= f.submit :class => 'btn btn-primary pull-right' %>
+    <br>
+    <br>
+<!-- </div> -->
+<% end %>

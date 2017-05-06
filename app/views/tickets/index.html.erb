@@ -19,9 +19,31 @@
 
 <div class="ui segment">
 
-  <div class="ui right floated small primary labeled icon button">
-    <i class="user right icon"></i> Create ticket
-  </div>
+  <%= link_to new_ticket_path(@ticket), class: "ui right floated small primary labeled icon button" do %>
+  <i class="user right icon"></i> Tickets
+  <% end %>
+
+
+  <h1>Ticket List</h1>
+<hr>
+
+<% @tickets.each do |ticket| %>
+<div class="row">
+<div class="col-xs-1 text-center">
+  <h3><%#= ticket.comment.count %></h3>
+  <!-- <sup>Comments</sup> -->
+</div>
+<div class="col-xs-11">
+  <h3> <%= link_to ticket.title, ticket_path(ticket) %> </h3>
+  <br>
+</div>
+
+</div>
+<hr>
+<% end %>
+
+
+
   <h1 class="ui left floated">Tickets</h1>
 
   <table class="ui compact celled definition table">
