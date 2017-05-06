@@ -1,5 +1,4 @@
 class Ticket < ApplicationRecord
-  resourcify
   belongs_to :department
   belongs_to :client
   # has_many :comments, dependent: :destroy

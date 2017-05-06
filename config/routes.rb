@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-
   root 'welcome#index'
+
+  resources :users
+  resources :sessions
+  namespace :admin do
+    resources :dashboard, only: [:index]
+  end
 
   resources :dashboard, only: [:index]
   resources :calendar, only: [:index]
@@ -8,17 +13,8 @@ Rails.application.routes.draw do
   # resources :users, only: [:index, :show]
     # resources :reviews, only: [:create, :destroy]
   # end
-  resources :messaging
+  # resources :messaging
   resources :invoices
   resources :orders
   resources :reports, only: [:index]
-
-  resources :users
-  resources :sessions
-
-  namespace :admin do
-    resources :dashboard, only: [:index]
-  end
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
