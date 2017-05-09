@@ -26,7 +26,7 @@
       <%= link_to calendar_index_path, class: "#{'active' if current_page?(calendar_index_path)} item" do %>
       <i class="calendar icon"></i>Calendar
       <% end %>
-      <%= link_to users_path, class: "#{'active' if current_page?(users_path)} item" do %>
+      <%= link_to '/', class: "#{'active' if current_page?('/')} item" do %>
       <i class="users icon"></i>Users
       <% end %>
       <%= link_to reports_path, class: "#{'active' if current_page?(reports_path)} item" do %>

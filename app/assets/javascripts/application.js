@@ -8,8 +8,7 @@
 
 $(document).ready(function(){
   $('.menu .item').tab();
-
-
-
+  $('select.dropdown').dropdown();
+  $('.ui.dropdown').dropdown();
 
 });

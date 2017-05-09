@@ -23,6 +23,8 @@ User.new(
 )
 puts 'Admin created!'
 
+# add first last name
+
 20.times do
   User.create(email: Faker::Internet.safe_email,
               password: 'qweqwe',

@@ -1,29 +1,29 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root 'welcome#index'
+  # devise_for :users
+  # , controllers: { registrations: 'registrations' }
+  # root 'welcome#index'
 
-  # unauthenticated do
-  #    root :to => 'home#index'
-  # end
-  #
-  # authenticated do
-  #   root :to => 'dashboard#index'
-  # end
+  devise_scope :user do
+    authenticated :user do
+      root 'welcome#index', as: :authenticated_root
+    end
 
-  resources :users
-  resources :sessions
+    unauthenticated do
+      root 'devise/sessions#new', as: :unauthenticated_root
+    end
+  end
+
   namespace :admin do
     resources :dashboard, only: [:index]
   end
 
+  resources :sessions
   resources :dashboard, only: [:index]
-  resources :calendar, only: [:index]
   resources :tickets
-  # resources :users, only: [:index, :show]
-    # resources :reviews, only: [:create, :destroy]
-  # end
-  # resources :messaging
+  resources :calendar, only: [:index]
   resources :invoices
   resources :orders
   resources :reports, only: [:index]
+  # resources :messaging
+
 end
