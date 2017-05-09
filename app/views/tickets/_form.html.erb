@@ -2,7 +2,6 @@
 <!-- <div class="well"> -->
 
   <div class="field">
-
     <label for="exampleSelect1">Department select</label>
     <select class="form-control" id="exampleSelect1">
       <option>Department</option>
@@ -12,8 +11,12 @@
       <option>5</option>
     </select>
   </div>
-<!-- categories for each erb loop -->
 
+  <%= f.select :department, Department.all, :prompt => "Select One" %>
+
+
+
+<!-- categories for each erb loop -->
 
     <div class="field">
       <div class="ui fluid large left icon input">

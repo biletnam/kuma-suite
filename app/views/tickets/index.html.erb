@@ -57,6 +57,10 @@
   <h1>Ticket List</h1>
 <hr>
 
+
+
+
+
 <% @tickets.each do |ticket| %>
 <div class="row">
 <div class="col-xs-1 text-center">
@@ -71,7 +75,6 @@
 </div>
 <hr>
 <% end %>
-
 
   <h1 class="ui left floated">Tickets</h1>
 
@@ -94,6 +97,8 @@
     </thead>
 
     <tbody>
+
+    <% @tickets.each do |ticket| %>
       <tr>
         <td class="collapsing">
           <div class="ui fitted slider checkbox">
@@ -127,16 +132,16 @@
             </div>
           </div>
         </td>
-        <td>Virtual machine something</td>
-        <td>The thingy is not working and I need help getting it back up and stuff and this is a long description</td>
+        <td><%= link_to ticket.title, ticket_path(ticket) %></td>
+        <td><%= ticket.body %></td>
         <td>Agent Name</td>
-        <td>Client Name</td>
-        <td>jhlilk22@yahoo.com</td>
-        <td>September 12, 2013</td>
-        <td>September 14, 2013</td>
+        <td><%= ticket.user.first_name %></td>
+        <td><%= ticket.user.email %></td>
+        <td><%= standard_date_format(ticket.created_at) %></td>
+        <td><%= standard_date_format(ticket.updated_at) %></td>
         <td>No</td>
       </tr>
-
+<% end %>
       <tr>
         <td class="collapsing">
           <div class="ui fitted slider checkbox">

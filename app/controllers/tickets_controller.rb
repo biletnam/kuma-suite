@@ -7,12 +7,14 @@ class TicketsController < ApplicationController
   end
 
   def create
-    ticket_params = params.require(:ticket).permit([:title, :body, :department])
+    # ticket_params = params.require(:ticket).permit([:title, :body, :department])
     @ticket = Ticket.new ticket_params
     # @ticket.client = current_user
 
     if @ticket.save
-      redirect_to ticket_path(@ticket), notice: 'Ticket successfully posted'
+      redirect_to ticket_path(@ticket)
+      flash[:notice] = 'Ticket posted successfully'
+      # , notice: 'Ticket successfully posted'
     else
       render :new
       flash[:alert] = 'Ticket not created'
@@ -37,7 +39,7 @@ class TicketsController < ApplicationController
 
   def update
     @ticket = Ticket.find params[:id]
-    ticket_params = params.require(:ticket).permit([:title, :body, :department ])
+    # ticket_params = params.require(:ticket).permit([:title, :body, :department ])
 
     if !(can? :edit, @ticket)
       redirect_to root_path, alert: 'access denied'

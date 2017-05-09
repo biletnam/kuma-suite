@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
-  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout'}
+  devise_for :users, path: '/', path_names: { sign_in: 'login', sign_out: 'logout'}
 
   # devise_for :users
+  authenticated :user do
+    root to: 'dashboard#index'
+  end
 
-  # , controllers: { registrations: 'registrations' }
   root 'welcome#index'
+  # , controllers: { registrations: 'registrations' }
   #
   # devise_scope :user do
   #   authenticated :user do
