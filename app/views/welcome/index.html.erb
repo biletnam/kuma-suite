@@ -1,22 +1,21 @@
 
 <% if user_signed_in? %>
+
   Logged in as <strong><%= current_user.email %></strong>.
-Submit a new ticket
+<p>To get started, please submit a ticket</p>
+
 <% else %>
+  <div class="ui container aligned center aligned page grid">
+    <div class="column">
+      <h2 class="ui teal image header">
+        <!-- <img src="assets/images/logo.png" class="image"> -->
+        <div class="content">
+          <h1>Welcome to Helpdesk.</h1>
+          <h2>Please log in to your account to get started</h2>
+          <%= link_to 'To login page', new_user_session_path, class: 'ui fluid large teal submit button' %>
 
-
-
-        <div class="ui container aligned center aligned page grid">
-          <div class="column">
-            <h2 class="ui teal image header">
-              <!-- <img src="assets/images/logo.png" class="image"> -->
-              <div class="content">
-                <h1>Welcome to Helpdesk.</h1>
-                <h2>Please log in to your account to get started</h2>
-                <%= link_to 'To login page', new_user_session_path, class: 'ui fluid large teal submit button' %>
-
-              </div>
-            </h2>
-          </div>
         </div>
-    <% end %>
+      </h2>
+    </div>
+  </div>
+<% end %>

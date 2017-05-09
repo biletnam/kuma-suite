@@ -12,23 +12,25 @@
   <body id='body'>
     <%= render "layouts/navbar" %>
 
-  <article>
-    <% if user_signed_in? %>
-      <%= render "layouts/sidenav" %>
-    <% end %>
+    <article>
 
-    <div class="container">
-      <% if flash[:notice] %>
-        <div class="alert alert-info"><%= flash[:notice] %></div>
-      <% elsif flash[:alert] %>
-        <div class="alert alert-danger"><%= flash[:alert] %></div>
+      <% if user_signed_in? %>
+        <%= render "layouts/sidenav" %>
+      <% else %>
       <% end %>
-    </div>
 
-    <%= yield %>
-  </article>
+      <div class="container">
+        <% if flash[:notice] %>
+          <div class="alert alert-info"><%= flash[:notice] %></div>
+        <% elsif flash[:alert] %>
+          <div class="alert alert-danger"><%= flash[:alert] %></div>
+        <% end %>
+      </div>
+
+      <%= yield %>
+
+    </article>
 
   <%= render "layouts/footer" %>
-
   </body>
 </html>
