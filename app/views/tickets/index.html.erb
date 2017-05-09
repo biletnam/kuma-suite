@@ -1,4 +1,6 @@
 <div class="ui secondary pointing menu">
+  <!-- <h1>Ticket List</h1>
+  maybe change all the titles into the header menu? -->
   <a class="item">
     Current tickets
   </a>
@@ -20,16 +22,21 @@
 <div class="ui segment">
 
   <%= link_to new_ticket_path(@ticket), class: "ui right floated small primary labeled icon button" do %>
-  <i class="user right icon"></i> Tickets
+    <i class="user right icon"></i> Create Ticket
   <% end %>
 
-  <div class="ui floating dropdown labeled icon button">
-      <i class="filter icon"></i>
-      <span class="text">Filter Posts</span>
-      <div class="menu">
+
+  <h1 class="ui left floated">Tickets</h1>
+
+<!-- filter dropdown menu -->
+  <div class="ui left multiple dropdown">
+    <input type="hidden" name="filters">
+    <i class="filter icon"></i>
+    <span class="text">Filter Posts</span>
+    <div class="menu">
         <div class="ui icon search input">
           <i class="search icon"></i>
-          <input type="text" name="search" placeholder="Search issues...">
+          <input type="text" name="search" placeholder="Search keyword...">
         </div>
         <div class="divider"></div>
         <div class="header">
@@ -38,45 +45,24 @@
         </div>
         <div class="item">
           <div class="ui red empty circular label"></div>
-          Important
+          Urgent
         </div>
         <div class="item">
-          <div class="ui blue empty circular label"></div>
-          Announcement
-        </div>
-        <div class="item">
-          <div class="ui black empty circular label"></div>
-          Cannot Fix
+          <div class="ui yellow empty circular label"></div>
+          Priority
         </div>
         <div class="item">
           <div class="ui green empty circular label"></div>
-          Discussion
+          Needs attention
+        </div>
+        <div class="item">
+          <div class="ui black empty circular label"></div>
+          Admin involved
         </div>
       </div>
     </div>
-  <h1>Ticket List</h1>
-<hr>
+  <hr>
 
-
-
-
-
-<% @tickets.each do |ticket| %>
-<div class="row">
-<div class="col-xs-1 text-center">
-  <h3><%#= ticket.comment.count %></h3>
-  <!-- <sup>Comments</sup> -->
-</div>
-<div class="col-xs-11">
-  <h3> <%= link_to ticket.title, ticket_path(ticket) %> </h3>
-  <br>
-</div>
-
-</div>
-<hr>
-<% end %>
-
-  <h1 class="ui left floated">Tickets</h1>
 
   <table class="ui compact celled definition table">
     <thead class="full-width">
@@ -92,7 +78,7 @@
         <th>E-mail address</th>
         <th>Created</th>
         <th>Updated</th>
-        <th></th>
+        <th>Admin</th>
       </tr>
     </thead>
 
@@ -201,7 +187,7 @@
         <td>jilsewris22@yahoo.com</td>
         <td>May 9, 2014</td>
         <td>May 11, 2014</td>
-        <td>Yes</td>
+        <td><i class="unhide icon"></i></td>
       </tr>
     </tbody>
 
