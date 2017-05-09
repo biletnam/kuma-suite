@@ -1,21 +1,25 @@
 Rails.application.routes.draw do
-  devise_for :users
+
+  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout'}
+
+  # devise_for :users
+
   # , controllers: { registrations: 'registrations' }
   root 'welcome#index'
-
-  devise_scope :user do
-    authenticated :user do
-      root 'welcome#index', as: :authenticated_root
-    end
-
-    unauthenticated do
-      root 'devise/sessions#new', as: :unauthenticated_root
-    end
-  end
+  #
+  # devise_scope :user do
+  #   authenticated :user do
+  #     root 'welcome#index', as: :authenticated_root
+  #   end
+  #
+  #   unauthenticated do
+  #     root 'devise/sessions#new', as: :unauthenticated_root
+  #   end
+  # end
 
 
   # resources :users
-  resources :sessions
+  # resources :sessions
 
   namespace :admin do
     resources :dashboard, only: [:index]
