@@ -5,11 +5,13 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'simple_form'
 gem 'devise'
 gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 gem 'cancancan', '~> 1.10'
 gem 'faker', github: 'stympy/faker'
-
+gem 'mini_magick'
+gem "avatarly"
 gem "font-awesome-rails"
 # gem 'chosen-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

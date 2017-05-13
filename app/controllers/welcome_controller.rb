@@ -12,12 +12,18 @@ class WelcomeController < ApplicationController
   end
 
 
-  #  after user type has been defined use this
-  # def already_signed_in?
-  #   if user_signed_in? && current_user.user_type == ‘Agent’
-  #     redirect_to dashboard_index_path
-  #   end
-  # end
+  def already_signed_in?
+    if user_signed_in? && current_user.is_staff?
+      redirect_to dashboard_index_path
+    # elsif user_signed_in? && current_user.is_client?
+  # else
+  #     render root_path,
+  #     flash[:notice] = 'current user is client'
+  #   else
+  #     render :welcome,
+  #     flash[:notice] = 'welcome else error'
+    end
+  end
 
 
 end

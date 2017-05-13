@@ -1,46 +1,102 @@
+<div class="ui grid">
 
-<div class="row">
-  <div class="col-md-6">
+  <div class="ten wide column">
+    <div class="ui segment">
 
-    <% if can? :edit, @ticket %>
-      <div class="pull-right">
-      <%= link_to 'Edit', edit_ticket_path(@ticket) %> |
-      <%# Rails enables us to make links end non-GET requests by setting the `method`
-      attribute for `link_to`. Rails uses Javascript to accomplish that. %>
-      <%= link_to 'Delete', ticket_path(@ticket),
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %>
-      </div>
-    <% end %>
-
-    <p><strong>Tags: </strong><%#= @ticket.tags.pluck(:name).join(', ') %></p>
-    <p><strong>Subject: </strong><%#= @ticket.subject&.name %></p>
-
-    <p>Posted by: <%= @ticket.user %></p>
-    <p>Created on: <%= standard_date_format(@ticket.created_at) %></p>
-
+    <h3>TICKET ID #<%= @ticket.id %>
+      <small class='float-right'>
+        Created on: <%= standard_date_format(@ticket.created_at) %>
+      </small>
+    </h3>
     <hr>
-    <h1><%= @ticket.title %></h1>
-    <br>
+
+    <h1 class='ui block header'>Subject: <%= @ticket.title %>
+      <span class='float-right'>
+        <h5>Department: <%= @ticket.department.name %></h5>
+      </span>
+    </h1>
+
     <p><%= @ticket.body %></p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
   </div>
-  <div class="col-md-6">
+  <div class="ui segment">
 
-    <h2>Comments</h2>
-      <%#= form_for [ @ticket, @comment ] do |f| %>
-      <%#= f.text_area :body, :class => "form-control"  %>
-      <%#= f.submit %>
-    <%# end %>
-
+  <h1>Comments</h1>
+    <%= render '/comments/form' %>
     <hr />
 
-    <%# @ticket.comments.each do |comment| %>
-      <strong><%#= comment.user.name %></strong> says:
-      <p><%#= comment.body %></p>
+    <div id="comments">
+      <!-- order(created_at: :desc) -->
+      <% if @ticket.comments.present? %>
+        <% @ticket.comments.each do |com| %>
+        <%= render '/comments/comment', comment: com %>
+        <% end %>
+      <% end %>
+    </div>
 
-      <%#= link_to 'Delete', ticket_comment_path(@ticket, comment), method: :delete, data: {confirm: "Are you sure?"} %>
+<br>
+
+
+  </div>
+
+
+  </div>
+
+
+
+
+<!-- side column  -->
+  <div class="six wide column">
+    <div class="ui segment">
+      <h4>Ticket Info</h4>
+
+      <p>Client name: <span class='float-right'>
+        <strong><%= @ticket.user.first_name %>
+          <%= @ticket.user.last_name %></span>
+        </strong>
+      </p>
+      <p>Email: <span class='float-right'>
+        <strong>
+          <%= @ticket.user.email %></span></p>
+        </strong>
+
+      <p>User tickets: <span class='float-right'>
+        <strong>
+          1</span></p>
+        </strong>
+
+
+      <hr>
+
+      <p>Support Type: <span class='float-right'>
+        <strong>
+          <%= @ticket.department.name %></span></p>
+        </strong>
+      <p>Priority: <span class='float-right'>
+        <strong>Not Set</span></p></strong>
+      <p>Assigned Staff: <span class='float-right'>
+        <strong>Not Set</span></p></strong>
       <hr />
-    <%# end %>
+
+      <div class="ui selection dropdown">
+        <input type="hidden" name="gender">
+        <i class="dropdown icon"></i>
+        <div class="default text">Assign Staff</div>
+        <div class="menu">
+          <div class="item" data-value="1">Bob Bobberson </div>
+          <div class="item" data-value="0">Nicholas Cage</div>
+          <div class="item" data-value="0">Donald Trunk</div>
+          <div class="item" data-value="0">Bruce Lil Wayne</div>
+        </div>
+      </div>
+      <button class="ui right labeled icon teal button">
+        <i class="right arrow icon"></i>
+        Update Ticket
+      </button>
+
+    </div>
+
+
   </div>
 </div>

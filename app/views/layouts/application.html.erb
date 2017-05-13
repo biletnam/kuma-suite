@@ -12,6 +12,17 @@
   <body id='body'>
     <%= render "layouts/navbar" %>
 
+      <%= devise_error_messages! %>
+      <% flash.each do |message_type, message| %>
+      <%= javascript_tag "Materialize.toast('#{message}', 3000)" %>
+      <% end %>
+
+      <%= semantic_flash %>
+
+
+
+
+
     <article>
 
       <% if user_signed_in? %>
@@ -19,18 +30,10 @@
       <% else %>
       <% end %>
 
-      <div class="container">
-        <% if flash[:notice] %>
-          <div class="alert alert-info"><%= flash[:notice] %></div>
-        <% elsif flash[:alert] %>
-          <div class="alert alert-danger"><%= flash[:alert] %></div>
-        <% end %>
-      </div>
-
       <%= yield %>
 
     </article>
 
-  <%= render "layouts/footer" %>
+    <%= render "layouts/footer" %>
   </body>
 </html>

@@ -1,15 +1,14 @@
 class TicketsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_ticket, only: [:show, :edit, :update, :destroy]
-  # before_action :authenticate_user!, except: [:index, :show]
 
   def new
     @ticket = Ticket.new
   end
 
   def create
-    # ticket_params = params.require(:ticket).permit([:title, :body, :department])
     @ticket = Ticket.new ticket_params
-    # @ticket.client = current_user
+    @ticket.user = current_user
 
     if @ticket.save
       redirect_to ticket_path(@ticket)
@@ -22,9 +21,11 @@ class TicketsController < ApplicationController
   end
 
   def show
+    # comment_params = params.require(:comment).permit(:body)
     @ticket = Ticket.find params[:id]
     @tickets = Ticket.last(20)
-    # @review = Review.new
+    @comment = Comment.new
+    # comment_params
   end
 
   def index
@@ -58,13 +59,12 @@ class TicketsController < ApplicationController
   end
 
   private
-
   def find_ticket
     @ticket = Ticket.find params[:id]
   end
 
   def ticket_params
-    params.require(:ticket).permit([:title, :body, :department])
+    params.require(:ticket).permit([:title, :body, :department_id, :user])
   end
 
 end

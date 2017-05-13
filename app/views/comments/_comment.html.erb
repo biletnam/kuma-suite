@@ -1,0 +1,25 @@
+<div id='<%= dom_id(comment) %>'>
+
+  <div class="ui vertical segment">
+    <div class="ui comments">
+      <div class="comment">
+        <%= link_to 'Delete', ticket_comment_path(@ticket, comment), method: :delete, class: 'float-right', data: {confirm: "Are you sure?"}, remote: true %>
+        <a class="avatar">
+          <img src="http://fakeimg.pl/75x75/?text=`<%= @ticket.user.first_name %>`">
+        </a>
+
+        <div class="content">
+          <a class="author"><%= comment.user.first_name %></a>
+          <div class="metadata">
+            <div class="date">2 days ago</div>
+            <div class="rating">
+              <i class="star icon"></i>5 Faves
+            </div>
+          </div>
+
+          <div class=""><%= comment.body %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

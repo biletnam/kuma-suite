@@ -12,25 +12,49 @@ puts "Departments created!"
 User.create(first_name: 'Nic',
             last_name: 'Tamura',
             email: 'nic@gmail.com',
+            # profile_pic: Avatarly.generate_avatar(text, opts={}),
             password: 'qweqwe',
-            password_confirmation: 'qweqwe'
+            password_confirmation: 'qweqwe',
+            is_admin: 'false',
+            is_staff: 'true',
+            is_client: 'false'
             )
 puts "Nic created!"
 
 User.create(first_name: 'Admin',
             last_name: 'Admin',
             email: 'admin@gmail.com',
+            # profile_pic: Avatarly.generate_avatar(text="#{User.full_name}", opts={}),
             password: 'qweqwe',
-            password_confirmation: 'qweqwe'
+            password_confirmation: 'qweqwe',
+            is_admin: 'true',
+            is_staff: 'true',
+            is_client: 'false'
             )
 puts 'Admin created!'
+
+User.create(first_name: 'Client',
+            last_name: 'Client',
+            email: 'client@gmail.com',
+            # profile_pic: Avatarly.generate_avatar(text="#{User.full_name}", opts={}),
+            password: 'qweqwe',
+            password_confirmation: 'qweqwe',
+            is_admin: 'false',
+            is_staff: 'false',
+            is_client: 'true'
+            )
+puts 'Client created!'
 
 20.times do
   User.create(first_name: Faker::Name.first_name,
               last_name:  Faker::Name.last_name,
               email: Faker::Internet.safe_email,
+              # profile_pic: Avatarly.generate_avatar(text='hello', opts={}),
               password: 'qweqwe',
-              password_confirmation: 'qweqwe'
+              password_confirmation: 'qweqwe',
+              is_admin: 'false',
+              is_staff: 'false',
+              is_client: 'true'
               )
 end
 puts 'Users created!'
@@ -45,5 +69,17 @@ puts 'Users created!'
                 )
 end
 puts 'Random tickets created'
+
+
+Ticket.all.each do |ticket|
+  5.times do
+    user = User.all.sample
+    ticket.comments.create(body: Faker::Hipster.paragraph,
+                           user_id: user.id
+    )
+  end
+end
+puts "Comments created!"
+
 
 puts '>>>>>> Seeding complete <<<<<<'

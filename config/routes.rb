@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
 
+  root 'welcome#index'
   devise_for :users, path: '/', path_names: { sign_in: 'login', sign_out: 'logout'}
 
   # devise_for :users
   authenticated :user do
-    root to: 'dashboard#index'
+    # if :user.is_client?
+      # root to: 'dashboard#index'
+      root to: 'passthrough#index'
+    # end
   end
 
-  root 'welcome#index'
+
   # , controllers: { registrations: 'registrations' }
   #
   # devise_scope :user do
@@ -30,7 +34,10 @@ Rails.application.routes.draw do
 
   resources :dashboard, only: [:index]
   resources :calendar, only: [:index]
-  resources :tickets
+  resources :tickets do
+    resources :comments
+  end
+  resources :support
   # resources :users, only: [:index, :show]
     # resources :reviews, only: [:create, :destroy]
   # end

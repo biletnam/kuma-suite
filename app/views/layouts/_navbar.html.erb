@@ -1,45 +1,52 @@
-
 <!-- top navbar -->
-    <div id="navbar" class="ui inverted top menu navbar grid">
-      <div class="ui inverted menu">
 
-        <a class="item">
+<div id="navbar" class="ui inverted top menu navbar grid">
+  <div class="ui inverted menu">
+    <div class="item">
+      <h3><%= link_to 'Helpdesk CRM', root_path, class: 'tiffany'; %></h3>
+    </div>
 
-          <!-- remove  -->
-        </a>
-          <%= link_to 'Helpdesk CRM', root_path, class:'item' %>
-<!-- authenticated_root_path -->
-      </div>
-      <div class="right menu">
-
-        <% if user_signed_in? %>
-        <a class="active item">
-          Alerts
-          <div class="ui teal label">3</div>
-        </a>
-          <div class='ui inverted dropdown item'>
-            <strong><%= current_user.email %></strong>
-            <i class="dropdown icon"></i>
-            <div class="menu">
-              <div class="item">
-                <%= link_to 'Edit profile', edit_user_registration_path, :class => 'inverted navbar-link' %> </div>
-              <div class="item">
-                <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></div>
-            </div>
-          </div>
+<!-- logged in client support left menu -->
+    <% if user_signed_in? && current_user.is_client %>
+    <div class="item">
+      <%= link_to 'Client Support', support_index_path, class: 'tiffany'; %>
+    </div>
+    <% end %>
+  </div>
 
 
+<!-- user signed in right menu -->
+  <div class="right menu">
 
+    <% if user_signed_in? %>
+    <a class="active item">
+      Alerts
+      <!-- add alerts [new posts, user requests, etc] ~-->
+      <div class="ui teal label">3</div>
+    </a>
 
-        <% else %>
-          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-          <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-        <% end %>
-
-
-
-
-
-
+    <div class='ui inverted dropdown item'>
+      <strong><%= current_user.full_name %></strong>
+      <i class="dropdown icon"></i>
+      <div class="menu">
+        <div class="item">
+          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'item', style: 'color:black' %>
+        </div>
+        <div class="item">
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'item', style: 'color:black' %>
         </div>
       </div>
+    </div>
+
+<!-- user not signed in -->
+    <% else %>
+      <%= link_to new_user_registration_path, class: "#{'active' if current_page?(new_user_registration_path)} item" do %>
+      <i class="large add user tiffany icon"></i> Sign up
+      <% end %>
+      <%= link_to new_user_session_path, class: "#{'active' if current_page?(new_user_session_path)} item" do %>
+      <i class="large sign in tiffany icon"></i> Log In
+      <% end %>
+    <% end %>
+
+    </div>
+  </div>

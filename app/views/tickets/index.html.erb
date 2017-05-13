@@ -1,14 +1,9 @@
 <div class="ui secondary pointing menu">
-  <!-- <h1>Ticket List</h1>
-  maybe change all the titles into the header menu? -->
-  <a class="item">
+  <a class="item active">
     Current tickets
   </a>
-  <a class="item active">
-    Closed Tickets
-  </a>
   <a class="item">
-
+    Closed Tickets
   </a>
   <div class="right menu">
     <a class="ui item">
@@ -17,19 +12,11 @@
   </div>
 </div>
 
-
-
 <div class="ui segment">
-
   <%= link_to new_ticket_path(@ticket), class: "ui right floated small primary labeled icon button" do %>
     <i class="user right icon"></i> Create Ticket
   <% end %>
-
-
-  <h1 class="ui left floated">Tickets</h1>
-
-<!-- filter dropdown menu -->
-  <div class="ui left multiple dropdown">
+  <div class="ui float-right multiple dropdown">
     <input type="hidden" name="filters">
     <i class="filter icon"></i>
     <span class="text">Filter Posts</span>
@@ -61,29 +48,34 @@
         </div>
       </div>
     </div>
+
+
+  <h1 class="ui left floated   ">Tickets</h1>
+
+<!-- filter dropdown menu -->
   <hr>
 
 
+
   <table class="ui compact celled definition table">
+
+<!-- table head -->
     <thead class="full-width">
       <tr>
         <th>Check</th>
-        <th>ID</th>
         <th>Flag</th>
         <th>Status</th>
         <th>Title</th>
         <th>Description</th>
-        <th>Agent</th>
         <th>Client</th>
-        <th>E-mail address</th>
         <th>Created</th>
         <th>Updated</th>
-        <th>Admin</th>
+        <!-- <th>Admin</th> -->
       </tr>
     </thead>
 
+<!-- table body -->
     <tbody>
-
     <% @tickets.each do |ticket| %>
       <tr>
         <td class="collapsing">
@@ -91,104 +83,40 @@
             <input type="checkbox"> <label></label>
           </div>
         </td>
-        <td>1</td>
         <td>
-          <div class="ui form">
-            <div class="field">
-              <select class="ui compact action selection dropdown">
-                <option value="">Flag</option>
-                <option value="">Urgent</option>
-                <option value="">Low</option>
-                <option value=""></option>
-                <option value=""></option>
-              </select>
+          <div class="ui dropdown">
+            <i class="red circular empty icon"></i>
+            <!-- <i class="dropdown icon"></i> -->
+            <div class="menu">
+              <div class="item"><i class="ui red circular label"></i></div>
+              <div class="item"><i class="ui orange circular label"></i></div>
+              <div class="item"><i class="ui green circular label"></i></div>
             </div>
           </div>
         </td>
         <td>
-          <div class="ui form">
-            <div class="field">
-              <select class="ui search dropdown">
-                <option value="">Status</option>
-                <option value="">Pending</option>
-                <option value="">In Progress</option>
-                <option value="">Something</option>
-                <option value="">Closed</option>
-              </select>
+          <div class="ui dropdown">
+            <a class="text">Status</a>
+            <!-- <i class="dropdown icon"></i> -->
+            <div class="menu">
+              <div class="item">Pending</div>
+              <div class="item">In progress</div>
+              <div class="item">Completed</div>
+
             </div>
           </div>
         </td>
-        <td><%= link_to ticket.title, ticket_path(ticket) %></td>
+        <td>#<%= ticket.id %> - <%= link_to ticket.title, ticket_path(ticket) %></td>
         <td><%= ticket.body %></td>
-        <td>Agent Name</td>
-        <td><%= ticket.user.first_name %></td>
         <td><%= ticket.user.email %></td>
         <td><%= standard_date_format(ticket.created_at) %></td>
         <td><%= standard_date_format(ticket.updated_at) %></td>
-        <td>No</td>
+        <!-- <td>No</td> -->
       </tr>
 <% end %>
-      <tr>
-        <td class="collapsing">
-          <div class="ui fitted slider checkbox">
-            <input type="checkbox"> <label></label>
-          </div>
-        </td>
-        <td>1</td>
-        <td>None</td>
-        <td>
-          <div class="ui form">
-                  <div class="field">
-                    <select class="ui search dropdown">
-                      <option value="">Status</option>
-                      <option value="">Pending</option>
-                      <option value="">In Progress</option>
-                      <option value="">Something</option>
-                      <option value="">Closed</option>
-                    </select>
-                  </div>
-                </div>
-              </td>
-        <td>Virtual machine something</td>
-        <td>JThe thingy is not working and I need help getting it back up and stuff and this is a long description</td>
-        <td>Agent Name</td>
-        <td>Client Name</td>
-        <td>jamieharingonton@yahoo.com</td>
-        <td>January 1, 2014</td>
-        <td>January 11, 2014</td>
-        <td>Yes</td>
-      </tr>
 
-      <tr>
-        <td class="collapsing">
-          <div class="ui fitted slider checkbox">
-            <input type="checkbox"> <label></label>
-          </div>
-        </td>
-        <td>1</td>
-        <td>None</td>
-        <td>
-          <div class="ui form">
-            <div class="field">
-              <select class="ui search dropdown">
-                <option value="">Status</option>
-                <option value="">Pending</option>
-                <option value="">In Progress</option>
-                <option value="">Something</option>
-                <option value="">Closed</option>
-              </select>
-            </div>
-          </div>
-        </td>
-        <td>Virtual machine something</td>
-        <td>The thingy is not working and I need help getting it back up and stuff and this is a long description</td>
-        <td>Agent Name</td>
-        <td>Client Name</td>
-        <td>jilsewris22@yahoo.com</td>
-        <td>May 9, 2014</td>
-        <td>May 11, 2014</td>
-        <td><i class="unhide icon"></i></td>
-      </tr>
+        <!-- <td><i class="unhide icon"></i></td> -->
+      <!-- </tr> -->
     </tbody>
 
     <tfoot class="full-width">
