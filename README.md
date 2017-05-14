@@ -1,4 +1,5 @@
 # Helpdesk Bear CRM
+![Helpdesk Bear](http://www.kmj-ab.co.jp/eng/image/suprise_kumamon.png)
 A helpdesk interface for SMB to manage tickets, invoices, work orders, staff performance and customer relations. Client-side of the site gives access to support pages to submit tickets. Staff are able to manage tickets submitted by users.
 
 ## TODO
