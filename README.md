@@ -1,6 +1,5 @@
-# Helpdesk
-
-For the lack of a better name.
+# Helpdesk Bear CRM
+A helpdesk interface for SMB to manage tickets, invoices, work orders, staff performance and customer relations. Client-side of the site gives access to support pages to submit tickets. Staff are able to manage tickets submitted by users.
 
 ## TODO
 
@@ -10,7 +9,7 @@ For the lack of a better name.
 - change date helper to reflect (15 hours ago) (application_helper )
 - flags (use icons) [urgent, important, no flag (default) ]
 - status [blank (default), in progress, delayed, completed (once completed, clears out of queue and sends to completed page)]
-- internal notes
+- internal notes section for staff
 - clients can only use ticketing system to track their tickets
 - clients can leave reviews on service
 - reviews are only available after ticket is closed
@@ -32,8 +31,8 @@ For the lack of a better name.
 
 ### CSS / Design
 - change active highlight color to teal
-- add logo to application
-- change name
+<!-- - add logo to application -->
+<!-- - change name -->
 - background color
 - implement consistent design across app
 
@@ -46,7 +45,7 @@ For the lack of a better name.
 ## FUTURE FEATURES TO COVER
 <!-- - user types -->
 - would an activity feed accomplish anything?
-- change name
+<!-- - change name -->
 - possibly slack integration for messaging
 - implement sorting for tickets
 
