@@ -1,24 +1,27 @@
 <%= form_for @ticket do |f| %>
 
-<div class="ui multiple dropdown">
-  <%= f.select :department_id, Department.all.collect {|d| [ d.name, d.id ] },  class: '', :prompt => "Choose department" %>
+<div class="ui selection dropdown">
+  <%= f.select :department_id, Department.all.collect {|d| [ d.name, d.id ] },  class: 'dropdown', :prompt => "Choose department" %>
+  <i class="dropdown icon"></i>
+
 </div>
 
-    <div class="field">
-      <div class="ui fluid large left icon input">
-        <!-- <i class="user icon"></i> -->
-        <%= f.text_field :title, placeholder: 'Ticket title', autofocus: true %>
-      </div>
-    </div>
-    <div class="field">
-      <div class="ui fluid large left icon input">
-        <!-- <i class="user icon"></i> -->
-        <%= f.text_field :body, placeholder: 'Description', autofocus: true %>
-      </div>
-    </div>
-    <br>
 
-    <%= f.submit :class => 'ui teal button' %>
-    <br>
-<!-- </div> -->
+
+<div class="field">
+  <div class="ui form">
+    <!-- <i class="user icon"></i> -->
+    <%= f.text_field :title, placeholder: 'Ticket title', autofocus: true %>
+  </div>
+</div>
+
+<div class="ui form">
+  <div class="field">
+    <%= f.text_area :body, placeholder: 'Description', autofocus: true %>
+  </div>
+</div>
+<br>
+
+<%= f.submit :class => 'ui teal button' %>
+<br>
 <% end %>

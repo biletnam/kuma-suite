@@ -1,6 +1,5 @@
 <div class="ui container aligned center aligned grid">
   <div class="column">
-
     <h2 class="ui teal image header">
       <!-- <img src="assets/images/logo.png" class="image"> -->
       <div class="content">
@@ -11,6 +10,7 @@
 <!-- under views/devse -->
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class:"ui large form",) do |f| %>
+
   <div class="ui stacked segment">
 
     <div class="field">
@@ -52,6 +52,7 @@
   </div>
 <% end %>
 
+<br>
 
 <div class="ui animated fade button" tabindex="0">
   <div class="visible content">Already have an account?</div>
@@ -59,5 +60,3 @@
     Log in!
   </div>
 </div>
-
-<%#= render "devise/shared/links" %>

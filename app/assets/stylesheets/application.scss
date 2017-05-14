@@ -10,8 +10,35 @@ html body {
 }
 #navbar {
   padding-left: 100px;
+  margin-bottom: 0px;
+}
+
+
+.ui.inverted.menu {
+  border-radius: 0px;
 }
 
 .tiffany{
+  // color: #63C7B2;
   color: #03FCE6;
+}
+
+.padtb{
+  margin: 10px 0px 10px 0px;
+}
+
+.pusher {
+  background-color: #1B1C1D;
+  height:100vh;
+}
+
+.grayish{
+  background-color: #1B1C1D;
+}
+
+.float-right{
+  float: right;
+}
+.float-left{
+  float: left;
 }

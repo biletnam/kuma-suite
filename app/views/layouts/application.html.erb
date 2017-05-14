@@ -12,15 +12,19 @@
   <body id='body'>
     <%= render "layouts/navbar" %>
 
-      <%= devise_error_messages! %>
-      <% flash.each do |message_type, message| %>
-      <%= javascript_tag "Materialize.toast('#{message}', 3000)" %>
-      <% end %>
 
-      <%= semantic_flash %>
+      <div class="ui container grayish">
+        <% if flash[:notice] %>
+          <div class="ui success message closable">
+            <i class="close icon"></i>
+            <%= flash[:notice] %>
+          </div>
 
+        <% elsif flash[:alert] %>
+          <div class="ui negative message"><%= flash[:alert] %></div>
+        <% end %>
 
-
+      </div>
 
 
     <article>
@@ -33,7 +37,5 @@
       <%= yield %>
 
     </article>
-
-    <%= render "layouts/footer" %>
   </body>
 </html>

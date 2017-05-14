@@ -39,6 +39,7 @@ For the lack of a better name.
 
 ## BUGS
 - everything
+- flash/alert outer margin does not apply background color
 - seeds crash when adding profile_pic, something devise model
 - might need to add table profile pic to user?
 

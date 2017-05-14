@@ -1,10 +1,12 @@
 <!-- top navbar -->
 
-<div id="navbar" class="ui inverted top menu navbar grid">
+<div id="navbar" class="ui inverted menu navbar grid">
   <div class="ui inverted menu">
+    <%= image_tag("kumaicon", style:'width:50px; height:50px;') %>
     <div class="item">
-      <h3><%= link_to 'Helpdesk CRM', root_path, class: 'tiffany'; %></h3>
+      <h3><%= link_to 'Helpdesk Bear', root_path, class: 'tiffany'; %></h3>
     </div>
+
 
 <!-- logged in client support left menu -->
     <% if user_signed_in? && current_user.is_client %>

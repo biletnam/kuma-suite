@@ -9,7 +9,14 @@
 $(document).ready(function(){
   $('.menu .item').tab();
   $('select.dropdown').dropdown();
-  $('.ui.dropdown').dropdown();
-  // $('#table').tablesort();
+  $('.ui.selection.dropdown').dropdown();
+  $('.dropdown').dropdown();
+  
+
+  $('.message .close').on('click', function() {
+    $(this)
+      .closest('.message')
+      .transition('fade');
+  });
 
 });

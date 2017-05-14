@@ -1,24 +1,44 @@
-<div class="welcome">
-<%= image_tag("wave", id: 'header-image', class: "ui fluid image") %>
 
-<% if user_signed_in? %>
+    <div class="pusher">
+      <div class="ui container">
 
-  Logged in as <strong><%= current_user.email %></strong>.
-<p>To get started, please submit a ticket</p>
+    <div class="ui inverted vertical masthead center aligned segment">
+      <div class="ui text container">
+        <%= image_tag("kumaheart", id: '', class: "") %>
+        <div class="ui inverted header">
+          <h1>The all in one, can-do attitude</h1>
+          <h1 style="font-size: 50px">Helpdesk Bear CRM Suite</h1>
+          <h3>Simply the bear necessities</h3>
 
-<% else %>
-  <div class="ui container aligned center aligned page grid">
-    <div class="column">
-      <h2 class="ui teal image header">
-        <!-- <img src="assets/images/logo.png" class="image"> -->
-        <div class="content">
-          <h1>Welcome to Helpdesk.</h1>
-          <h2>Please log in to your account to get started</h2>
-          <%= link_to 'To login page', new_user_session_path, class: 'ui fluid large teal submit button' %>
+          <% if user_signed_in?  %>
+          <% else %>
+          <%= link_to new_user_session_path, class: "ui large teal submit button" do %> Log in to get started!<i class='right arrow icon'></i>
+          <% end %>
+          <% end %>
 
         </div>
-      </h2>
+      </div>
     </div>
   </div>
-<% end %>
+  </div>
+
+  <div class="ui container">
+
+
+
+
+
+  <%= image_tag("kumateal", class:"") %>
+
+
+
+seamless integration, can bearly notice
+
+
+
+
+
+
+
 </div>
+      <%= render "layouts/footer" %>

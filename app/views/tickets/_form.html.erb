@@ -4,23 +4,20 @@
   <%= f.select :department_id, Department.all.collect {|d| [ d.name, d.id ] },  class: '', :prompt => "Choose department" %>
 </div>
 
-    <div class="field">
-      <div class="ui fluid large left icon input">
-        <!-- <i class="user icon"></i> -->
-        <%= f.text_field :title, placeholder: 'Ticket title', autofocus: true %>
-      </div>
-    </div>
+<div class="field">
+  <div class="ui fluid large left icon input">
+    <!-- <i class="user icon"></i> -->
+    <%= f.text_field :title, placeholder: 'Ticket title', autofocus: true %>
+  </div>
+</div>
 
-    <div class="ui form">
-    <div class="field">
-      <%= f.text_area :body, placeholder: 'Description', autofocus: true %>
-    <!-- <textarea rows="8"></textarea> -->
+<div class="ui form">
+  <div class="field">
+    <%= f.text_area :body, placeholder: 'Description', autofocus: true %>
+  </div>
+</div>
+<br>
 
-    </div>
-    </div>
-    <br>
-
-    <%= f.submit :class => 'ui teal button' %>
-    <br>
-<!-- </div> -->
+<%= f.submit :class => 'ui teal button' %>
+<br>
 <% end %>
