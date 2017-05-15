@@ -4,6 +4,7 @@
     <div class="ui comments">
       <div class="comment">
         <%= link_to 'Delete', ticket_comment_path(@ticket, comment), method: :delete, class: 'float-right', data: {confirm: "Are you sure?"}, remote: true %>
+
         <a class="avatar">
           <img src="http://fakeimg.pl/75x75/?text=`<%= @ticket.user.first_name %>`">
         </a>
@@ -11,10 +12,17 @@
         <div class="content">
           <a class="author"><%= comment.user.first_name %></a>
           <div class="metadata">
-            <div class="date">2 days ago</div>
+            <div class="date"><%= comment.created_at.strftime("%b %d, %Y") %></div>
+
+            <% if current_user.is_admin %>
             <div class="rating">
-              <i class="star icon"></i>5 Faves
+              <i class="star icon"></i>Admin
             </div>
+            <% elsif current_user.is_staff %>
+            <div class="rating">
+              <i class="user icon"></i>Staff
+            </div>
+            <% end %>
           </div>
 
           <div class=""><%= comment.body %></div>

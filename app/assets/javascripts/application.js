@@ -9,10 +9,14 @@
 $(document).ready(function(){
   $('.menu .item').tab();
   $('select.dropdown').dropdown();
-  $('.ui.selection.dropdown').dropdown();
-  $('.dropdown').dropdown();
-  
 
+  $('#dropdownmenu').dropdown();
+
+
+// ticket department select
+  $('.ui.dropdown').dropdown();
+
+// for notice and alerts
   $('.message .close').on('click', function() {
     $(this)
       .closest('.message')

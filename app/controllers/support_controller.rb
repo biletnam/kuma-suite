@@ -22,7 +22,7 @@ class SupportController < ApplicationController
     @ticket.user = current_user
 
     if @ticket.save
-      redirect_to ticket_path(@ticket)
+      redirect_to support_path
       flash[:notice] = 'Ticket posted successfully'
     else
       render :new
@@ -31,8 +31,8 @@ class SupportController < ApplicationController
   end
 
   def edit
-    redirect_to root_path, alert: 'Access denied!' unless can? :edit, @ticket
-    @ticket = Ticket.find params[:id]
+    # redirect_to root_path, alert: 'Access denied!' unless can? :edit, @ticket
+    # @ticket = Ticket.find params[:id]
   end
 
   def destroy

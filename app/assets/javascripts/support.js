@@ -4,6 +4,8 @@ $(document).ready(function(){
     $('#modaldiv').modal('show');
   });
 
+  // $('.ui.dropdown').dropdown();
+
 
 
 });

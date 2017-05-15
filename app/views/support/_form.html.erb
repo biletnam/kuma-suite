@@ -1,11 +1,18 @@
 <%= form_for @ticket do |f| %>
 
-<div class="ui selection dropdown">
-  <%= f.select :department_id, Department.all.collect {|d| [ d.name, d.id ] },  class: 'dropdown', :prompt => "Choose department" %>
-  <i class="dropdown icon"></i>
+<!-- need to style form select, does not dropdown. check jquery tags -->
+<!-- <div class="field">
+  <div class="ui selection dropdown" id=''> -->
+    <%= f.select :department_id, Department.all.collect {|d| [ d.name, d.id ] }, :class => 'ui form', :prompt => "Choose department" %>
+    <!-- <i class="dropdown icon"></i> -->
+  <!-- </div> -->
+<!-- </div> -->
 
-</div>
+<br>
 
+<!-- this form actually works as well -->
+<%#= f.collection_select :department_id, Department.all,
+:id, :name, class: "ui form" %>
 
 
 <div class="field">
