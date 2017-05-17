@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def index
     @admin = User.all.where(is_admin: true)
     @staff = User.all.where(is_staff: true)
-    @users = User.all.where(is_client: true)
+    @clients = User.all.where(is_client: true)
   end
 
 end

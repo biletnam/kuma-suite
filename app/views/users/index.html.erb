@@ -21,21 +21,21 @@
   </div>
 
   <div class="ui bottom attached segment">
-    <h1>Users List</h1>
+    <h1>Clients List</h1>
       <p> make into one column, the right side opens ajax call on user profile render </p>
       <p>or modal </p>
 
 
 <div class="ui container">
 
-        <% @users.each do |user| %>
+        <% @clients.each do |client| %>
         <div class="ui cards">
           <div class="card">
             <div class="content">
-              <div class="header"><%= link_to user.full_name, user %></div>
-              <div class="meta"><%= user %></div>
+              <div class="header"><%= link_to client.full_name, client %></div>
+              <div class="meta"><%= client %></div>
               <div class="description">
-                <%= user.email %>
+                <%= client.email %>
               </div>
             </div>
           </div>
