@@ -27,7 +27,7 @@ class Support::TicketsController < ApplicationController
       redirect_to support_ticket_path(@ticket)
       flash[:notice] = 'Ticket posted successfully'
     else
-      render :new
+      render :index
       flash[:alert] = 'Ticket not created'
     end
   end

@@ -6,7 +6,7 @@ class CreateTickets < ActiveRecord::Migration[5.0]
       t.string :body
       t.string :department
       t.string :flag
-      t.string :status
+      t.string :status, default: 'open'
 
       t.timestamps
     end

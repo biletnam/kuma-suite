@@ -10,7 +10,7 @@ Department.create([
 puts "Departments created!"
 
 a = User.new( first_name: 'Admin',
-              last_name: 'Admin',
+              last_name: 'Powers',
               email: 'admin@gmail.com',
               password: 'qweqwe',
               password_confirmation: 'qweqwe',
@@ -46,7 +46,7 @@ puts "Nic created!"
 
 
 u = User.new(first_name: 'Client',
-             last_name: 'Client',
+             last_name: 'Clientski',
              email: 'client@gmail.com',
              password: 'qweqwe',
              password_confirmation: 'qweqwe',
