@@ -16,6 +16,7 @@ class TicketsController < ApplicationController
       # , notice: 'Ticket successfully posted'
     else
       render :new
+      # render 'support/tickets/show'
       flash[:alert] = 'Ticket not created'
     end
   end

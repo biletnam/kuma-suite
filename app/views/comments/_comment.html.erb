@@ -6,7 +6,8 @@
         <%= link_to 'Delete', ticket_comment_path(@ticket, comment), method: :delete, class: 'float-right', data: {confirm: "Are you sure?"}, remote: true %>
 
         <a class="avatar">
-          <img src="http://fakeimg.pl/75x75/?text=`<%= @ticket.user.first_name %>`">
+          <!-- <img src="http://fakeimg.pl/75x75/?text=`<%= @ticket.user.first_name %>`"> -->
+          <%= image_tag("avatars/#{comment.user.profile_pic}")  %>
         </a>
 
         <div class="content">

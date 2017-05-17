@@ -19,8 +19,9 @@
 
   <div class="ui segment">
 <div class="">
-  
+
   <h1>Dashboard for <%= current_user.first_name %></h1>
+  <%= image_tag("avatars/#{current_user.profile_pic}")  %>
   <div class="">
     <p>Last signed in at: <%= current_user.last_sign_in_at %></p>
     <p>Current signed in IP: <%= current_user.current_sign_in_ip %></p>

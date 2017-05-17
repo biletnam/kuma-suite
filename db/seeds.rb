@@ -19,7 +19,7 @@ a = User.new( first_name: 'Admin',
               is_client: 'false'
               )
   img = Avatarly.generate_avatar("#{a.first_name}_#{a.last_name}", opts={})
-  File.open("public/avatars/#{a.first_name}_#{a.last_name}.png", 'wb') do |f|
+  File.open("assets/images/avatars/#{a.first_name}_#{a.last_name}.png", 'wb') do |f|
     f.write img
   end
   a.profile_pic = "#{a.first_name}_#{a.last_name}.png"
@@ -37,7 +37,7 @@ n = User.new(first_name: 'Nic',
              is_client: 'false'
              )
   img = Avatarly.generate_avatar("#{n.first_name}_#{n.last_name}", opts={})
-  File.open("public/avatars/#{n.first_name}_#{n.last_name}.png", 'wb') do |f|
+  File.open("assets/images/avatars/#{n.first_name}_#{n.last_name}.png", 'wb') do |f|
     f.write img
   end
   n.profile_pic = "#{n.first_name}_#{n.last_name}.png"
@@ -55,7 +55,7 @@ u = User.new(first_name: 'Client',
              is_client: 'true'
              )
   img = Avatarly.generate_avatar("#{u.first_name}_#{u.last_name}", opts={})
-  File.open("public/avatars/#{u.first_name}_#{u.last_name}.png", 'wb') do |f|
+  File.open("assets/images/avatars/#{u.first_name}_#{u.last_name}.png", 'wb') do |f|
     f.write img
   end
   u.profile_pic = "#{u.first_name}_#{u.last_name}.png"
@@ -73,12 +73,12 @@ puts 'Client created!'
                is_client: 'true'
                )
   img = Avatarly.generate_avatar("#{u.first_name}_#{u.last_name}", opts={})
-  File.open("public/avatars/#{u.first_name}_#{u.last_name}.png", 'wb') do |f|
+  File.open("assets/images/avatars/#{u.first_name}_#{u.last_name}.png", 'wb') do |f|
     f.write img
   end
   u.profile_pic = "#{u.first_name}_#{u.last_name}.png"
   u.save
-end 
+end
 puts 'Clientbase created!'
 
 10.times do
