@@ -11,7 +11,7 @@
 <!-- logged in client support left menu -->
     <% if user_signed_in? && current_user.is_client %>
     <div class="item">
-      <%= link_to 'Client Support', support_index_path, class: 'tiffany'; %>
+      <%= link_to 'Client Support', support_dashboard_index_path, class: 'tiffany'; %>
     </div>
     <% end %>
   </div>

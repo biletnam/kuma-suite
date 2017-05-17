@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users, path: '/', path_names: { sign_in: 'login', sign_out: 'logout'}
   resources :users, :only => [:show, :index]
-  
+
 
   authenticated :user do
     root to: 'passthrough#index'
@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   end
 
   namespace :support do
+    resources :user, only: [:show]
+    resources :dashboard, only: [:index]
     resources :tickets
   end
   # do i need :comments
