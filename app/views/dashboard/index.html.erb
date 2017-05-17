@@ -1,81 +1,61 @@
 <div class="ui fullcontainer">
+  <div class="ui ">
 
-  <div class="ui secondary pointing menu">
-    <a class="active item">
-      Home
-    </a>
-    <a class="item">
-      Messages
-    </a>
-    <a class="item">
-      Friends
-    </a>
+<!-- secondary nav tabs -->
+  <div class="ui top attached tabular menu">
+    <!-- <a class='item'></a> -->
+    <a class="active item">Dashboard</a>
+    <a class="item">Activity</a>
     <div class="right menu">
-      <a class="ui item">
-        Another thing
-      </a>
+      <div class="item">
+        <div class="ui transparent icon input">
+          <input type="text" placeholder="Search disabled...">
+          <i class="search link icon"></i>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="ui segment">
-<div class="">
-
-  <h1>Your Dashboard </h1>
-
-  <div class="ui special cards">
-    <div class="card">
-      <div class="dimmable image">
-        <div class="ui dimmer">
-          <div class="content">
-            <div class="center">
-              <div class="ui inverted button">Add Friend</div>
-            </div>
+  <div class="ui bottom attached segment">
+    <h1>Your Dashboard </h1>
+    <div class="ui teal segment container">
+      <h5>Hello <%= current_user.first_name %>, your targets for this month is: 9001</h5>
+    </div>
+<!-- dashboard user card -->
+    <div class="ui special cards">
+      <div class="card">
+        <div class="dimmable image">
+          <%= image_tag("/avatars/#{current_user.profile_pic}")  %>
+        </div>
+        <div class="content">
+          <a class="header"><%= current_user.full_name %>
+            <small class='muted-text float-right'>
+              <% if current_user.is_admin %>
+                <i class="star icon"></i>Admin
+              <% elsif current_user.is_staff %>
+                <i class="user icon"></i>Staff
+              <% end %>
+            </small>
+          </a>
+          <div class="meta">
+            <span class="date">
+              Joined: <%= current_user.created_at.strftime("%b %d, %Y") %>
+            </span>
           </div>
         </div>
-        <%= image_tag("/avatars/#{current_user.profile_pic}")  %>
-
-      </div>
-      <div class="content">
-        <a class="header">Team Fu</a>
-        <div class="meta">
-          <span class="date">Create in Sep 2014</span>
+        <div class="extra content">
+          <a>
+            <i class="check circle green icon"></i>
+            Rep: +42
+          </a>
         </div>
       </div>
-      <div class="extra content">
-        <a>
-          <i class="users icon"></i>
-          2 Members
-        </a>
-      </div>
-    </div>
     </div>
 
-          <div class="content">
-            <a class="author"><%= current_user.full_name %></a>
-            <div class="metadata">
-              <div class="date"><%= current_user.created_at.strftime("%b %d, %Y") %></div>
-
-              <% if current_user.is_admin %>
-              <div class="rating">
-                <i class="star icon"></i>Admin
-              </div>
-              <% elsif current_user.is_staff %>
-              <div class="rating">
-                <i class="user icon"></i>Staff
-              </div>
-              <% end %>
-            </div>
+    <%= link_to "current_user_show", user_path(current_user) %>
+    <%= link_to "show_index_of_users", users_path %>
 
 
-
-
-    <%= current_user.full_name %>
-  <%= image_tag("avatars/#{current_user.profile_pic}")  %>
-  <div class="">
-    <p>Last signed in at: <%= current_user.last_sign_in_at %></p>
-    <p>Current signed in IP: <%= current_user.current_sign_in_ip %></p>
-  </div>
-</div>
 
   <h3>This is where the user dashboard will go</h3>
   <h3>Activity feed</h3>
@@ -133,4 +113,6 @@
       </div>
     </div>
   </div>
+</div>
+
 </div>

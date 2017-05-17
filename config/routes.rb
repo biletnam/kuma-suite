@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   devise_for :users, path: '/', path_names: { sign_in: 'login', sign_out: 'logout'}
+  resources :users, :only => [:show, :index]
+  
 
   authenticated :user do
     root to: 'passthrough#index'

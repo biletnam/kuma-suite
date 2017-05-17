@@ -31,6 +31,7 @@ class TicketsController < ApplicationController
 
   def index
     @tickets = Ticket.last(20)
+    @staff = User.all.where(is_staff: true)
     # @tags = Tag.all
   end
 

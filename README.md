@@ -27,11 +27,11 @@ A helpdesk interface for SMB to manage tickets, invoices, work orders, staff per
 
 ### Users
 <!-- - users to complete [admin, agents, clients] -->
-- add user types: user roles
+<!-- - add user types: user roles -->
 - add rolify like method manually
 - user type specific pages and rights
 <!-- - implement full_name method (migration done for table reference) -->
-- implement avatarly, migrated
+<!-- - implement avatarly, migrated -->
 
 ### Dashboard
 - implement Dashboard
@@ -48,8 +48,9 @@ A helpdesk interface for SMB to manage tickets, invoices, work orders, staff per
 - when submit ticket from client, redirects to /ticket/id which is only for staff
 - everything
 - flash/alert outer margin does not apply background color
-- seeds crash when adding profile_pic, something devise model
-- might need to add table profile pic to user?
+- tickets/filter posts change second navbar tab border height
+<!-- - seeds crash when adding profile_pic, something devise model -->
+<!-- - might need to add table profile pic to user? -->
 
 ## FUTURE FEATURES TO COVER
 <!-- - user types -->
@@ -76,3 +77,14 @@ status
 <div class="ui yellow label">In progress</div>
 <div class="ui red label">Delayed</div>
 <div class="ui grey label">Completed</div>
+
+
+<!--
+## Features
+- Ticketing system
+- Comments on ticket ajax
+- Individual default picutres
+
+
+
+ -->

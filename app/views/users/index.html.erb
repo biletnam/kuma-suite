@@ -1,0 +1,25 @@
+<div class="ui fullcontainer">
+<div class="ui container">
+<h1>Users List</h1>
+  <p> make into one column, the right side opens ajax call on user profile render </p>
+  <p>or modal </p>
+
+  <div class="ui cards">
+
+
+    <% @users.each do |user| %>
+    <div class="card">
+      <div class="content">
+        <div class="header"><%= link_to user.full_name, user %></div>
+        <div class="meta"><%= user %></div>
+        <div class="description">
+          <%= user.email %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+
+
+</div>
+</div>

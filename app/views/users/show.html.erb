@@ -1,0 +1,54 @@
+<div class="ui fullcontainer">
+
+
+  <div class="ui container">
+
+    <h1>User profile</h1>
+    <h1> change this whole thing into  a layout for modal </h1>
+
+    <div class="ui special cards">
+      <div class="card">
+        <div class="dimmable image">
+          <%= image_tag("/avatars/#{@user.profile_pic}")  %>
+        </div>
+        <div class="content">
+          <a class="header"><%= @user.full_name %>
+            <small class='muted-text float-right'>
+              <% if @user.is_admin %>
+                <i class="star icon"></i>Admin
+              <% elsif @user.is_staff %>
+                <i class="user icon"></i>Staff
+              <% elsif @user.is_client %>
+                <i class="smile icon"></i>Client
+              <% end %>
+            </small>
+          </a>
+          <div class="meta">
+            <span class="date">
+              Joined: <%= @user.created_at.strftime("%b %d, %Y") %>
+            </span>
+          </div>
+        </div>
+        <div class="extra content">
+          <a>
+            <i class="check circle green icon"></i>
+            Rep: +42
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <p>Add user profile stuff here</p>
+
+
+
+    <div class="ui card">
+      <%= @user.email %>
+      <%= @user.full_name %>
+      <p>Last signed in at: <%= @user.last_sign_in_at %></p>
+      <p>Current signed in IP: <%= @user.current_sign_in_ip %></p>
+    </div>
+
+
+  </div>
+</div>
