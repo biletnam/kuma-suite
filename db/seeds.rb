@@ -9,55 +9,77 @@ Department.create([
   ])
 puts "Departments created!"
 
-User.create(first_name: 'Nic',
-            last_name: 'Tamura',
-            email: 'nic@gmail.com',
-            # profile_pic: Avatarly.generate_avatar(text, opts={}),
-            password: 'qweqwe',
-            password_confirmation: 'qweqwe',
-            is_admin: 'false',
-            is_staff: 'true',
-            is_client: 'false'
-            )
-puts "Nic created!"
-
-User.create(first_name: 'Admin',
-            last_name: 'Admin',
-            email: 'admin@gmail.com',
-            # profile_pic: Avatarly.generate_avatar(text="#{User.full_name}", opts={}),
-            password: 'qweqwe',
-            password_confirmation: 'qweqwe',
-            is_admin: 'true',
-            is_staff: 'true',
-            is_client: 'false'
-            )
+a = User.new( first_name: 'Admin',
+              last_name: 'Admin',
+              email: 'admin@gmail.com',
+              password: 'qweqwe',
+              password_confirmation: 'qweqwe',
+              is_admin: 'true',
+              is_staff: 'true',
+              is_client: 'false'
+              )
+  img = Avatarly.generate_avatar("#{a.first_name}_#{a.last_name}", opts={})
+  File.open("public/avatars/#{a.first_name}_#{a.last_name}.png", 'wb') do |f|
+    f.write img
+  end
+  a.profile_pic = "#{a.first_name}_#{a.last_name}.png"
+  a.save
 puts 'Admin created!'
 
-User.create(first_name: 'Client',
-            last_name: 'Client',
-            email: 'client@gmail.com',
-            # profile_pic: Avatarly.generate_avatar(text="#{User.full_name}", opts={}),
-            password: 'qweqwe',
-            password_confirmation: 'qweqwe',
-            is_admin: 'false',
-            is_staff: 'false',
-            is_client: 'true'
-            )
+
+n = User.new(first_name: 'Nic',
+             last_name: 'Tamura',
+             email: 'nic@gmail.com',
+             password: 'qweqwe',
+             password_confirmation: 'qweqwe',
+             is_admin: 'false',
+             is_staff: 'true',
+             is_client: 'false'
+             )
+  img = Avatarly.generate_avatar("#{n.first_name}_#{n.last_name}", opts={})
+  File.open("public/avatars/#{n.first_name}_#{n.last_name}.png", 'wb') do |f|
+    f.write img
+  end
+  n.profile_pic = "#{n.first_name}_#{n.last_name}.png"
+  n.save
+puts "Nic created!"
+
+
+u = User.new(first_name: 'Client',
+             last_name: 'Client',
+             email: 'client@gmail.com',
+             password: 'qweqwe',
+             password_confirmation: 'qweqwe',
+             is_admin: 'false',
+             is_staff: 'false',
+             is_client: 'true'
+             )
+  img = Avatarly.generate_avatar("#{u.first_name}_#{u.last_name}", opts={})
+  File.open("public/avatars/#{u.first_name}_#{u.last_name}.png", 'wb') do |f|
+    f.write img
+  end
+  u.profile_pic = "#{u.first_name}_#{u.last_name}.png"
+  u.save
 puts 'Client created!'
 
 20.times do
-  User.create(first_name: Faker::Name.first_name,
-              last_name:  Faker::Name.last_name,
-              email: Faker::Internet.safe_email,
-              # profile_pic: Avatarly.generate_avatar(text='hello', opts={}),
-              password: 'qweqwe',
-              password_confirmation: 'qweqwe',
-              is_admin: 'false',
-              is_staff: 'false',
-              is_client: 'true'
-              )
-end
-puts 'Users created!'
+  u = User.new(first_name: Faker::Name.first_name,
+               last_name:  Faker::Name.last_name,
+               email: Faker::Internet.safe_email,
+               password: 'qweqwe',
+               password_confirmation: 'qweqwe',
+               is_admin: 'false',
+               is_staff: 'false',
+               is_client: 'true'
+               )
+  img = Avatarly.generate_avatar("#{u.first_name}_#{u.last_name}", opts={})
+  File.open("public/avatars/#{u.first_name}_#{u.last_name}.png", 'wb') do |f|
+    f.write img
+  end
+  u.profile_pic = "#{u.first_name}_#{u.last_name}.png"
+  u.save
+end 
+puts 'Clientbase created!'
 
 10.times do
   department = Department.all.sample

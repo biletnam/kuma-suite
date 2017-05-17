@@ -5,8 +5,11 @@ A helpdesk interface for SMB to manage tickets, invoices, work orders, staff per
 
 
 ## TODO
+- new ticket default to open flag
+- change ticket flags
+- change ticket status
 
-change resources to support/ticket/id instead.
+- change resources to support/ticket/id instead.
 
 ### Ticketing
 - ticket page to complete
@@ -64,9 +67,11 @@ change resources to support/ticket/id instead.
 - flags (use icons) [urgent warning, important flag, no flag (default) ]
 - status [blank (default), in progress, delayed, completed (once completed, clears out of queue and sends to completed page)]
 
+flags
 <i class='red warning sign icon'></i>
 <i class='yellow flag icon'></i>
 
+status
 <div class="ui white label">Open</div>
 <div class="ui yellow label">In progress</div>
 <div class="ui red label">Delayed</div>

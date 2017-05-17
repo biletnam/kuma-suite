@@ -1,4 +1,11 @@
-$('#comments').fadeIn(400, function() { $(this).show() }).prepend('<%= j render 'comment', comment: @comment %>');
+$('#comments')
+.prepend('<%= j render 'comment', comment: @comment %>')
+.children(':first')
+.hide()
+.fadeIn(1000)
+
+
+
 $('#comment_body').val('');
 
 <% @comment = Comment.new %>

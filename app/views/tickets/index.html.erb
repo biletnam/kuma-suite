@@ -60,7 +60,8 @@
 
 
 
-    <table class="ui compact celled definition table">
+    <table class="ui compact celled table striped" id='ticket-table'>
+    <!-- <table class="ui compact celled definition table"> -->
 
   <!-- table head -->
       <thead class="full-width">
@@ -68,7 +69,7 @@
           <th>Check</th>
           <th>Flag</th>
           <th>Status</th>
-          <th>Title</th>
+          <th>ID/Title</th>
           <th>Description</th>
           <th>Client</th>
           <th>Created</th>
@@ -109,8 +110,8 @@
               </div>
             </div>
           </td>
-          <td>#<%= ticket.id %> - <%= link_to ticket.title, ticket_path(ticket) %></td>
-          <td><%= ticket.body %></td>
+          <td class='overflow'>#<%= ticket.id %> - <%= link_to ticket.title, ticket_path(ticket) %></td>
+          <td class='overflow'><%= ticket.body %></td>
           <td><%= ticket.user.email %></td>
           <td><%= standard_date_format(ticket.created_at) %></td>
           <td><%= standard_date_format(ticket.updated_at) %></td>

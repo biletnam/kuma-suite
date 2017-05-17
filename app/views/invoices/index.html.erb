@@ -1,129 +1,140 @@
-<div class="ui secondary pointing menu">
-  <a class="active item">
-    Invoices
-  </a>
-  <a class="item">
-    Closed Invoices
-  </a>
-  <a class="item">
-    Friends
-  </a>
-  <div class="right menu">
+<div class="ui fullcontainer">
 
-    <div class="item">
-      <div class="ui icon input">
-        <input type="text" placeholder="Search invoices">
-        <i class="search link icon"></i>
+
+  <div class="ui secondary pointing menu">
+    <a class="active item">
+      Invoices
+    </a>
+    <a class="item">
+      Closed Invoices
+    </a>
+    <a class="item">
+      Friends
+    </a>
+    <div class="right menu">
+
+      <div class="item">
+        <div class="ui icon input">
+          <input type="text" placeholder="Search invoices">
+          <i class="search link icon"></i>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="ui segment">
+
+    <div class="ui right floated small primary labeled icon button">
+      <i class="file right icon"></i> New invoice
+    </div>
+
+    <div class="ui teal labeled icon button float-right" id="modalinvoice">
+      Create Invoice
+      <i class="add icon"></i>
+    </div>
+
+
+    <div class="column">
+      <div class="ui grid">
+
+  <!-- left grid col -->
+      <div class="ten wide column">
+
+        <h1>Invoice List</h1><small></small>
+        <table class="ui celled padded table single line">
+          <thead>
+            <tr><th class="single line">Invoice ID</th>
+            <th>Date Created</th>
+            <th>Client</th>
+            <th>Agent</th>
+            <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><h2 class="ui center aligned header">
+                21223
+              </h2></td>
+              <td> Jan 12 2017 </td>
+              <td> Bob Bobson </td>
+              <td> Bob Bobson </td>
+              <td class="negative"> Overdue</td>
+            </tr>
+            <tr>
+              <td><h2 class="ui center aligned header">
+                21223
+              </h2></td>
+              <td> Jan 12 2017 </td>
+              <td> Bob Bobson </td>
+              <td> Bob Bobson </td>
+              <td class="warning"> Requires attention</td>
+            </tr>
+            <tr>
+              <td><h2 class="ui center aligned header">
+                21223
+              </h2></td>
+              <td> Jan 12 2017 </td>
+              <td> Bob Bobson </td>
+              <td> Bob Bobson </td>
+              <td class="positive"> Payment received</td>
+            </tr>
+            <tr>
+              <td><h2 class="ui center aligned header">
+                21223
+              </h2></td>
+              <td> Jan 12 2017 </td>
+              <td> Bob Bobson </td>
+              <td> Bob Bobson </td>
+              <td class="positive"> Payment received</td>
+            </tr>
+            <tr>
+              <td><h2 class="ui center aligned header">
+                21223
+              </h2></td>
+              <td> Jan 12 2017 </td>
+              <td> Bob Bobson </td>
+              <td> Bob Bobson </td>
+              <td class="positive"> Payment received</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+  <!-- right grid col  -->
+          <div class="two wide column">
+
+
+
+          <div class="ui vertical text right aligned menu">
+            <div class="header item">Sort By</div>
+            <a class="active item">
+              Closest
+            </a>
+            <a class="item">
+              Most Comments
+            </a>
+            <a class="item">
+              Most Popular
+            </a>
+          </div>
+
+                    <!-- <div class="ui right fixed vertical menu">
+                      <div class="item">
+                        <img class="ui mini image" src="/images/logo.png">
+                      </div>
+                      <a class="item">Features</a>
+                      <a class="item">Testimonials</a>
+                      <a class="item">Sign-in</a>
+                    </div>
+      </div> -->
+
       </div>
     </div>
 
-  </div>
-</div>
 
-<div class="ui segment">
-
-  <div class="ui right floated small primary labeled icon button">
-    <i class="file right icon"></i> New invoice
   </div>
 
-  <div class="column">
-    <div class="ui grid">
-
-<!-- left grid col -->
-    <div class="ten wide column">
-
-      <h1>Invoice List</h1><small></small>
-      <table class="ui celled padded table single line">
-        <thead>
-          <tr><th class="single line">Invoice ID</th>
-          <th>Date Created</th>
-          <th>Client</th>
-          <th>Agent</th>
-          <th>Status</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td><h2 class="ui center aligned header">
-              21223
-            </h2></td>
-            <td> Jan 12 2017 </td>
-            <td> Bob Bobson </td>
-            <td> Bob Bobson </td>
-            <td class="negative"> Overdue</td>
-          </tr>
-          <tr>
-            <td><h2 class="ui center aligned header">
-              21223
-            </h2></td>
-            <td> Jan 12 2017 </td>
-            <td> Bob Bobson </td>
-            <td> Bob Bobson </td>
-            <td class="warning"> Requires attention</td>
-          </tr>
-          <tr>
-            <td><h2 class="ui center aligned header">
-              21223
-            </h2></td>
-            <td> Jan 12 2017 </td>
-            <td> Bob Bobson </td>
-            <td> Bob Bobson </td>
-            <td class="positive"> Payment received</td>
-          </tr>
-          <tr>
-            <td><h2 class="ui center aligned header">
-              21223
-            </h2></td>
-            <td> Jan 12 2017 </td>
-            <td> Bob Bobson </td>
-            <td> Bob Bobson </td>
-            <td class="positive"> Payment received</td>
-          </tr>
-          <tr>
-            <td><h2 class="ui center aligned header">
-              21223
-            </h2></td>
-            <td> Jan 12 2017 </td>
-            <td> Bob Bobson </td>
-            <td> Bob Bobson </td>
-            <td class="positive"> Payment received</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-
-<!-- right grid col  -->
-        <div class="two wide column">
-
-
-
-        <div class="ui vertical text right aligned menu">
-          <div class="header item">Sort By</div>
-          <a class="active item">
-            Closest
-          </a>
-          <a class="item">
-            Most Comments
-          </a>
-          <a class="item">
-            Most Popular
-          </a>
-        </div>
-
-                  <!-- <div class="ui right fixed vertical menu">
-                    <div class="item">
-                      <img class="ui mini image" src="/images/logo.png">
-                    </div>
-                    <a class="item">Features</a>
-                    <a class="item">Testimonials</a>
-                    <a class="item">Sign-in</a>
-                  </div>
-    </div> -->
-
-    </div>
   </div>
-
-
-</div>

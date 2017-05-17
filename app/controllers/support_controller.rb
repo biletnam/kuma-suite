@@ -3,8 +3,10 @@ class SupportController < ApplicationController
   before_action :user_is_client?
 
   def index
-    @tickets = Ticket.last
+    @last_ticket = Ticket.last
     @ticket = Ticket.new
+    @tickets = Ticket.all
+    @ticket.user = current_user
   end
 
   def show
