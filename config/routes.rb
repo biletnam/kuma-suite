@@ -19,11 +19,11 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :support
-  # namespace :support do
-  #   resources :tickets
-  #   # resources :comments
-  # end
+  namespace :support do
+    resources :tickets
+  end
+  # do i need :comments
+  # do i need to make /supp/tikets/everything in there
 
   # resources :messaging
   resources :invoices

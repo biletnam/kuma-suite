@@ -20,7 +20,56 @@
   <div class="ui segment">
 <div class="">
 
-  <h1>Dashboard for <%= current_user.first_name %></h1>
+  <h1>Your Dashboard </h1>
+
+  <div class="ui special cards">
+    <div class="card">
+      <div class="dimmable image">
+        <div class="ui dimmer">
+          <div class="content">
+            <div class="center">
+              <div class="ui inverted button">Add Friend</div>
+            </div>
+          </div>
+        </div>
+        <%= image_tag("/avatars/#{current_user.profile_pic}")  %>
+
+      </div>
+      <div class="content">
+        <a class="header">Team Fu</a>
+        <div class="meta">
+          <span class="date">Create in Sep 2014</span>
+        </div>
+      </div>
+      <div class="extra content">
+        <a>
+          <i class="users icon"></i>
+          2 Members
+        </a>
+      </div>
+    </div>
+    </div>
+
+          <div class="content">
+            <a class="author"><%= current_user.full_name %></a>
+            <div class="metadata">
+              <div class="date"><%= current_user.created_at.strftime("%b %d, %Y") %></div>
+
+              <% if current_user.is_admin %>
+              <div class="rating">
+                <i class="star icon"></i>Admin
+              </div>
+              <% elsif current_user.is_staff %>
+              <div class="rating">
+                <i class="user icon"></i>Staff
+              </div>
+              <% end %>
+            </div>
+
+
+
+
+    <%= current_user.full_name %>
   <%= image_tag("avatars/#{current_user.profile_pic}")  %>
   <div class="">
     <p>Last signed in at: <%= current_user.last_sign_in_at %></p>
