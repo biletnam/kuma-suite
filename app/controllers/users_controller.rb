@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :user_is_staff?
 
   def show
     @user = User.find(params[:id])
@@ -11,4 +12,9 @@ class UsersController < ApplicationController
     @clients = User.all.where(is_client: true)
   end
 
+  def user_is_staff?
+    unless current_user.is_staff?
+      redirect_to root_path, alert: 'Unauthorized access'
+    end
+  end
 end

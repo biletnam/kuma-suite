@@ -49,7 +49,7 @@ class SupportController < ApplicationController
 
   def user_is_client?
     unless current_user.is_client?
-      redirect_to root_path, notice: 'Welcome back'
+      redirect_to root_path, alert: 'Support is only for clients'
     end
   end
 
