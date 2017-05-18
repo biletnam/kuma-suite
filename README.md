@@ -14,6 +14,8 @@ App built with Rails, jQuery, AJAX, and Semantic UI CSS framework.
 <!-- done items are commented out -->
 
 ### Ticketing
+- aasm states for status
+- ability to close tickets
 - change date helper to reflect (15 hours ago) (application_helper )
 - flags (use icons) [urgent, important, no flag (default) ]
 - status [blank (default), in progress, delayed, completed (once completed, clears out of queue and sends to completed page)]
