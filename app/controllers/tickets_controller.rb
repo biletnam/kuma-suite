@@ -45,12 +45,13 @@ class TicketsController < ApplicationController
   def update
     @ticket = Ticket.find params[:id]
     # ticket_params = params.require(:ticket).permit([:title, :body, :department ])
+
     respond_to do |format|
-      format.js do
+      format.json do
         if @ticket.update(ticket_params)
-          render json: { success: 'Updated!'}
+          render json: { status: :success, message: "Ticket #{@ticket.id} Updated"}
         else
-          render json: { error: 'Problem with update.'}
+          render json: { status: :failure, message: "Problem updating ticket #{@ticket.id}"}
         end
       end
 

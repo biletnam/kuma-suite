@@ -9,19 +9,22 @@ $("#ticket-table").tablesorter();
 $(document).ready(function() {
   function updateTicket(id, ticketParams) {
     $.ajax({
-      url: '/tickets/' + id,
+      url: '/tickets/' + id + '.json',
       data: { ticket: ticketParams },
       method: 'PATCH',
+      dataType: 'json',
       success: function(response) {
-        console.log(response.responseText)
+        console.log(response.message)
       },
-      error: function(response) {
-        console.log(response.responseText)
+      error: function(response, status, error) {
+        console.log(response.message)
       }
     })
   }
 
   $('.ticket_row button').on('click', function(event) {
+    event.preventDefault()
+
     var ticket_row = $(this).parents('.ticket_row')
 
     var ticket_id = ticket_row.data().id
