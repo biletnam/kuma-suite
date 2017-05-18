@@ -11,7 +11,7 @@ puts "Departments created!"
 
 a = User.new( first_name: 'Admin',
               last_name: 'Powers',
-              email: 'admin@gmail.com',
+              email: 'admin@helpdesk.com',
               password: 'qweqwe',
               password_confirmation: 'qweqwe',
               is_admin: 'true',
@@ -29,7 +29,7 @@ puts 'Admin created!'
 
 n = User.new(first_name: 'Nic',
              last_name: 'Tamura',
-             email: 'nic@gmail.com',
+             email: 'nic@helpdesk.com',
              password: 'qweqwe',
              password_confirmation: 'qweqwe',
              is_admin: 'false',
@@ -44,6 +44,25 @@ n = User.new(first_name: 'Nic',
   n.save
 puts "Nic created!"
 
+20.times do
+  u = User.new(first_name: Faker::Name.first_name,
+               last_name:  Faker::Name.last_name,
+               company: Faker::Company.name,
+               email: Faker::Internet.safe_email,
+               password: 'qweqwe',
+               password_confirmation: 'qweqwe',
+               is_admin: 'false',
+               is_staff: 'true',
+               is_client: 'false'
+               )
+  img = Avatarly.generate_avatar("#{u.first_name} #{u.last_name}", opts={size: 100})
+  File.open("public/avatars/#{u.first_name}_#{u.last_name}.png", 'wb') do |f|
+    f.write img
+  end
+  u.profile_pic = "#{u.first_name}_#{u.last_name}.png"
+  u.save
+end
+puts 'Staffbase created!'
 
 u = User.new(first_name: 'Client',
              last_name: 'Clientski',
@@ -65,7 +84,8 @@ puts 'Client created!'
 20.times do
   u = User.new(first_name: Faker::Name.first_name,
                last_name:  Faker::Name.last_name,
-               email: Faker::Internet.safe_email,
+               company:  Faker::Company.name,
+               email: Faker::Internet.email,
                password: 'qweqwe',
                password_confirmation: 'qweqwe',
                is_admin: 'false',
@@ -94,7 +114,7 @@ puts 'Random tickets created'
 
 
 Ticket.all.each do |ticket|
-  5.times do
+  rand(5).times do
     user = User.all.sample
     ticket.comments.create(body: Faker::Hipster.paragraph,
                            user_id: user.id
