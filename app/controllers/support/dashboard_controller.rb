@@ -3,6 +3,8 @@ class Support::DashboardController < ApplicationController
   before_action :user_is_client?
 
   def index
+    @user = current_user
+
     @last_ticket = Ticket.last
     @ticket = Ticket.new
     @tickets = Ticket.all

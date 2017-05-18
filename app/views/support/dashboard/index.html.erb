@@ -1,107 +1,138 @@
 <div class="pusher">
-<!-- <div class="ui fullcontainer"> -->
   <div class="ui container">
+    <h1 class='tiffany'>
+      Support Dashboard for <%= current_user.first_name %>
+    </h1>
 
-      <div class="ui container">
-        <h1 class='tiffany'>Support Page for <%= current_user.first_name %></h1>
+    <div class="ui grid">
+      <div class="ten wide column">
 
-        <div class="ui grid">
-          <div class="ten wide column">
-            <div class="ui segment">
-
-
-              <div class="float-right">
-                <% if @last_ticket.present? %>
-                <p>Created: <%= standard_date_format(@last_ticket.created_at) %></p>
-                <p>Department: <%= @last_ticket.department.name %></p>
-              </div>
-                <h3>Your current ticket:</h3>
-              <hr>
-
-              <h1 class='ui block header'><a href>Subject: <%= link_to @last_ticket.title, support_ticket_path(@last_ticket) %></a>
-              </h1>
-
-              <p class='well-sm'><%= @last_ticket.body %></p>
-<% else %>
-no tickets
-<% end %>
-            </div>
-
-    <!--  -->
-          <div class="ui segment">
-            <div class="ui teal labeled icon button float-right" id="modalpop">
-              Submit a new Ticket
-              <i class="add icon"></i>
-            </div>
-
-            <h1 class="">Your ticket history</h1>
-              <div class="ui vertical segment">
-
-              <% if current_user.tickets.present? %>
-                <% @tickets.each do |t| %>
-                <p><%= link_to t.title, support_ticket_path(t) %></p>
-                <p>Submitted: <%= t.created_at %></p>
-                <hr>
-                <% end %>
-              <% else %>
-                <p>You have no tickets!</p>
-              <% end %>
-
-              </div>
+<!-- last ticket show -->
+        <div class="ui segment">
+          <div class="float-right">
+          <% if @last_ticket.present? %>
+            <p>
+              Created: <%= standard_date_format(@last_ticket.created_at) %>
+            </p>
+            <p>
+              Department: <%= @last_ticket.department.name %>
+            </p>
           </div>
 
-          <br>
+          <h3>Your current ticket:</h3>
+          <hr>
+          <div class='ui basic segment'>
+            <h1>Subject:
+              <%= link_to @last_ticket.title, support_ticket_path(@last_ticket) %>
+            </h1>
+            <p><%= @last_ticket.body %></p>
+          </div>
 
+          <% else %>
+          <div class="ui basic segment">
+            <p class='muted-text'>Nothing to show!</p>
+          </div>
+          <% end %>
         </div>
 
-      <!-- side column  -->
-        <div class="six wide column">
-          <div class="ui segment">
+<!-- ticket history -->
+        <div class="ui segment">
+          <div class="ui teal labeled icon button float-right" id="modalpop">
+            Submit a new Ticket
+            <i class="add icon"></i>
+          </div>
 
-            <h4>Your Profile Info</h4>
-            <hr>
+          <h3 class="">Your ticket history</h3>
+          <hr>
+          <div class="ui vertical segment">
+          <% if current_user.tickets.present? %>
+            <% @user.tickets.each do |t| %>
+              <h5><%= link_to t.title, support_ticket_path(t) %></h5>
+              <p>Submitted: <%= t.created_at %></p>
+              <hr>
+            <% end %>
+          <% else %>
+            <p class='muted-text'>Nothing to show!</p>
+          <% end %>
+          </div>
+        </div>
+        <br>
+      </div>
+
+<!-- side column  -->
+      <div class="six wide column">
+        <div class="ui segment">
+
+          <h3>Your Profile Info</h3>
+            <div class="ui cards">
+              <div class="ui centered card">
+                <div class="dimmable image">
+                  <%= image_tag("/avatars/#{@user.profile_pic}")  %>
+                </div>
+                <div class="content">
+                  <a class="header"><%= @user.full_name %>
+                    <small class='muted-text float-right'>
+                      <% if @user.is_admin %>
+                        <i class="star icon"></i>Admin
+                      <% elsif @user.is_staff %>
+                        <i class="user icon"></i>Staff
+                      <% elsif @user.is_client %>
+                        <i class="smile icon"></i>Client
+                      <% end %>
+                    </small>
+                  </a>
+                  <div class="meta">
+                    <span class="date">
+                      Joined: <%= @user.created_at.strftime("%b %d, %Y") %>
+                    </span>
+                  </div>
+                </div>
+                <div class="extra content">
+                  <a>
+                    <i class="check circle green icon"></i>
+                    Rep: +42
+                  </a>
+                </div>
+              </div>
+            </div>
+            <br><hr><br>
 
             <p>Client name: <span class='float-right'>
-              <strong><%= current_user.full_name %></span>
-              </strong>
-            </p>
+              <strong><%= current_user.full_name %></strong>
+            </span></p>
+            <p>Company: <span class='float-right'>
+              <strong>Question Company Inc</strong>
+            </span></p>
+            <p>Phone: <span class='float-right'>
+              <strong>778-887-7878</strong>
+            </span></p>
             <p>Email: <span class='float-right'>
-              <strong>
-                <%= current_user.email %></span></p>
-              </strong>
-
+              <strong><%= current_user.email %></strong>
+            </span></p>
             <p>User tickets: <span class='float-right'>
-              <strong>1</span></p>
-                 <!-- @ticket user . count or w/e -->
-              </strong>
-
+              <strong><%= @user.tickets.count %></strong>
+            </span></p>
           </div>
         </div>
-      </div>
-
-
-    <!-- modal popup -->
-        <div id='modaldiv' class="ui modal">
-          <i class="close icon"></i>
-          <div class="header">
-            Submit a Support Ticket
-          </div>
-          <div class="content">
-            <em>When submitting a ticket, please give a full description of the problem to help us serve you better. Please bear in mind that the average wait time is 1 to 2 business days. For emergency assistance please call 911.</em>
-          </div>
-          <div class="content">
-            <%= render 'support/tickets/form' %>
-          </div>
-        </div>
-
-        <div class="ui modal">
-          <i class="close icon"></i>
-        </div>
-    <!--  -->
-
-
       </div>
     </div>
-
   </div>
-</div>
+
+
+<!-- modal popup -->
+  <div id='modaldiv' class="ui modal">
+    <i class="close icon"></i>
+    <div class="header">
+      Submit a Support Ticket
+    </div>
+    <div class="content">
+      <em>When submitting a ticket, please give a full description of the problem to help us serve you better. Please bear in mind that the average wait time is 1 to 2 business days. For emergency assistance please call 911.</em>
+    </div>
+    <div class="content">
+      <%= render 'support/tickets/form' %>
+    </div>
+  </div>
+
+  <div class="ui modal">
+    <i class="close icon"></i>
+  </div>
