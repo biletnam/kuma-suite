@@ -1,0 +1,124 @@
+<div class="ui fullcontainer">
+  <div class="ui container">
+<div class="ui segment">
+
+  <div class="ui right aligned cards">
+  <div class="ui card">
+      <div class="content">
+        <div class="header">Invoice # 999999
+          <br>
+          Order # 111111</div>
+        <div class="meta">Sept 11 2017</div>
+        <div class="description">
+          Elliot Fu, Some Company Inc
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= form_for [@invoice, @order] do |f|  %>
+  <%= f.input :amount %>
+  <%= f.submit 'Pledge!', class: 'btn btn-primary' %>
+  <button type="button" name="button">Make Payment</button>
+  <% end %>
+
+      <table class="ui unstackable table">
+        <thead>
+          <tr>
+            <th>
+              work order
+            </th>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <th>Status</th>
+            <th class="right aligned">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John</td>
+            <td>Approved</td>
+            <td class="right aligned">None</td>
+          </tr>
+          <tr>
+            <td>Jamie</td>
+            <td>Approved</td>
+            <td class="right aligned">Requires call</td>
+          </tr>
+          <tr>
+            <td>Jill</td>
+            <td>Denied</td>
+            <td class="right aligned">None</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="ui tablet stackable table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Status</th>
+            <th class="right aligned">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John</td>
+            <td>Approved</td>
+            <td class="right aligned">None</td>
+          </tr>
+          <tr>
+            <td>Jamie</td>
+            <td>Approved</td>
+            <td class="right aligned">Requires call</td>
+          </tr>
+          <tr>
+            <td>Jill</td>
+            <td>Denied</td>
+            <td class="right aligned">None</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+
+
+
+<!--
+Order # 555555
+Date
+Customer ID
+
+
+Helpdesk Bear CRM
+Company info
+Rep:
+
+Bill to
+Client:
+Company
+Address Info
+
+
+Invoice total
+
+Work order info
+SKU
+Job
+Hours
+Rate
+Amount
+
+Invoice Details
+SKU
+Description
+Quantity
+Unit price
+Amount
+
+Invoice comments -->
+
+</div>
+  </div>
+</div>

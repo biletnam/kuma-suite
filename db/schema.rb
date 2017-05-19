@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20170518020015) do
     t.string   "title"
     t.string   "body"
     t.string   "department"
+    t.string   "rep"
     t.string   "flag"
     t.string   "status",        default: "open"
     t.datetime "created_at",                     null: false
