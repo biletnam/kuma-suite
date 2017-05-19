@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :comment
   has_many :tickets, dependent: :nullify
+  has_many :invoices, dependent: :nullify
 
 
   def full_name

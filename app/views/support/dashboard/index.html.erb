@@ -38,11 +38,11 @@
 <!-- ticket history -->
         <div class="ui segment">
           <div class="ui teal labeled icon button float-right" id="modalpop">
-            Submit a new Ticket
+            Submit Ticket
             <i class="add icon"></i>
           </div>
 
-          <h3 class="">Your ticket history</h3>
+          <h3 class="">Your ticket history <small class='muted-text'>last 3 recent</small></h3>
           <hr>
           <div class="ui vertical segment">
           <% if current_user.tickets.present? %>
@@ -56,8 +56,32 @@
           <% end %>
           </div>
         </div>
-        <br>
+
+<!-- invoice history -->
+      <div class="ui segment">
+        <div class="ui teal labeled icon button float-right" id="modalpop">
+          Pay Invoice
+          <i class="add icon"></i>
+        </div>
+
+        <h3 class="">Your invoice history <small class='muted-text'>last 3 recent</small></h3>
+        <hr>
+        <div class="ui vertical segment">
+        <% if current_user.tickets.present? %>
+          <% @user.tickets.each do |t| %>
+            <h5><%= link_to t.title, support_ticket_path(t) %></h5>
+            <p>Submitted: <%= t.created_at %></p>
+            <hr>
+          <% end %>
+        <% else %>
+          <p class='muted-text'>Nothing to show!</p>
+        <% end %>
+        </div>
       </div>
+      <br>
+    </div>
+
+
 
 <!-- side column  -->
       <div class="six wide column">

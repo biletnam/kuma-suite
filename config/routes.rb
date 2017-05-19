@@ -19,18 +19,22 @@ Rails.application.routes.draw do
 
   resources :tickets do
     resources :comments
+    # member do
+    #   ticket 'update'
+    # end
   end
 
   namespace :support do
     resources :user, only: [:show]
     resources :dashboard, only: [:index]
     resources :tickets
+    resources :invoices, only: [:index, :show]
   end
-  # do i need :comments
-  # do i need to make /supp/tikets/everything in there
 
-  # resources :messaging
-  resources :invoices
+  resources :invoices, shallow: true do
+    resources :payments, only: [:new, :create]
+  end
+
   resources :orders
   resources :reports, only: [:index]
 
