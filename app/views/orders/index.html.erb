@@ -1,30 +1,50 @@
-<div class="ui secondary pointing menu">
-  <a class="active item">
-    Calendar
-  </a>
-  <a class="item">
-    Shift Manager
-  </a>
-  <a class="item">
+<div class="ui fullcontainer">
+<!-- secondary nav tabs -->
+  <div class="ui top attached tabular menu">
+    <!-- <a class='item'></a> -->
+    <a class="active item">Work Orders</a>
+    <a class="item">Open Invoices</a>
+    <a class="item">Closed Invoices</a>
 
-  </a>
-  <div class="right menu">
-
-    <div class="item">
-      <div class="ui icon input">
-        <input type="text" placeholder="Search invoices">
-        <i class="search link icon"></i>
+    <div class="right menu">
+<!-- searchbar tab -->
+      <div class="item">
+        <div class="ui transparent icon input">
+          <input type="text" placeholder="Search orders...">
+          <i class="search link icon"></i>
+        </div>
       </div>
     </div>
-
   </div>
-</div>
 
+<!-- tickets header -->
+  <div class="ui bottom attached segment">
+    <div class="">
+      <%= link_to new_ticket_path(@ticket), class: "ui right floated small primary labeled icon button" do %>
+      <i class="user right icon"></i> Create Ticket
+      <% end %>
+    </div>
+    <div class="ui left floated">
+      <h1 class="">Tickets</h1>
+    </div>
+    <hr>
 
-<div class="ui segment">
-  <div class="ui right floated small primary labeled icon button">
-    <i class="user right icon"></i> Create job
+<!-- tickets table -->
+<!-- order tickets by last updated. maybe put in updated by customer or staff flags on the table -->
+    <table class="ui compact celled table striped" id='ticket-table'>
+    <!-- <table class="ui compact celled definition striped table" id='ticket-table'> -->
+
+<!-- table head -->
+      <div class="ui container">
+
+      <div class="ui segment">
+        <div class="ui right floated small primary labeled icon button">
+          <i class="user right icon"></i> Create job
+        </div>
+        <h1>Work Orders</h1>
+        <h3>list of jobs, available for pickup. </h3>
+      </div>
+
+    </div>
   </div>
-  <h1>Work Orders</h1>
-  <h3>list of jobs, available for pickup. </h3>
 </div>

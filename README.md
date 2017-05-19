@@ -53,9 +53,18 @@ App built with Rails, jQuery, AJAX, and Semantic UI CSS framework.
 <!-- - background color -->
 - implement consistent design across app
 - redo design and color
+- for errors and notifications use code below instead
+```
+<div class="ui button" data-inverted="" data-tooltip="Add users to your feed" data-position="bottom right">
+  Bottom Right
+</div>
+```
 
 ## BUGS
 <!-- - when submit ticket from client, redirects to /ticket/id which is only for staff -->
+- div.ui.success needs to adjust size
+- login/sign up needs adjust size
+
 - everything
 - flash/alert outer margin does not apply background color
 - tickets/filter posts change second navbar tab border height
