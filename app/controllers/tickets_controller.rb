@@ -46,10 +46,22 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find params[:id]
     # ticket_params = params.require(:ticket).permit([:title, :body, :department ])
 
-    if !(can? :edit, @ticket)
-      redirect_to root_path, alert: 'access denied'
-    elsif @ticket.update(ticket_params)
-      redirect_to ticket_path(@ticket), notice: 'Ticket updated'
+    respond_to do |format|
+      format.json do
+        if @ticket.update(ticket_params)
+          render json: { status: :success, message: "Ticket #{@ticket.id} Updated"}
+        else
+          render json: { status: :failure, message: "Problem updating ticket #{@ticket.id}"}
+        end
+      end
+
+      format.html do
+        if !(can? :edit, @ticket)
+          redirect_to root_path, alert: 'access denied'
+        elsif @ticket.update(ticket_params)
+          redirect_to ticket_path(@ticket), notice: 'Ticket updated'
+        end
+      end
     end
   end
 

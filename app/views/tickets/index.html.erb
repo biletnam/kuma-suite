@@ -79,8 +79,8 @@
   <!-- table body -->
       <tbody>
       <% @tickets.each do |ticket| %>
-        <tr>
-          <td>
+        <tr class="ticket_row" data-id="<%= ticket.id %>">
+          <td class="ticket_flag">
             <div class="ui dropdown">
               <a><i class='square outline icon'></i></a>
               <div class="menu">
@@ -90,10 +90,10 @@
               </div>
             </div>
           </td>
-          <td>
+          <td class="ticket_status">
             <div class="ui dropdown">
               <a class="text">Open</a>
-              <!-- <i class="dropdown icon"></i> -->
+              <i class="dropdown icon"></i>
               <div class="menu">
                 <div class="item">In progress</div>
                 <div class="item">Pending</div>
@@ -102,10 +102,10 @@
               </div>
             </div>
           </td>
-          <td>
+          <td class="ticket_rep">
             <div class="ui dropdown">
               <a class="text">Unassigned</a>
-              <!-- <i class="dropdown icon"></i> -->
+              <i class="dropdown icon"></i>
               <div class="menu">
                 <% @staff.each do |staff| %>
                 <div class="item"><%= staff.full_name %></div>
