@@ -5,19 +5,23 @@ is an all-in-one support interface for SMB to manage tickets, invoices,  payment
 
 Client-side of the site gives access to support pages to submit tickets and speak to company reps to answer their questions.
 
-Staff-side hosts a handful of features to manage their internal operations and customer relations.
+Staff-side hosts a handful of features to manage their internal operations and customer relations. Ticket status, flags and comments are updated by AJAX requests.
 
-App built with Rails, jQuery, AJAX, and Semantic UI CSS framework.
+Work orders become invoices via AASM, with a payment system from the Stripe API.
+
+Admin options to manage users made available through Devise. User authentication through Devise and CanCan.
+
+App built with Rails, jQuery, and AJAX. UI styled with SASS and Semantic UI. 
 
 
 
-## TODO
-- redesign everything,
+## CURRENT TODO
+- redesign everything
 
 <!-- done items are commented out -->
 - dropdown if rep.is_present
 - flags display
--to do list
+- to do list
 
 ### Ticketing
 - aasm states for status
