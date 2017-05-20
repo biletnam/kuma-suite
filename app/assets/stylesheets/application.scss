@@ -79,14 +79,19 @@ html {
   font-weight: lighter;
 }
 
-#squares {
-  height: 224px;
-  width: 224px;
+.squares {
+  height: 200px;
+  width: 200px;
   margin: 20px;
 }
 
+.squaresh{
+  font-size: 100px;
+}
+
+
 .special.cards {
-  padding: 50px;
+  padding: 20px;
 }
 
 .blurring.immage{

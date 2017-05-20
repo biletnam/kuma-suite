@@ -1,5 +1,7 @@
 <!-- top navbar -->
+<body>
 
+</body>
 <div id="navbar" class="ui inverted menu navbar grid">
   <div class="ui inverted menu">
     <%= image_tag("kumaicon", style:'width:50px; height:50px;') %>
@@ -32,10 +34,10 @@
       <i class="dropdown icon"></i>
       <div class="menu">
         <div class="item">
-          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'item', style: 'color:black' %>
+          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'item', style: 'color:white' %>
         </div>
         <div class="item">
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'item', style: 'color:black' %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'item', style: 'color:white' %>
         </div>
       </div>
     </div>

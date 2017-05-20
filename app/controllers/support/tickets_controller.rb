@@ -4,9 +4,9 @@ class Support::TicketsController < ApplicationController
 
   def index
     @user = current_user
-    @last_ticket = Ticket.last
+    @last_ticket = Ticket.last params[:id]
     @ticket = Ticket.new
-    @tickets = Ticket.all
+    @tickets = current_user.tickets params[:id]
     @ticket.user = current_user
   end
 

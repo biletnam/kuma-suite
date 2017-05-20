@@ -218,13 +218,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0e153a', end
 /*--------------
     Ribbons
 ---------------*/
+#home .pads {
+  padding: 100px 0px;
+}
 
 #home .segment h1 {
   font-size: 3em;
 }
 
 #home .vertical.segment {
-  padding: 5rem 0rem;
+  /*padding: 5rem 0rem;*/
 }
 
 #home .feature.segment {

@@ -1,6 +1,6 @@
 <div class="pusher">
   <div class="ui container">
-    <h1 class='tiffany'>Support Page for <%= current_user.first_name %></h1>
+    <h1 class=''>Ticketing Page for <%= current_user.first_name %></h1>
 
     <div class="ui grid">
       <div class="ten wide column">
@@ -13,7 +13,7 @@
             <h3>Your current ticket:</h3>
           <hr>
 
-          <h1 class='ui block header'><a href>Subject: <%= @last_ticket.title %></a>
+          <h1 class='ui block header'><a href>Subject: <%= link_to "#{@last_ticket.title}", support_ticket_path(@last_ticket) %></a>
           </h1>
 
           <p class='well-sm'><%= @last_ticket.body %></p>
@@ -29,7 +29,7 @@
 
           <% if current_user.tickets.present? %>
             <% @tickets.each do |t| %>
-            <p><%= link_to t.title, ticket_path(t) %></p>
+            <p><%= link_to t.title, support_ticket_path(t) %></p>
             <p>Submitted: <%= t.created_at %></p>
             <hr>
             <% end %>
@@ -61,10 +61,9 @@
           </strong>
 
         <p>User tickets: <span class='float-right'>
-          <strong>1</span></p>
+          <strong><%= current_user.tickets.count %></span></p>
              <!-- @ticket user . count or w/e -->
           </strong>
-
       </div>
     </div>
   </div>
@@ -80,7 +79,7 @@
         <em>When submitting a ticket, please give a full description of the problem to help us serve you better. Please bear in mind that the average wait time is 1 to 2 business days. For emergency assistance please call 911.</em>
       </div>
       <div class="content">
-        <%= render 'support/form' %>
+        <%= render 'support/tickets/form' %>
       </div>
     </div>
 
