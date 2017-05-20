@@ -1,6 +1,6 @@
 <img src="http://cs4.pikabu.ru/images/big_size_comm/2015-02_1/14231240052247.png" width="150">
 
-# Helpdesk Bear CRM
+# KUMA SUITE
 is an all-in-one support interface for SMB to manage tickets, invoices,  payments, work orders, staff performance and customer relations.
 
 Client-side of the site gives access to support pages to submit tickets and speak to company reps to answer their questions.
@@ -10,8 +10,14 @@ Staff-side hosts a handful of features to manage their internal operations and c
 App built with Rails, jQuery, AJAX, and Semantic UI CSS framework.
 
 
+
 ## TODO
+- redesign everything,
+
 <!-- done items are commented out -->
+- dropdown if rep.is_present
+- flags display
+-to do list
 
 ### Ticketing
 - aasm states for status

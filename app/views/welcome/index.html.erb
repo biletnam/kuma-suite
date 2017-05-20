@@ -1,44 +1,125 @@
+<div class="ui transition information">
+  <div class="headermain pads">
 
-    <div class="pusher">
-      <div class="ui container">
+  <h1 class="ui inverted centered header">
+    Introducing Kuma Suite
+  </h1>
+  <p class="ui centered lead">
+    The little big all-in-one SMB management software
+  </p>
+  <a href="#" class="large basic inverted animated fade ui button">
+    <div class="visible content">Client-Side Support</div>
+    <div class="hidden content">Register Now</div>
+  </a>
+</div>
+  <div class="ui centerted image">
+    <%= link_to(image_tag("kumaheart"), root_path) %>
+  </div>
+</div>
 
-    <div class="ui inverted vertical masthead center aligned segment">
-      <div class="ui text container">
-        <%= image_tag("kumaheart", id: '', class: "") %>
-        <div class="ui inverted header">
-          <h1>The all in one, can-do attitude</h1>
-          <h1 style="font-size: 50px">Helpdesk Bear CRM Suite</h1>
-          <h3>Simply the bear necessities</h3>
+<!-- continued ending divs from render -->
+    <br><br>
+    <br>
+    </div>
+  </div>
+</div>
 
-          <% if user_signed_in?  %>
-          <% else %>
-          <%= link_to new_user_session_path, class: "ui large teal submit button" do %> Log in to get started!<i class='right arrow icon'></i>
-          <% end %>
-          <% end %>
-
+<br>
+<br>
+<div class="ui vertical segment pads">
+  <div class="ui centered page grid">
+    <div class="fourteen wide column">
+      <div class="ui three column center aligned stackable divided grid">
+        <div class="column column-feature">
+          <div class="ui icon header">
+            <i class="comments outline icon"></i>
+            CRM
+          </div>
+          <p>Manage customer support interactions with the internal ticketing system. <strong>Real time response</strong> to tickets using AJAX. </p>
+          </div>
+          <div class="column column-feature">
+            <div class="ui icon header">
+              <i class=" users icon"></i>
+              Staff Management
+            </div>
+            <p>On top of keeping track of all your customers, allow staff to manage themselves using an integrated <strong>Google Calendar</strong> with staff scheduling and appointments.</p>
+          </div>
+          <div class="column column-feature">
+            <div class="ui icon header">
+              <i class="payment icon"></i>
+              Invoicing
+            </div>
+            <p>Create work orders and get paid through invoices using <strong>Stripe Payments.</strong></p>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+<!--  -->
+
+<div class="ui recent_works pads">
+  <div class="ui  vertical segment">
+    <div class="ui very relaxed stackable centered page grid">
+      <div class="row">
+        <div class="eight wide centered column">
+          <h1 class="center aligned ui inverted header">
+            Want to learn more?
+          </h1>
+            <div class="ui horizontal divider"><i class="white flaticon-camera icon"></i></div>
+            <p class="ui centered lead">Submit your email to request more information about Kuma Suite.</p>
+        </div>
+      </div>
+      <div class="ui form eight wide subscribe column">
+        <div class="field">
+          <div class="ui fluid action input">
+            <input placeholder="Susbcribe..." type="text">
+            <div class="ui button">Susbcribe</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="ui container">
-
-
-
-
-
-  <%= image_tag("kumateal", class:"") %>
-
-
-
-seamless integration, can bearly notice
-
-
-
-
-
-
-
 </div>
-      <%= render "layouts/footer" %>
+
+
+  <div class="ui vertical segment pads">
+    <div class="ui stackable center aligned page grid">
+      <div class="row">
+        <div class="eight wide column">
+          <h1 class="ui header">
+            About Kuma Suite
+          </h1><div class="ui horizontal divider"><i class="flaticon-settings icon"></i></div>
+            <p class="ui centered lead">
+            Some of the technologies behind the program
+            </p>
+          <br/>
+        </div>
+      </div>
+      <div class="four column logo row">
+        <div class="column">
+          <div class="ui">
+            <%= image_tag "iconrails",  class:"brandlogo" %>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui">
+            <%= image_tag "iconsemantic",  class:"brandlogo" %>
+
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui">
+            <%= image_tag "iconsass",  class:"brandlogo" %>
+
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui">
+            <%= image_tag "iconjq",  class:"brandlogo"%>
+
+          </div>
+        </div>
+        </div>
+        </div>
+        </div>

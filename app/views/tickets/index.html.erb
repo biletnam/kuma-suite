@@ -104,7 +104,11 @@
           </td>
           <td class="ticket_rep">
             <div class="ui dropdown">
+              <% if ticket.rep %>
+              <a class="text"><%= ticket.rep %></a>
+              <% else %>
               <a class="text">Unassigned</a>
+              <% end %>
               <i class="dropdown icon"></i>
               <div class="menu">
                 <% @staff.each do |staff| %>

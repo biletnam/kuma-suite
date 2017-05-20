@@ -1,17 +1,13 @@
-<div class="ui container aligned center aligned grid">
-  <div class="column">
-    <h2 class="ui teal image header">
-      <!-- <img src="assets/images/logo.png" class="image"> -->
-      <div class="content">
-        Sign up for a new account
-      </div>
-    </h2>
+<div  style ="margin-top:200px"  class="pusher ">
+  <div class="ui middle aligned center aligned grid">
+    <div class="column">
 
 <!-- under views/devse -->
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class:"ui large form",) do |f| %>
 
   <div class="ui stacked segment">
+    <h2 class="ui header">Sign up for a new account</h2>
 
     <div class="field">
       <div class="ui fluid large left icon input">
@@ -59,4 +55,6 @@
   <div class="hidden content">
     Log in!
   </div>
+</div>
+</div>
 </div>
