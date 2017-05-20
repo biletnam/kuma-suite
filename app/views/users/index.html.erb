@@ -3,10 +3,8 @@
 <!-- secondary nav tabs -->
   <div class="ui top attached tabular menu">
     <!-- <a class='item'></a> -->
-    <a class="active item">Clients List</a>
-    <a class="item">Staff List</a>
-    <a class="item">Admin List</a>
-
+    <a class="item active" data-tab="users1" >Clients List</a>
+    <a class="item" data-tab="users2" >Staff List</a>
     <div class="right menu">
 <!-- searchbar tab -->
       <div class="item">
@@ -15,35 +13,153 @@
           <i class="search link icon"></i>
         </div>
         <div class="item"></div>
-
-        </div>
+      </div>
     </div>
   </div>
 
-  <div class="ui bottom attached segment">
+  <div class="ui bottom attached tab segment active" data-tab="users1">
+    <div class="ui container">
     <h1>Clients List</h1>
-      <p> make into one column, the right side opens ajax call on user profile render </p>
-      <p>or modal </p>
+    <table class="ui celled striped table">
+      <thead>
+        <tr><th colspan="3">
+          Clients List
+        </th></tr>
+      </thead>
+      <tbody>
+      <% @clients.each do |client| %>
+      <tr>
+        <td class="collapsing">
+          <i class="user icon"></i> Client
+        </td>
+        <td id="modalclientbtn"><%= client.full_name %></td>
+        <td class="right aligned collapsing">
+          Created: <%= client.created_at %>
+        </td>
+      </tr>
+      <% end %>
+      </tbody>
+    </table>
+    </div>
+  </div>
 
 
-<div class="ui container">
 
-        <% @clients.each do |client| %>
-        <div class="ui cards">
-          <div class="card">
-            <div class="content">
-              <div class="header"><%= link_to client.full_name, client %></div>
-              <div class="meta"><%= client %></div>
-              <div class="description">
-                <%= client.email %>
+  <div class="ui bottom attached tab segment" data-tab="users2">
+    <div class="ui container">
+    <h1>Staff List</h1>
+    <table class="ui celled striped table">
+      <thead>
+        <tr><th colspan="3">
+          Staff List
+        </th></tr>
+      </thead>
+      <tbody>
+        <% @staff.each do |staff| %>
+        <tr>
+          <td class="collapsing">
+            <% if !staff.is_admin %>
+            <i class="user icon"></i> Staff
+            <% elsif staff.is_admin? %>
+            <i class="star icon"></i> Admin
+            <% end %>
+          </td>
+          <td id="modalstaffbtn"><%= staff.full_name %></td>
+          <td class="right aligned collapsing">
+            Created: <%= staff.created_at %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+</div>
+
+  <!-- user modal popup -->
+  <% @staff.each do |staff| %>
+      <div id='modalstaff' class="ui modal">
+        <i class="close icon"></i>
+        <div class="header">
+          <%= staff.first_name %>
+        </div>
+        <div class="content">
+
+          <div class="ui special cards">
+            <div class="card">
+              <div class="image">
+                <%= image_tag("/avatars/#{staff.profile_pic}")  %>
+              </div>
+              <div class="content">
+                <a class="header"><%= staff.first_name %>
+                  <small class='muted-text float-right'>
+                    <% if staff.is_admin %>
+                      <i class="star icon"></i>Admin
+                    <% elsif staff.is_staff %>
+                      <i class="staff icon"></i>Staff
+                    <% end %>
+                  </small>
+                </a>
+                <div class="meta">
+                  <span class="date">
+                    Joined: <%= staff.created_at.strftime("%b %d, %Y") %>
+                  </span>
+                </div>
+              </div>
+              <div class="extra content">
+                <a>
+                  <i class="check circle green icon"></i>
+                  Rep: +42
+                </a>
               </div>
             </div>
           </div>
         </div>
-        <% end %>
+      </div>
+      <% end %>
 
+      <div class="ui modal">
+        <i class="close icon"></i>
       </div>
 
+  <!--  -->
+  <% @clients.each do |client| %>
+      <div id='modalclient' class="ui modal">
+        <i class="close icon"></i>
+        <div class="header">
+          <%= client.first_name %>
+        </div>
+        <div class="content">
+          <div class="ui special cards">
+            <div class="card">
+              <div class="dimmable image">
+                <%= image_tag("/avatars/#{client.profile_pic}")  %>
+              </div>
+              <div class="content">
+                <a class="header"><%= client.first_name %>
+                  <small class='muted-text float-right'>
+                    <i class="smile icon"></i>Client
+                  </small>
+                </a>
+                <div class="meta">
+                  <span class="date">
+                    Joined: <%= client.created_at.strftime("%b %d, %Y") %>
+                  </span>
+                </div>
+              </div>
+              <div class="extra content">
+                <a>
+                  <i class="check circle green icon"></i>
+                  Rep: +42
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
 
-</div>
-</div>
+      <div class="ui modal">
+        <i class="close icon"></i>
+      </div>
