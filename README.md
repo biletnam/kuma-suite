@@ -12,12 +12,14 @@ App built with Rails, jQuery, AJAX, and Semantic UI CSS framework.
 
 
 ## TODO
-- redesign everything,
-
+<!-- - redesign everything, -->
+<!-- users index pages  -->
+<!-- users modals  -->
+- work orders
 <!-- done items are commented out -->
 - dropdown if rep.is_present
 - flags display
--to do list
+- to do list
 
 ### Ticketing
 - aasm states for status
@@ -40,7 +42,7 @@ App built with Rails, jQuery, AJAX, and Semantic UI CSS framework.
 <!-- - change resources to support/ticket/id instead. -->
 
 ### Users
-- pretty up user pages
+<!-- - pretty up user pages -->
 <!-- - users to complete [admin, agents, clients] -->
 <!-- - add user types: user roles -->
 <!-- - add rolify like method manually -->
@@ -58,22 +60,23 @@ App built with Rails, jQuery, AJAX, and Semantic UI CSS framework.
 <!-- - change name -->
 <!-- - background color -->
 - implement consistent design across app
-- redo design and color
-- for errors and notifications use code below instead
+<!-- - redo design and color -->
+<!-- - for errors and notifications use code below instead
 ```
 <div class="ui button" data-inverted="" data-tooltip="Add users to your feed" data-position="bottom right">
   Bottom Right
 </div>
-```
+``` -->
 
 ## BUGS
+- users modals only first 
 <!-- - when submit ticket from client, redirects to /ticket/id which is only for staff -->
 - div.ui.success needs to adjust size
-- login/sign up needs adjust size
+<!-- - login/sign up needs adjust size -->
 
-- everything
-- flash/alert outer margin does not apply background color
-- tickets/filter posts change second navbar tab border height
+<!-- - everything -->
+<!-- - flash/alert outer margin does not apply background color -->
+<!-- - tickets/filter posts change second navbar tab border height -->
 <!-- - seeds crash when adding profile_pic, something devise model -->
 <!-- - might need to add table profile pic to user? -->
 
