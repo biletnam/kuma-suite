@@ -1,0 +1,42 @@
+
+  <div class="ui fullcontainer">
+
+
+
+  <div class="ui inverted vertical masthead center aligned segment">
+    <div class="ui text container">
+      <%= image_tag("kumaheart", id: '', class: "") %>
+      <div class="ui inverted header">
+        <h1>The all in one, can-do attitude</h1>
+        <h1 style="font-size: 50px">Helpdesk Bear CRM Suite</h1>
+        <h3>Simply the bear necessities</h3>
+
+        <% if user_signed_in?  %>
+        <% else %>
+        <%= link_to new_user_session_path, class: "ui large teal submit button" do %> Log in to get started!<i class='right arrow icon'></i>
+        <% end %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+  <div class="ui container">
+
+
+
+
+
+<%= image_tag("kumateal", class:"") %>
+
+
+
+seamless integration, can bearly notice
+
+
+
+
+
+
+
+</div>
+    <%= render "layouts/footer" %>

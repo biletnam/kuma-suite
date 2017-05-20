@@ -1,0 +1,60 @@
+<!-- top navbar -->
+<body id="home">
+
+  <div class="ui inverted masthead centered segment">
+    <div class="ui page grid">
+      <div class="column">
+
+<div class="ui secondary pointing menu">
+
+  <%= image_tag("kumahands", style:'width:70px; height:65px;')  %>
+  <div class="active item">
+      <%= link_to 'Kuma Suite', root_path, style:'font-size:28px; color: #FFF;' %>
+  </div>
+
+  <!-- logged in client support left menu -->
+  <% if user_signed_in? && current_user.is_client %>
+  <div class="item">
+    <%= link_to 'Client Dashboard', support_dashboard_index_path, class:'white' %>
+  </div>
+  <% end %>
+
+
+<!-- user signed in right menu -->
+  <div class="right menu">
+
+    <% if user_signed_in? %>
+    <a class="active item">
+      Alerts
+      <!-- add alerts [new posts, user requests, etc] ~-->
+      <div class="ui teal label">3</div>
+    </a>
+
+    <div class='ui dropdown item'>
+      <strong class="white"><%= current_user.full_name %></strong>
+      <i class="dropdown icon"></i>
+      <div class="menu">
+        <div class="item">
+          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'item' %>
+        </div>
+        <div class="item white">
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'item' %>
+        </div>
+      </div>
+    </div>
+
+<!-- user not signed in -->
+    <% else %>
+
+      <%= link_to new_user_registration_path, class: "#{'active' if current_page?(new_user_registration_path)} item" do %>
+      <i class="large add user tiffany icon"></i> Sign up
+
+
+      <% end %>
+      <%= link_to new_user_session_path, class: "#{'active' if current_page?(new_user_session_path)} item " do %>
+      <i class="large sign in tiffany icon"></i> Log In
+      <% end %>
+    <% end %>
+
+    </div>
+  </div>

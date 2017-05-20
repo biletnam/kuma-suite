@@ -6,14 +6,39 @@
  @import "semantic-ui";
  @import "semantic-ui/collections/menu";
 
-html body {
-  background-color: #EFEFEF;
+$base-color: #EFEFEF;
+$nav-color: #213040;
+$base-color: #EFEFEF;
+$rale: Raleway, sans-serif;
+$sans: Source Sans Pro, sans-serif;
+
+html {
+  font-family: $sans;
+  body {
+  background-color: $base-color;
+  }
 }
+
 #navbar {
   padding-left: 100px;
   margin-bottom: 0px;
+  background-color: $nav-color;
+  div {
+    background-color: $nav-color;
+  }
 }
 
+.ui.menu a.item {
+  color: #FFF;
+}
+
+#sidenav {
+  background-color: $nav-color
+}
+
+.headermain {
+  margin: 50px 0px 50px 0px;
+}
 
 .ui.inverted.menu {
   border-radius: 0px;
@@ -29,7 +54,7 @@ html body {
 }
 
 .pusher {
-  background-color: #1B1C1D;
+  // background-color: #1B1C1D;
   height:100vh;
 }
 
@@ -46,9 +71,37 @@ html body {
 
 .ui.fullcontainer {
   padding-left: 100px;
+  // margin-left: 20px;
 }
 
 .muted-text {
   color: #6b6b6b;
   font-weight: lighter;
 }
+
+#squares {
+  height: 224px;
+  width: 224px;
+  margin: 20px;
+}
+
+.special.cards {
+  padding: 50px;
+}
+
+.blurring.immage{
+  padding:50px;
+}
+
+.brandlogo {
+  width: 150px;
+  height: 150px;
+}
+
+.white { color: #FFFFFF }
+h1 * { font-family: $rale; }
+h2 * { font-family: $rale; }
+h3 * { font-family: $rale; }
+h4 * { font-family: $rale; }
+h5 * { font-family: $rale; }
+.rale { font-family: $rale; }

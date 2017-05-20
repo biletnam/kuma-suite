@@ -13,6 +13,9 @@ $(document).ready(function(){
 
   $('#dropdownmenu').dropdown();
 
+  $('.special.cards .image').dimmer({
+    on: 'hover'
+  });
 
 // ticket department select
   $('.ui.dropdown').dropdown();
@@ -23,5 +26,4 @@ $(document).ready(function(){
       .closest('.message')
       .transition('fade');
   });
-
 });
