@@ -65,7 +65,7 @@ class TicketsController < ApplicationController
   end
 
   def destroy
-    ticket = Ticket.find params[:id]
+    @ticket = Ticket.find params[:id]
     # ticket.destroy
     if can? :destroy, @ticket
       @ticket.destroy

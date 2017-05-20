@@ -1,6 +1,12 @@
 $(document).ready(function(){
 
   $('.brandlogo').on('mouseover', function(){
+<<<<<<< HEAD
+    $(this).transition()
+  });
+
+})
+=======
     $(this).transition('pulse')
   });
 
@@ -21,3 +27,4 @@ else {
         "bounceInRight");
 }
 });
+>>>>>>> 3db3b4d2b5842fee837f89c6196573389c3fe9dc
