@@ -32,7 +32,7 @@
         <td class="collapsing">
           <i class="user icon"></i> Client
         </td>
-        <td><%= link_to client.full_name, client %></td>
+        <td id="modalclientbtn"><%= client.full_name %></td>
         <td class="right aligned collapsing">
           Created: <%= client.created_at %>
         </td>
@@ -42,6 +42,7 @@
     </table>
     </div>
   </div>
+
 
 
   <div class="ui bottom attached tab segment" data-tab="users2">
@@ -63,7 +64,7 @@
             <i class="star icon"></i> Admin
             <% end %>
           </td>
-          <td id="modalstaffbtn"><%= link_to staff.full_name, staff %></td>
+          <td id="modalstaffbtn"><%= staff.full_name %></td>
           <td class="right aligned collapsing">
             Created: <%= staff.created_at %>
           </td>
@@ -74,6 +75,7 @@
     </div>
   </div>
 
+</div>
 
   <!-- user modal popup -->
   <% @staff.each do |staff| %>
@@ -83,14 +85,10 @@
           <%= staff.first_name %>
         </div>
         <div class="content">
-          <em>When submitting a ticket, please give a full description of the problem to help us serve you better. Please bear in mind that the average wait time is 1 to 2 business days. For emergency assistance please call 911.</em>
-        </div>
-        <div class="content">
-          hing into  a layout for modal </h1>
 
           <div class="ui special cards">
             <div class="card">
-              <div class="dimmable image">
+              <div class="image">
                 <%= image_tag("/avatars/#{staff.profile_pic}")  %>
               </div>
               <div class="content">
@@ -100,8 +98,6 @@
                       <i class="star icon"></i>Admin
                     <% elsif staff.is_staff %>
                       <i class="staff icon"></i>Staff
-                    <% elsif staff.is_client %>
-                      <i class="smile icon"></i>Client
                     <% end %>
                   </small>
                 </a>
@@ -120,14 +116,50 @@
             </div>
           </div>
         </div>
-        </div>
-        <% end %>
+      </div>
+      <% end %>
 
       <div class="ui modal">
         <i class="close icon"></i>
       </div>
+
   <!--  -->
+  <% @clients.each do |client| %>
+      <div id='modalclient' class="ui modal">
+        <i class="close icon"></i>
+        <div class="header">
+          <%= client.first_name %>
+        </div>
+        <div class="content">
+          <div class="ui special cards">
+            <div class="card">
+              <div class="dimmable image">
+                <%= image_tag("/avatars/#{client.profile_pic}")  %>
+              </div>
+              <div class="content">
+                <a class="header"><%= client.first_name %>
+                  <small class='muted-text float-right'>
+                    <i class="smile icon"></i>Client
+                  </small>
+                </a>
+                <div class="meta">
+                  <span class="date">
+                    Joined: <%= client.created_at.strftime("%b %d, %Y") %>
+                  </span>
+                </div>
+              </div>
+              <div class="extra content">
+                <a>
+                  <i class="check circle green icon"></i>
+                  Rep: +42
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
 
-
-
-</div>
+      <div class="ui modal">
+        <i class="close icon"></i>
+      </div>

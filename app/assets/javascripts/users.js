@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
-  $('#modaluserbtn').click(function(){
-    $('#modaluser').modal('show');
+  $('#modalclientbtn').click(function(){
+    $('#modalclient').modal('show');
   });
   $('#modalstaffbtn').click(function(){
     $('#modalstaff').modal('show');
