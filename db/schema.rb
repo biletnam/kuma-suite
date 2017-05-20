@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170518020015) do
+ActiveRecord::Schema.define(version: 20170512012336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,20 +35,15 @@ ActiveRecord::Schema.define(version: 20170518020015) do
     t.index ["user_id"], name: "index_departments_on_user_id", using: :btree
   end
 
-  create_table "invoices", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "tickets", force: :cascade do |t|
     t.string   "title"
     t.string   "body"
     t.string   "department"
-    t.string   "rep"
+    t.string   "rep",           default: "Unassigned"
     t.string   "flag"
     t.string   "status",        default: "open"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.integer  "user_id"
     t.integer  "department_id"
     t.index ["department_id"], name: "index_tickets_on_department_id", using: :btree

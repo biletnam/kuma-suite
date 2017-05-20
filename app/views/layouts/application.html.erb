@@ -20,18 +20,21 @@
   <%= render "layouts/frontnavbar" %>
    <% end %>
 
-    <% if flash[:notice] %>
+
+    <article >
+      <div class="ui container">
+      <% if flash[:notice] %>
       <div class="ui success message closable">
         <i class="close icon"></i>
         <%= flash[:notice] %>
       </div>
-
-    <% elsif flash[:alert] %>
-      <div class="ui negative message"><%= flash[:alert] %></div>
-    <% end %>
-
-
-    <article >
+      <% elsif flash[:alert] %>
+      <div class="ui negative message">
+        <i class="close icon"></i>
+        <%= flash[:alert] %>
+      </div>
+      <% end %>
+      </div>
 
       <% if user_signed_in? %>
         <%= render "layouts/sidenav" %>
