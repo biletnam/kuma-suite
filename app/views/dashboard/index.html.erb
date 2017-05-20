@@ -1,23 +1,77 @@
 <div class="ui fullcontainer">
   <div class="ui ">
 
-<!-- secondary nav tabs -->
-  <div class="ui top attached tabular menu">
-    <!-- <a class='item'></a> -->
-    <a class="active item">Dashboard</a>
-    <a class="item">Activity</a>
-    <div class="right menu">
-      <div class="item">
-        <div class="ui transparent icon input">
-          <input type="text" placeholder="Search disabled...">
-          <i class="search link icon"></i>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="ui bottom attached segment">
+
+  <div class="ui segment">
     <h1>Your Dashboard </h1>
+<hr>
+
+    <div class="ui three column grid">
+      <div class="row">
+
+    <div class="ui fluid special cards">
+        <div id="squares" class="blurring dimmable image">
+          <div class="ui dimmer">
+            <div class="content">
+              <div class="center">
+                <h1>
+                  <%= link_to "Stuff", user_path(current_user), class:'white' %>
+                </h1>
+              </div>
+            </div>
+          </div>
+          <i class="bordered inverted teal inbox massive icon"></i>
+        </div>
+        <div id="squares" class="blurring dimmable image">
+          <div class="ui dimmer">
+            <div class="content">
+              <div class="center">
+                <h1>
+                  <%= link_to "Stuff", user_path(current_user), class:'white' %>
+                </h1>
+              </div>
+            </div>
+          </div>
+          <i class="bordered inverted teal inbox massive icon"></i>
+        </div>
+        <div id="squares" class="blurring dimmable image">
+          <div class="ui dimmer">
+            <div class="content">
+              <div class="center">
+                <h1>
+                  <%= link_to "Stuff", user_path(current_user), class:'white' %>
+                </h1>
+              </div>
+            </div>
+          </div>
+          <i class="bordered inverted teal inbox massive icon"></i>
+        </div>
+
+    </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="ui teal segment container">
       <h5>Hello <%= current_user.first_name %>, your targets for this month is: 9001</h5>
     </div>

@@ -4,34 +4,37 @@
     <title>Helpdesk</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.css" />
-
     <!-- prob dont need this yet, for datatables, no gem available -->
     <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"> -->
     <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/js/dataTables.semanticui.min.js"> -->
+<<<<<<< HEAD
+=======
+<link href="https://fonts.googleapis.com/css?family=Raleway|Source+Sans+Pro" rel="stylesheet">
+    <%= javascript_include_tag 'application' %>
+>>>>>>> 3db3b4d2b5842fee837f89c6196573389c3fe9dc
   </head>
 
-  <body id='body'>
-    <%= render "layouts/navbar" %>
+  <% if user_signed_in? && current_user.is_staff? %>
+  <%= render "layouts/navbar" %>
+  <% elsif user_signed_in? && current_user.is_client? %>
+  <%= render "layouts/frontnavbar" %>
+  <% else %>
+  <%= render "layouts/frontnavbar" %>
+   <% end %>
 
-
-      <div class="ui container grayish">
-        <% if flash[:notice] %>
-          <div class="ui success message closable">
-            <i class="close icon"></i>
-            <%= flash[:notice] %>
-          </div>
-
-        <% elsif flash[:alert] %>
-          <div class="ui negative message"><%= flash[:alert] %></div>
-        <% end %>
-
+    <% if flash[:notice] %>
+      <div class="ui success message closable">
+        <i class="close icon"></i>
+        <%= flash[:notice] %>
       </div>
 
+    <% elsif flash[:alert] %>
+      <div class="ui negative message"><%= flash[:alert] %></div>
+    <% end %>
 
-    <article>
+
+    <article >
 
       <% if user_signed_in? %>
         <%= render "layouts/sidenav" %>
