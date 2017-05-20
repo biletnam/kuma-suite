@@ -55,79 +55,74 @@
       </thead>
       <tbody>
         <% @staff.each do |staff| %>
-        <tr>
-          <td class="collapsing">
-            <% if !staff.is_admin %>
-            <i class="user icon"></i> Staff
-            <% elsif staff.is_admin? %>
-            <i class="star icon"></i> Admin
-            <% end %>
-          </td>
-          <td id="modalstaffbtn"><%= link_to staff.full_name, staff %></td>
-          <td class="right aligned collapsing">
-            Created: <%= staff.created_at %>
-          </td>
-        </tr>
+          <tr>
+            <td class="collapsing">
+              <% if !staff.is_admin %>
+              <i class="user icon"></i> Staff
+              <% elsif staff.is_admin? %>
+              <i class="star icon"></i> Admin
+              <% end %>
+            </td>
+            <td class="modalstaffbtn" data-uid="<%= staff.id %>">
+              <a href="#"><%= staff.full_name %></a>
+            </td>
+            <td class="right aligned collapsing">
+              Created: <%= staff.created_at %>
+            </td>
+          </tr>
+
+          <!-- user modal popup -->
+          <div id='modalstaff_<%= staff.id %>' class="ui modal">
+            <i class="close icon"></i>
+            <div class="header">
+              <%= staff.first_name %>
+            </div>
+            <div class="content">
+              <em>When submitting a ticket, please give a full description of the problem to help us serve you better. Please bear in mind that the average wait time is 1 to 2 business days. For emergency assistance please call 911.</em>
+            </div>
+            <div class="content">
+              hing into  a layout for modal </h1>
+
+              <div class="ui special cards">
+                <div class="card">
+                  <div class="dimmable image">
+                    <%= image_tag("/avatars/#{staff.profile_pic}")  %>
+                  </div>
+                  <div class="content">
+                    <a class="header"><%= staff.first_name %>
+                      <small class='muted-text float-right'>
+                        <% if staff.is_admin %>
+                          <i class="star icon"></i>Admin
+                        <% elsif staff.is_staff %>
+                          <i class="staff icon"></i>Staff
+                        <% elsif staff.is_client %>
+                          <i class="smile icon"></i>Client
+                        <% end %>
+                      </small>
+                    </a>
+                    <div class="meta">
+                      <span class="date">
+                        Joined: <%= staff.created_at.strftime("%b %d, %Y") %>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="extra content">
+                    <a>
+                      <i class="check circle green icon"></i>
+                      Rep: +42
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ui modal">
+            <i class="close icon"></i>
+          </div>
+          <!-- User Modal Popup End -->
         <% end %>
       </tbody>
     </table>
     </div>
   </div>
-
-
-  <!-- user modal popup -->
-  <% @staff.each do |staff| %>
-      <div id='modalstaff' class="ui modal">
-        <i class="close icon"></i>
-        <div class="header">
-          <%= staff.first_name %>
-        </div>
-        <div class="content">
-          <em>When submitting a ticket, please give a full description of the problem to help us serve you better. Please bear in mind that the average wait time is 1 to 2 business days. For emergency assistance please call 911.</em>
-        </div>
-        <div class="content">
-          hing into  a layout for modal </h1>
-
-          <div class="ui special cards">
-            <div class="card">
-              <div class="dimmable image">
-                <%= image_tag("/avatars/#{staff.profile_pic}")  %>
-              </div>
-              <div class="content">
-                <a class="header"><%= staff.first_name %>
-                  <small class='muted-text float-right'>
-                    <% if staff.is_admin %>
-                      <i class="star icon"></i>Admin
-                    <% elsif staff.is_staff %>
-                      <i class="staff icon"></i>Staff
-                    <% elsif staff.is_client %>
-                      <i class="smile icon"></i>Client
-                    <% end %>
-                  </small>
-                </a>
-                <div class="meta">
-                  <span class="date">
-                    Joined: <%= staff.created_at.strftime("%b %d, %Y") %>
-                  </span>
-                </div>
-              </div>
-              <div class="extra content">
-                <a>
-                  <i class="check circle green icon"></i>
-                  Rep: +42
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
-        <% end %>
-
-      <div class="ui modal">
-        <i class="close icon"></i>
-      </div>
-  <!--  -->
-
-
-
 </div>
