@@ -1,65 +1,62 @@
 <div class="ui fullcontainer">
-  <div class="">
 
 <!-- secondary nav tabs -->
-    <div class="ui top attached tabular menu">
-      <!-- <a class='item'></a> -->
-      <a class="active item">Current Tickets</a>
-      <a class="item">My Tickets</a>
-      <a class="item">Closed Tickets</a>
+  <div class="ui top attached tabular menu">
+    <!-- <a class='item'></a> -->
+    <a class="active item">Current Tickets</a>
+    <a class="item">My Tickets</a>
+    <a class="item">Closed Tickets</a>
 
-      <div class="right menu">
+    <div class="right menu">
 <!-- searchbar tab -->
-        <div class="item">
-          <div class="ui transparent icon input">
-            <input type="text" placeholder="Search tickets...">
-            <i class="search link icon"></i>
-          </div>
-          <div class="item"></div>
+      <div class="item">
+        <div class="ui transparent icon input">
+          <input type="text" placeholder="Search tickets...">
+          <i class="search link icon"></i>
+        </div>
+        <div class="item"></div>
 <!-- filter posts -->
-          <div class="ui dropdown">
-            <input type="hidden" name="filters">
-            <i class="grey filter icon"></i>
+        <div class="ui dropdown">
+          <input type="hidden" name="filters">
+          <i class="grey filter icon"></i>
 
-            <div class="menu">
-              <div class="header">
-                <i class="tags icon"></i>
-                Tag Label
-              </div>
-              <div class="item">
-                <div class="ui white label">Open</div>
-              </div>
-              <div class="item">
-                <div class="ui yellow label">In progress</div>
-              </div>
-              <div class="item">
-                <div class="ui red label">Delayed</div>
-              </div>
-              <div class="item">
-                <div class="ui grey label">Completed</div>
-              </div>
+          <div class="menu">
+            <div class="header">
+              <i class="tags icon"></i>
+              Tag Label
+            </div>
+            <div class="item">
+              <div class="ui white label">Open</div>
+            </div>
+            <div class="item">
+              <div class="ui yellow label">In progress</div>
+            </div>
+            <div class="item">
+              <div class="ui red label">Delayed</div>
+            </div>
+            <div class="item">
+              <div class="ui grey label">Completed</div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
 <!-- tickets header -->
-    <div class="ui bottom attached segment">
-      <div class="">
-        <%= link_to new_ticket_path(@ticket), class: "ui right floated small primary labeled icon button" do %>
-        <i class="user right icon"></i> Create Ticket
-        <% end %>
-      </div>
-      <div class="ui left floated">
-        <h1 class="">Tickets</h1>
-      </div>
-      <hr>
+  <div class="ui bottom attached segment">
+    <div class="">
+      <%= link_to new_ticket_path(@ticket), class: "ui right floated small primary labeled icon button" do %>
+      <i class="user right icon"></i> Create Ticket
+      <% end %>
+    </div>
+    <div class="ui left floated">
+      <h1 class="">Tickets</h1>
+    </div>
+    <hr>
 
 <!-- tickets table -->
-<!-- order tickets by last updated. maybe put in updated by customer or staff flags on the table -->
-    <table class="ui compact celled table striped" id='ticket-table'>
-    <!-- <table class="ui compact celled definition striped table" id='ticket-table'> -->
+    <table class="ui table striped" id='ticket-table'>
 
 <!-- table head -->
       <thead class="full-width">
@@ -79,114 +76,141 @@
   <!-- table body -->
       <tbody>
       <% @tickets.each do |ticket| %>
-        <tr class="ticket_row" data-id="<%= ticket.id %>">
-          <td class="ticket_flag">
-            <div class="ui dropdown">
-              <a></a>
-                <i class='square outline icon'></i>
-              <div class="menu">
-                <div class="item"><i class='square outline icon'></i></div>
-                <div class="item"><i class='yellow flag icon'></i></div>
-                <div class="item"><i class='red warning sign icon'></i></div>
-              </div>
+      <tr class="ticket_row" data-id="<%= ticket.id %>">
+        <td class="ticket_flag center aligned">
+          <div class="ui dropdown">
+            <div class="text"><i class='square outline icon'></i></div>
+            <div class="menu">
+              <div class="item"><i class='yellow flag icon'></i></div>
+              <div class="item"><i class='red warning sign icon'></i></div>
             </div>
-          </td>
-          <td class="ticket_status">
-            <div class="ui dropdown">
-              <a class="text">Open</a>
-              <i class="dropdown icon"></i>
-              <div class="menu">
-                <div class="item">In progress</div>
-                <div class="item">Pending</div>
-                <div class="item">Delayed</div>
-                <div class="item">Completed</div>
-              </div>
-            </div>
-          </td>
-          <td class="ticket_rep">
-            <div class="ui dropdown">
-              <% if ticket.rep %>
-              <a class="text"><%= ticket.rep %></a>
-              <% else %>
-              <a class="text">Unassigned</a>
-              <% end %>
-              <i class="dropdown icon"></i>
-              <div class="menu">
-                <% @staff.each do |staff| %>
-                <div class="item"><%= staff.full_name %></div>
-                <% end %>
-              </div>
-            </div>
-          </td>
-          <td class='overflow'>#<%= ticket.id %> - <%= link_to ticket.title, ticket_path(ticket) %></td>
-          <td class='overflow'><%= ticket.body %></td>
-          <td><%= ticket.user.email %></td>
-          <td><%= standard_date_format(ticket.created_at) %></td>
-          <td><%= standard_date_format(ticket.updated_at) %></td>
-          <!-- <td>No</td> -->
-
-          <td class="collapsing">
-            <button class="ui icon button">
-              <i class="save icon"></i>
-            </button>
-          </td>
-        </tr>
-  <% end %>
-
-          <!-- <td><i class="unhide icon"></i></td> -->
-        <!-- </tr> -->
-      </tbody>
-
-      <tfoot class="full-width">
-        <tr>
-          <th></th>
-
-          <th colspan="3">
-            <div class="field">
-              <select class="ui fluid dropdown">
-                <option value="">Status</option>
-                <option value="">Pending</option>
-                <option value="">In Progress</option>
-                <option value="">Complete</option>
-              </select>
-            </div>
-          </th>
-
-          <th colspan="2">
-            <div class="ui small primary button">
-              Save
-            </div>
-            <div class="ui small  disabled button">
-              Close
-            </div>
-          </th>
-
-
-          <th colspan="4">
-
-          <div class="ui pagination menu">
-          <a class="active item">
-            1
-          </a>
-          <div class="disabled item">
-            ...
           </div>
-          <a class="item">
-            10
-          </a>
-          <a class="item">
-            11
-          </a>
-          <a class="item">
-            12
-          </a>
-        </div>          </th>
+        </td>
 
+        <td class="ticket_status">
+          <div class="ui dropdown">
+            <% if ticket.status %>
+            <a class="text"><%= ticket.status %></a>
+            <% else %>
+            <a class="text">Open</a>
+            <% end %>
+            <!-- <i class="dropdown icon"></i> -->
+            <div class="menu">
+              <% @tickets.each do |t| %>
+              <div class="item"><%= t.status %></div>
+              <% end %>
+              <!-- <div class="item">In progress</div>
+              <div class="item">Pending</div>
+              <div class="item">Delayed</div>
+              <div class="item">Completed</div>  -->
+            </div>
+          </div>
+        </td>
 
-        </tr>
-      </tfoot>
+        <td class="ticket_rep">
+          <div class="ui dropdown">
+            <% if ticket.rep %>
+            <a class="text"><%= ticket.rep %></a>
+            <% else %>
+            <a class="text">Unassigned</a>
+            <% end %>
+            <div class="menu">
+              <% @staff.each do |staff| %>
+                <div class="item"><%= staff.full_name %></div>
+              <% end %>
+            </div>
+          </div>
+        </td>
+
+        <td class='collapsing'>#<%= ticket.id %> - <%= link_to ticket.title, ticket_path(ticket) %></td>
+        <td class='six wide overflow'><%= ticket.body %></td>
+        <td><%= ticket.user.email %></td>
+        <td><%= standard_date_format(ticket.created_at) %></td>
+        <td><%= standard_date_format(ticket.updated_at) %></td>
+
+        <td class="collapsing">
+          <button id="rowsubmit" class="ui icon button">
+            <i class="save icon"></i>
+          </button>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+
+<!-- table footer pagination -->
+    <tfoot class="full-width">
+      <tr>
+        <th></th>
+        <th colspan="3">
+          <div class="field">
+            <select class="ui fluid dropdown">
+              <option value="">Status</option>
+              <option value="">Pending</option>
+              <option value="">In Progress</option>
+              <option value="">Complete</option>
+            </select>
+          </div>
+        </th>
+        <th colspan="2">
+          <div class="ui small primary button">
+            Save
+          </div>
+          <div class="ui small  disabled button">
+            Close
+          </div>
+        </th>
+        <th colspan="4">
+          <div class="ui pagination menu">
+            <a class="active item">1</a>
+            <a style="color:black" class="item">2</a>
+            <a style="color:black" class="item">3</a>
+            <div style="color:black" class="disabled item">...</div>
+            <a style="color:black" class="item">10</a>
+          </div>
+        </th>
+      </tr>
+    </tfoot>
 
   </table>
-
   </div>
 </div>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    $("#ticket-table").tablesorter();
+
+    function updateTicket(id, ticketParams) {
+      $.ajax({
+        url: '/tickets/' + id + '.json',
+        data: { ticket: ticketParams },
+        method: 'PATCH',
+        dataType: 'json',
+        success: function(response) {
+          console.log(response.message)
+        },
+        error: function(response, status, error) {
+          console.log(response.message)
+        }
+      })
+    };
+
+    $('.ticket_row button').on('click', function(event) {
+      console.log('Saved')
+      event.preventDefault()
+
+      // var ticket_flag = ticket_row.find('.ticket_flag a.text').text()
+      var ticket_row = $(this).parents('.ticket_row')
+      var ticket_id = ticket_row.data().id
+      var ticket_rep = ticket_row.find('.ticket_rep a.text').text()
+      var ticket_status = ticket_row.find('.ticket_status a.text').text()
+
+      updateParams = {
+        status: ticket_status,
+        rep: ticket_rep
+      }
+      updateTicket(ticket_id, updateParams)
+    })
+  });
+</script>

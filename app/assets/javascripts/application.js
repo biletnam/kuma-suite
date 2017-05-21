@@ -10,9 +10,9 @@
 $(document).ready(function(){
   $('.menu .item').tab();
   $('select.dropdown').dropdown();
-
   $('#dropdownmenu').dropdown();
 
+// user profile_pic
   $('.special.cards .image').dimmer({
     on: 'hover'
   });
