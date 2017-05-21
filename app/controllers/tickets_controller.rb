@@ -28,12 +28,13 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find params[:id]
     @tickets = Ticket.last(20)
     @comment = Comment.new
-    # comment_params
+    # @client = Ticket.user
   end
 
   def index
     @tickets = Ticket.last(20)
     @staff = User.all.where(is_staff: true)
+    # @status = Ticket.status
     # @tags = Tag.all
   end
 
@@ -65,7 +66,7 @@ class TicketsController < ApplicationController
   end
 
   def destroy
-    ticket = Ticket.find params[:id]
+    @ticket = Ticket.find params[:id]
     # ticket.destroy
     if can? :destroy, @ticket
       @ticket.destroy

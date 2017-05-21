@@ -5,20 +5,24 @@
       <div class="ui raised padded segment">
 
 <!-- ticket header -->
-          <div class="float-right">
-            <small>
-              Ticket created on: <%= standard_date_format(@ticket.created_at) %>
-            </small>
-            <br />
-            <small>
-              Department: <%= @ticket.department.name %>
-            </small>
-            <small>
-              <h5><%= @ticket.user.first_name %>: </h5>
+        <div class="float-right">
+          <small>
+            Ticket created on: <%= standard_date_format(@ticket.created_at) %>
+          </small>
+          <br />
+          <small>
+            Department: <%= @ticket.department.name %>
+          </small>
+          <small>
+            <h5><%= @ticket.user.full_name %> </h5>
 </small>
           </div>
           <div class="float-left">
-            <h3><i class='red warning sign icon'></i>
+            <h3>
+              <% if @ticket.flag? %>
+              <%= @ticket.flag %>
+              <!-- <i class='red warning sign icon'></i> -->
+              <% end %>
               TICKET ID #<%= @ticket.id %>
               <div class="ui teal label">Open</div></h3>
           </div>
@@ -81,7 +85,7 @@
 
         <p>User tickets: <span class='float-right'>
           <strong>
-            1</span></p>
+            <%= @ticket.user.tickets.count %></span></p>
 
           </strong>
 
@@ -95,6 +99,11 @@
         <p>Priority: <span class='float-right'>
           <strong>Not Set</span></p></strong>
         <p>Assigned Staff: <span class='float-right'>
+
+<% form_for @ticket :url => { :action => "update" } do |f| %>
+<%= f.select %>
+<% end %>
+
           <strong>Not Set</span></p></strong>
         <hr />
 
@@ -120,4 +129,4 @@
     </div>
   </div>
 
-</div>  
+</div>

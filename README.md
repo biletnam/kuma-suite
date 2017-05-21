@@ -11,7 +11,7 @@ Work orders become invoices via AASM, with a payment system from the Stripe API.
 
 Admin options to manage users made available through Devise. User authentication through Devise and CanCan.
 
-App built with Rails, jQuery, and AJAX. UI styled with SASS and Semantic UI. 
+App built with Rails, jQuery, and AJAX. UI styled with SASS and Semantic UI.
 
 
 ## CURRENT TODO
@@ -111,11 +111,14 @@ status
 ```
 
 <!--
-## Features
-- Ticketing system
-- Comments on ticket ajax
-- Individual default picutres
 
+tickets_controller
+  before_action :find_ticket
+  tried to add :index to it - crashed
+  tried to remove only: [etc] and crashed on
+  def find_ticket
 
+ticket/index
+  needs work on logic for listing status, currently wipes out status for ticket
 
  -->

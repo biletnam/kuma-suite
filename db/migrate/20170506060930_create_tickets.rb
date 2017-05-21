@@ -6,8 +6,8 @@ class CreateTickets < ActiveRecord::Migration[5.0]
       t.string :body
       t.string :department
       t.string :rep, default: 'Unassigned'
-      t.string :flag
-      t.string :status, default: 'open'
+      t.boolean :flag, default: false
+      t.string :status, default: 'Open'
 
       t.timestamps
     end

@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 20170512012336) do
     t.string   "body"
     t.string   "department"
     t.string   "rep",           default: "Unassigned"
-    t.string   "flag"
-    t.string   "status",        default: "open"
+    t.boolean  "flag",          default: false
+    t.string   "status",        default: "Open"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
     t.integer  "user_id"

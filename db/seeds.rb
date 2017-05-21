@@ -26,7 +26,6 @@ a = User.new( first_name: 'Admin',
   a.save
 puts 'Admin created!'
 
-
 n = User.new(first_name: 'Nic',
              last_name: 'Tamura',
              email: 'nic@helpdesk.com',
@@ -45,10 +44,12 @@ n = User.new(first_name: 'Nic',
 puts "Nic created!"
 
 20.times do
-  u = User.new(first_name: Faker::Name.first_name,
-               last_name:  Faker::Name.last_name,
+  fn = Faker::Name.first_name
+  ln = Faker::Name.last_name
+  u = User.new(first_name: fn,
+               last_name:  ln,
                company: Faker::Company.name,
-               email: Faker::Internet.safe_email,
+               email: "#{fn}.#{ln}@helpdesk.com",
                password: 'qweqwe',
                password_confirmation: 'qweqwe',
                is_admin: 'false',
@@ -82,10 +83,11 @@ u = User.new(first_name: 'Client',
 puts 'Client created!'
 
 20.times do
+  fn = Faker::Name.first_name
   u = User.new(first_name: Faker::Name.first_name,
                last_name:  Faker::Name.last_name,
                company:  Faker::Company.name,
-               email: Faker::Internet.email,
+               email: Faker::Internet.safe_email(fn),
                password: 'qweqwe',
                password_confirmation: 'qweqwe',
                is_admin: 'false',
