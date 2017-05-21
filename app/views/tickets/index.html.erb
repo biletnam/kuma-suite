@@ -77,25 +77,27 @@
       <tbody>
       <% @tickets.each do |ticket| %>
       <tr class="ticket_row" data-id="<%= ticket.id %>">
-
-        <td class="ticket_flag center aligned">
+        <td class="ticket_flag">
           <div class="ui dropdown">
-            <% if !ticket.flag %>
-            <div class="text"><i class='square outline icon'></i></div>
-            <% else %>
-            <div class="item"><i class='red warning sign icon'></i></div>
-            <% end %>
-
-            <div class="menu">
-              <% if ticket.flag %>
-              <div class="text"><i class='square outline icon'></i></div>
-              <% elsif ticket.flag == false %>
-              <div class="item"><i class='red warning sign icon'></i></div>
+            <% if ticket.flag %>
+              <% if ticket.flag == 'square' %>
+                <a class="text"><i class='square outline icon' data-flag="square"></i></a>
+              <% elsif ticket.flag == 'yellow' %>
+                <a class="text"><i class='yellow flag icon' data-flag="yellow"></i></a>
+              <% elsif ticket.flag == 'red' %>
+                <a class="text"><i class='red warning sign icon' data-flag="red"></i></a>
               <% end %>
+            <% else %>
+              <a class="text"><i class='square outline icon' data-flag="square"></i></a>
+            <% end %>
+            </a>
+            <div class="menu">
+              <div class="item"><i class='square outline icon' data-flag="square"></i></div>
+              <div class="item"><i class='yellow flag icon' data-flag="yellow"></i></div>
+              <div class="item"><i class='red warning sign icon' data-flag="red"></i></div>
             </div>
           </div>
         </td>
-
         <td class="ticket_status">
           <div class="ui dropdown">
             <% if ticket.status %>

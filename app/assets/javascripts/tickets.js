@@ -21,7 +21,7 @@ $(document).ready(function() {
     event.preventDefault()
     let ticket_row = $(this).parents('.ticket_row')
     let ticket_id = ticket_row.data().id
-    let ticket_flag = ticket_row.find('.ticket_flag div.text').text()
+    var ticket_flag = ticket_row.find('.ticket_flag .item.active.selected i').data('flag')
     let ticket_status = ticket_row.find('.ticket_status a.text').text()
     let ticket_rep = ticket_row.find('.ticket_rep a.text').text()
 
