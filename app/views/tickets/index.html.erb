@@ -77,12 +77,21 @@
       <tbody>
       <% @tickets.each do |ticket| %>
       <tr class="ticket_row" data-id="<%= ticket.id %>">
+
         <td class="ticket_flag center aligned">
           <div class="ui dropdown">
+            <% if !ticket.flag %>
             <div class="text"><i class='square outline icon'></i></div>
+            <% else %>
+            <div class="item"><i class='red warning sign icon'></i></div>
+            <% end %>
+
             <div class="menu">
-              <div class="item"><i class='yellow flag icon'></i></div>
+              <% if ticket.flag %>
+              <div class="text"><i class='square outline icon'></i></div>
+              <% elsif ticket.flag == false %>
               <div class="item"><i class='red warning sign icon'></i></div>
+              <% end %>
             </div>
           </div>
         </td>
@@ -97,7 +106,7 @@
             <!-- <i class="dropdown icon"></i> -->
             <div class="menu">
               <% @tickets.each do |t| %>
-              <div class="item"><%= t.status %></div>
+              <option value="<%= t.status %>"><%= t.status %></option>
               <% end %>
               <!-- <div class="item">In progress</div>
               <div class="item">Pending</div>
@@ -174,43 +183,3 @@
   </table>
   </div>
 </div>
-
-
-<script type="text/javascript">
-  $(document).ready(function() {
-
-    $("#ticket-table").tablesorter();
-
-    function updateTicket(id, ticketParams) {
-      $.ajax({
-        url: '/tickets/' + id + '.json',
-        data: { ticket: ticketParams },
-        method: 'PATCH',
-        dataType: 'json',
-        success: function(response) {
-          console.log(response.message)
-        },
-        error: function(response, status, error) {
-          console.log(response.message)
-        }
-      })
-    };
-
-    $('.ticket_row button').on('click', function(event) {
-      console.log('Saved')
-      event.preventDefault()
-
-      // var ticket_flag = ticket_row.find('.ticket_flag a.text').text()
-      var ticket_row = $(this).parents('.ticket_row')
-      var ticket_id = ticket_row.data().id
-      var ticket_rep = ticket_row.find('.ticket_rep a.text').text()
-      var ticket_status = ticket_row.find('.ticket_status a.text').text()
-
-      updateParams = {
-        status: ticket_status,
-        rep: ticket_rep
-      }
-      updateTicket(ticket_id, updateParams)
-    })
-  });
-</script>

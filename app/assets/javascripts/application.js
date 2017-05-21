@@ -18,7 +18,8 @@ $(document).ready(function(){
   });
 
 // ticket department select
-  $('.ui.dropdown').dropdown();
+  $('.ui.dropdown ').dropdown();
+  $('.ui.dropdown .menu').dropdown();
 
 // for notice and alerts
   $('.message .close').on('click', function() {
