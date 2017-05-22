@@ -1,4 +1,4 @@
-<div class="ui container">
+<div class="ui fullcontainer">
 
 <!-- secondary nav tabs -->
   <div class="ui top attached tabular menu">
@@ -20,74 +20,69 @@
 
 <!-- work orders -->
   <div class="ui bottom attached tab segment active" data-tab="orders">
-    <div class="">
-      <%= link_to new_ticket_path(@ticket), class: "ui right floated small primary labeled icon button" do %>
-      <i class="user right icon"></i> Create Ticket
-      <% end %>
-    </div>
-    <div class="ui left floated">
-      <h1 class="">Tickets</h1>
-    </div>
-    <hr>
-
     <div class="ui container">
-      <h1>Work order show</h1>
+<!-- fix link modal -->
+      <%= link_to new_order_path(@order), class: "ui right floated small primary labeled icon button" do %>
+      <i class="user right icon"></i> Create Order
+      <% end %>
+
+      <div class="ui left floated">
+        <h1 class="">Work Orders</h1>
+      </div>
+      <hr>
+        <table class="ui celled striped table" id="order-table">
+          <thead>
+            <tr>
+              <th><i class="sort icon"></i>ID</th>
+              <th><i class="sort icon"></i>Client Name</th>
+              <th><i class="sort icon"></i>Company</th>
+              <th><i class="sort icon"></i>Created Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @orders.each do |o| %>
+            <tr>
+              <td class="collapsing">
+                <i class="file text outline icon"></i> <%= o.id %>
+              </td>
+              <td><%= link_to "#{o.user.full_name}", order_path(o)  %></td>
+              <td class="right aligned collapsing"><%= o.user.company %></td>
+              <td class="right aligned collapsing"><%= o.created_at %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
 
 
 
-
-        </div>
+    </div>
     </div>
 
 <!--open invoicess -->
-    <div class="ui bottom attached tab segment active" data-tab="invoice_open">
+    <div class="ui bottom attached tab segment" data-tab="invoice_open">
       <div class="ui container">
+
         <h1>Open Invoices</h1>
 
 
 
 
-          </div>
+      </div>
       </div>
 
 <!-- closed invoices -->
-      <div class="ui bottom attached tab segment active" data-tab="invoice_closed">
+      <div class="ui bottom attached tab segment" data-tab="invoice_closed">
         <div class="ui container">
+
           <h1>Closed Invoices</h1>
 
 
 
             </div>
-        </div>
+            </div>
 
-<!-- tickets header -->
-  <div class="ui bottom attached segment">
-    <div class="">
-      <%= link_to new_order_path(@order), class: "ui right floated small primary labeled icon button" do %>
-      <i class="user right icon"></i> Create Ticket
-      <% end %>
-    </div>
-    <div class="ui left floated">
-      <h1 class="">Tickets</h1>
-    </div>
-    <hr>
 
-<!-- tickets table -->
-<!-- order tickets by last updated. maybe put in updated by customer or staff flags on the table -->
-    <table class="ui compact celled table striped" id='order-table'>
-    <!-- <table class="ui compact celled definition striped table" id='ticket-table'> -->
 
-<!-- table head -->
-      <div class="ui container">
 
-      <div class="ui segment">
-        <div class="ui right floated small primary labeled icon button">
-          <i class="user right icon"></i> Create job
-        </div>
-        <h1>Work Orders</h1>
-        <h3>list of jobs, available for pickup. </h3>
-      </div>
 
-    </div>
-  </div>
 </div>

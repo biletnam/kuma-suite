@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
   $("#ticket-table").tablesorter();
+  $("#order-table").tablesorter();
 
   function updateTicket(id, ticketParams) {
     $.ajax({
