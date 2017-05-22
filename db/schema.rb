@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512012336) do
+ActiveRecord::Schema.define(version: 20170522220251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,12 +35,31 @@ ActiveRecord::Schema.define(version: 20170512012336) do
     t.index ["user_id"], name: "index_departments_on_user_id", using: :btree
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string   "item"
+    t.integer  "amount"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "aasm_state"
+    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
+  end
+
+  create_table "skus", force: :cascade do |t|
+    t.string   "item"
+    t.float    "amount"
+    t.integer  "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_skus_on_order_id", using: :btree
+  end
+
   create_table "tickets", force: :cascade do |t|
     t.string   "title"
     t.string   "body"
     t.string   "department"
     t.string   "rep",           default: "Unassigned"
-    t.boolean  "flag",          default: false
+    t.string   "flag",          default: "square"
     t.string   "status",        default: "Open"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
@@ -80,6 +99,8 @@ ActiveRecord::Schema.define(version: 20170512012336) do
   add_foreign_key "comments", "users"
   add_foreign_key "departments", "tickets"
   add_foreign_key "departments", "users"
+  add_foreign_key "orders", "users"
+  add_foreign_key "skus", "orders"
   add_foreign_key "tickets", "departments"
   add_foreign_key "tickets", "users"
   add_foreign_key "users", "departments"

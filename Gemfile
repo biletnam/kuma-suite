@@ -4,10 +4,11 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-gem "simple_calendar", "~> 2.0"
+gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 gem 'jquery-tablesorter'
 gem 'open-weather'
-
+gem 'aasm'
+gem 'cocoon'
 gem 'simple_form'
 gem 'devise'
 gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'

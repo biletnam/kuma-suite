@@ -1,9 +1,14 @@
 class InvoicesController < ApplicationController
-
   before_action :authenticate_user!
   before_action :user_is_staff?
 
-  def index
+  def create
+    order = Order.find params[:order_id]
+    if order.publish!
+      redirect_to order, notice: 'Order is invoiced!'
+    else
+      redirect_to order, notice: "Can't publish order "
+    end
   end
 
   private

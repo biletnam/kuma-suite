@@ -30,8 +30,10 @@ Rails.application.routes.draw do
   # do i need to make /supp/tikets/everything in there
 
   # resources :messaging
-  resources :invoices
-  resources :orders
+  resources :orders do
+    resources :invoices, only: [:create, :index]
+  end
+
   resources :reports, only: [:index]
 
 end

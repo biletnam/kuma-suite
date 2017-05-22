@@ -125,5 +125,13 @@ Ticket.all.each do |ticket|
 end
 puts "Comments created!"
 
+10.times do
+  user = User.all.where(is_client: true).sample.id
+  Order.create(amount: Faker::Commerce.price,
+               item: Faker::Company.catch_phrase,
+               user_id: user
+              )
+end
+puts 'Orders created'
 
 puts '>>>>>> Seeding complete <<<<<<'

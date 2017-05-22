@@ -1,0 +1,18 @@
+<%= f.error :skus %>
+
+<div id= 'skus'>
+<%= f.simple_fields_for :skus do |r| %>
+<%= r.input :item %>
+<%= r.input :unit %>
+<%= r.input :amount %>
+<hr>
+<% end %>
+
+<div id= 'skus'>
+<%= f.simple_fields_for :skus do |r| %>
+<%= render 'sku_fields', f: r %>
+<div class="links">
+<%= link_to_add_association 'Add SKU', f, :skus %>
+</div>
+<% end %>
+</div>

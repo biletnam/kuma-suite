@@ -1,0 +1,16 @@
+<div class="ui container">
+  <% if @order.may_publish? %>
+  <%= link_to 'Publish', order_invoices_path(@order), method: :post %>
+  <% end %>
+
+  <% @order.skus.each do |sku| %>
+  <div class="segment">
+  <h3><%= sku.item %></h3>
+  <p><%= sku.unit %></p>
+  <p><%= number_to_currency sku.amount %></p>
+  </div>
+  <% end %>
+
+
+
+        </div>

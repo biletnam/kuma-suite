@@ -1,11 +1,10 @@
-<div class="ui fullcontainer">
+<div class="ui container">
+
 <!-- secondary nav tabs -->
   <div class="ui top attached tabular menu">
-    <!-- <a class='item'></a> -->
-    <a class="active item">Work Orders</a>
-    <a class="item">Open Invoices</a>
-    <a class="item">Closed Invoices</a>
-
+    <a class="item active" data-tab="orders" >Work Orders</a>
+    <a class="item" data-tab="invoice_open" >Open Invoices</a>
+    <a class="item" data-tab="invoice_closed" >Closed Invoices</a>
     <div class="right menu">
 <!-- searchbar tab -->
       <div class="item">
@@ -13,12 +12,14 @@
           <input type="text" placeholder="Search orders...">
           <i class="search link icon"></i>
         </div>
+        <div class="item"></div>
       </div>
     </div>
   </div>
 
-<!-- tickets header -->
-  <div class="ui bottom attached segment">
+
+<!-- work orders -->
+  <div class="ui bottom attached tab segment active" data-tab="orders">
     <div class="">
       <%= link_to new_ticket_path(@ticket), class: "ui right floated small primary labeled icon button" do %>
       <i class="user right icon"></i> Create Ticket
@@ -29,9 +30,51 @@
     </div>
     <hr>
 
+    <div class="ui container">
+      <h1>Work order show</h1>
+
+
+
+
+        </div>
+    </div>
+
+<!--open invoicess -->
+    <div class="ui bottom attached tab segment active" data-tab="invoice_open">
+      <div class="ui container">
+        <h1>Open Invoices</h1>
+
+
+
+
+          </div>
+      </div>
+
+<!-- closed invoices -->
+      <div class="ui bottom attached tab segment active" data-tab="invoice_closed">
+        <div class="ui container">
+          <h1>Closed Invoices</h1>
+
+
+
+            </div>
+        </div>
+
+<!-- tickets header -->
+  <div class="ui bottom attached segment">
+    <div class="">
+      <%= link_to new_order_path(@order), class: "ui right floated small primary labeled icon button" do %>
+      <i class="user right icon"></i> Create Ticket
+      <% end %>
+    </div>
+    <div class="ui left floated">
+      <h1 class="">Tickets</h1>
+    </div>
+    <hr>
+
 <!-- tickets table -->
 <!-- order tickets by last updated. maybe put in updated by customer or staff flags on the table -->
-    <table class="ui compact celled table striped" id='ticket-table'>
+    <table class="ui compact celled table striped" id='order-table'>
     <!-- <table class="ui compact celled definition striped table" id='ticket-table'> -->
 
 <!-- table head -->

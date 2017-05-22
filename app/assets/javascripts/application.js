@@ -5,6 +5,7 @@
 //= require semantic-ui/modal
 //= require semantic-ui/dropdown
 //= require semantic-ui/tab
+//= require cocoon
 //= require_tree .
 
 $(document).ready(function(){
