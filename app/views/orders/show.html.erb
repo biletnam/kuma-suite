@@ -1,7 +1,6 @@
 <div class="ui container">
-  <% if @order.may_publish? %>
-  <%= link_to 'Publish', order_invoices_path(@order), method: :post %>
-  <% end %>
+  <div class="ui segment">
+
 
   <% @order.skus.each do |sku| %>
   <div class="segment">
@@ -13,4 +12,45 @@
 
 
 
-        </div>
+<h1>Work order # <%= @order.id %></h1>
+
+<p>Bill to: </p>
+<p><%= @order.user.full_name %></p>
+<p>: <%= number_to_currency @order.amount %></p>
+<p>Due Date: <%= @duedate %></p>
+
+<% if @order.may_publish? %>
+  <%= link_to 'Generate to Invoice', order_invoices_path(@order), method: :post %>
+<% end %>
+
+
+<% @order.skus.each do |sku| %>
+  <div class="well col-md-4">
+    <h3><%= sku.item %></h3>
+    <p><%= sku.units %></p>
+    <p><%= number_to_currency sku.amount %></p>
+  </div>
+<% end %>
+
+<%= simple_form_for @order do |f| %>
+  <div id='skus'>
+    <%= f.simple_fields_for :skus do |r| %>
+      <%= render 'sku_fields', f: r %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add SKU', f, :skus %>
+    </div>
+  </div>
+
+  <%= f.submit class: 'btn btn-primary' %>
+  <% end %>
+
+  </div>
+</div>
+
+
+<%#= simple_form_for [@order, @pledge] do |f|  %>
+<%#= f.input :amount %>
+<%#= f.submit 'Pledge!', class: 'btn btn-primary' %>
+<%# end %>
+<!-- needs to go into invoice show for client -->

@@ -30,6 +30,7 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find params[:id]
     @orders = Order.last(20)
+    @duedate = Order.find(params[:id]).created_at+60.day
   end
 
 
