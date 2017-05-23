@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20170522220251) do
 
   create_table "skus", force: :cascade do |t|
     t.string   "item"
+    t.float    "unit"
     t.float    "amount"
     t.integer  "order_id"
     t.datetime "created_at", null: false

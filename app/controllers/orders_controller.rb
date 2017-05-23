@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     3.times { @order.skus.build }
+    @clients = User.all.where(is_client: true)
   end
 
   def create

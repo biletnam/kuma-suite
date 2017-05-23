@@ -1,12 +1,15 @@
-<%= f.error :skus %>
+<%= form_for @order do |o| %>
 
-<div id= 'skus'>
-<%= f.simple_fields_for :skus do |r| %>
-<%= r.input :item %>
-<%= r.input :unit %>
-<%= r.input :amount %>
-<hr>
-<% end %>
+
+  <div class="ui dropdown">
+    <a class="text">Client</a>
+    <div class="menu">
+      <% @clients.each do |c| %>
+        <div class="item"><%= c.full_name %></div>
+      <% end %>
+    </div>
+  </div>
+<%#= o.input :amount %>
 
 <div id= 'skus'>
 <%= f.simple_fields_for :skus do |r| %>
@@ -16,3 +19,5 @@
 </div>
 <% end %>
 </div>
+
+<% end %>

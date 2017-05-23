@@ -30,59 +30,108 @@
         <h1 class="">Work Orders</h1>
       </div>
       <hr>
-        <table class="ui celled striped table" id="order-table">
-          <thead>
-            <tr>
-              <th><i class="sort icon"></i>ID</th>
-              <th><i class="sort icon"></i>Client Name</th>
-              <th><i class="sort icon"></i>Company</th>
-              <th><i class="sort icon"></i>Created Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @orders.each do |o| %>
-            <tr>
-              <td class="collapsing">
-                <i class="file text outline icon"></i> <%= o.id %>
-              </td>
-              <td><%= link_to "#{o.user.full_name}", order_path(o)  %></td>
-              <td class="right aligned collapsing"><%= o.user.company %></td>
-              <td class="right aligned collapsing"><%= o.created_at %></td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
-
-
-
+      <table class="ui celled striped table" id="order-table">
+        <thead>
+          <tr>
+            <th><i class="sort icon"></i>ID</th>
+            <th><i class="sort icon"></i>Client Name</th>
+            <th><i class="sort icon"></i>Company</th>
+            <th><i class="sort icon"></i>Created Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |o| %>
+          <tr>
+            <td class="collapsing">
+              <i class="file text outline icon"></i> <%= o.id %>
+            </td>
+            <td>
+              <%= link_to "#{o.user.full_name}", order_path(o) %>
+            </td>
+            <td class="right aligned collapsing">
+              <%= o.user.company %>
+            </td>
+            <td class="right aligned collapsing">
+              <%= o.created_at %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
-    </div>
+  </div>
 
 <!--open invoicess -->
-    <div class="ui bottom attached tab segment" data-tab="invoice_open">
-      <div class="ui container">
-
-        <h1>Open Invoices</h1>
-
-
-
-
-      </div>
-      </div>
+  <div class="ui bottom attached tab segment" data-tab="invoice_open">
+    <div class="ui container">
+<!-- fix link modal -->
+      <h1 class="">Open Invoices</h1>
+      <hr>
+      <table class="ui celled striped table" id="invoice-table">
+        <thead>
+          <tr>
+            <th><i class="sort icon"></i>ID</th>
+            <th><i class="sort icon"></i>Status</th>
+            <th><i class="sort icon"></i>Client Name</th>
+            <th><i class="sort icon"></i>Company</th>
+            <th><i class="sort icon"></i>Created Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |o| %>
+          <!-- need order with invoice state here -->
+          <tr>
+            <td class="collapsing">
+              <i class="file text outline icon"></i> <%= o.id %>
+            </td>
+            <td>
+              <%= link_to "#{o.user.full_name}", order_path(o) %>
+            </td>
+            <td class="right aligned collapsing">
+              <%= o.user.company %>
+            </td>
+            <td class="right aligned collapsing">
+              <%= o.created_at %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
 <!-- closed invoices -->
-      <div class="ui bottom attached tab segment" data-tab="invoice_closed">
-        <div class="ui container">
-
-          <h1>Closed Invoices</h1>
-
-
-
-            </div>
-            </div>
-
-
-
+  <div class="ui bottom attached tab segment" data-tab="invoice_closed">
+    <div class="ui container">
+      <h1>Closed Invoices</h1>
+      <hr>
+      <table class="ui celled striped table" id="invoice-table">
+        <thead>
+          <tr>
+            <th><i class="sort icon"></i>ID</th>
+            <th><i class="sort icon"></i>Status</th>
+            <th><i class="sort icon"></i>Client Name</th>
+            <th><i class="sort icon"></i>Company</th>
+            <th><i class="sort icon"></i>Created Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |o| %>
+          <!-- need order with closed invoice state here -->
+          <tr>
+            <td class="collapsing">
+              <i class="file text outline icon"></i> <%= o.id %>
+            </td>
+            <td>Overdue</td>
+            <td><%= link_to "#{o.user.full_name}", order_path(o)  %></td>
+            <td class="right aligned collapsing"><%= o.user.company %></td>
+            <td class="right aligned collapsing"><%= o.created_at %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
 
 </div>

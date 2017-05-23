@@ -1,52 +1,43 @@
 <div class="ui container">
   <div class="ui segment">
 
+    <h1>Work order # <%= @order.id %></h1>
 
-  <% @order.skus.each do |sku| %>
-  <div class="segment">
-  <h3><%= sku.item %></h3>
-  <p><%= sku.unit %></p>
-  <p><%= number_to_currency sku.amount %></p>
-  </div>
-  <% end %>
+    <p>Bill to: </p>
+    <p><%= @order.user.full_name %></p>
+    <p>: <%= number_to_currency @order.amount %></p>
+    <p>Due Date: <%= @duedate %></p>
 
-
-
-<h1>Work order # <%= @order.id %></h1>
-
-<p>Bill to: </p>
-<p><%= @order.user.full_name %></p>
-<p>: <%= number_to_currency @order.amount %></p>
-<p>Due Date: <%= @duedate %></p>
-
-<% if @order.may_publish? %>
-  <%= link_to 'Generate to Invoice', order_invoices_path(@order), method: :post %>
-<% end %>
-
-
-<% @order.skus.each do |sku| %>
-  <div class="well col-md-4">
-    <h3><%= sku.item %></h3>
-    <p><%= sku.units %></p>
-    <p><%= number_to_currency sku.amount %></p>
-  </div>
-<% end %>
-
-<%= simple_form_for @order do |f| %>
-  <div id='skus'>
-    <%= f.simple_fields_for :skus do |r| %>
-      <%= render 'sku_fields', f: r %>
+    <% if @order.may_publish? %>
+      <%= link_to 'Generate to Invoice', order_invoices_path(@order), method: :post %>
     <% end %>
-    <div class="links">
-      <%= link_to_add_association 'Add SKU', f, :skus %>
+
+    <hr>
+
+    <% @order.skus.each do |s| %>
+    <div class="segment">
+    <h3><%= s.item %></h3>
+    <p><%= s.unit %></p>
+    <p><%= number_to_currency s.amount %></p>
     </div>
-  </div>
+    <% end %>
 
-  <%= f.submit class: 'btn btn-primary' %>
-  <% end %>
 
-  </div>
-</div>
+    <%= simple_form_for @order do |f| %>
+      <div id='skus'>
+        <%= f.simple_fields_for :skus do |r| %>
+          <%= render 'sku_fields', f: r %>
+        <% end %>
+        <div class="links">
+          <%= link_to_add_association 'Add SKU', f, :skus %>
+        </div>
+      </div>
+
+      <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+
+      </div>
+    </div>
 
 
 <%#= simple_form_for [@order, @pledge] do |f|  %>
