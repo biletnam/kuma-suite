@@ -3,6 +3,8 @@ class DashboardController < ApplicationController
   before_action :user_is_staff?
 
   def index
+    @orders = Order.all
+    @staff = User.all.where(is_staff: true).last(10)
   end
 
   private

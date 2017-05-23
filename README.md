@@ -39,7 +39,7 @@ Kuma Suite is built with Rails, jQuery, and AJAX. UI styled with SASS and Semant
 - dropdown if rep.is_present
 <!-- - flags display -->
 - to do list
--
+- ticket status dropdown
 
 ### Ticketing
 <!-- - aasm states for status -->

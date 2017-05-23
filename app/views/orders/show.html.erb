@@ -1,39 +1,86 @@
 <div class="ui container">
   <div class="ui segment">
 
-    <h1>Work order # <%= @order.id %></h1>
-
-    <p>Bill to: </p>
-    <p><%= @order.user.full_name %></p>
-    <p>: <%= number_to_currency @order.amount %></p>
-    <p>Due Date: <%= @duedate %></p>
-
     <% if @order.may_publish? %>
-      <%= link_to 'Generate to Invoice', order_invoices_path(@order), method: :post %>
-    <% end %>
-
-    <hr>
-
-    <% @order.skus.each do |s| %>
-    <div class="segment">
-    <h3><%= s.item %></h3>
-    <p><%= s.unit %></p>
-    <p><%= number_to_currency s.amount %></p>
+    <div class="ui left action input float-right">
+      <button class="ui teal labeled icon button">
+      <%= link_to "Generate Order", order_invoices_path(@order), class: 'white', method: :post %>
+        <i class="dollar icon"></i>
+      </button>
+      <input type="total" value="$52.03">
     </div>
     <% end %>
 
+    <h1>Work Order #00<%= @order.id %></h1>
+    <hr>
+
+    <div class="ui three column grid">
+
+      <div class="column">
+        <div class="ui segment">
+          <p>Bill to: <strong><%= @clients.sample.full_name %></strong></p>
+          <p><%= @clients.sample.company %></p>
+          <p>123 Fake Street, Vancouver</p>
+          <p>BC CAN V6V-8Y7</p>
+        </div>
+      </div>
+
+      <div class="column"></div>
+
+      <div class="column">
+        <div class="ui right aligned">
+          <p>Work Order #00<%= @order.id %></p>
+          <p> Work order date: <%= @order.created_at %></p>
+          <p>Customer ID <%= @order.user.id %></p>
+          <p>Sales Rep: <%= @staff.sample.full_name %></p>
+          <p>Due Date: <%= @duedate %></p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="ui segment">
+      <h3>Work Order Items</h3>
+      <table class="ui very basic table">
+        <% @order.skus.each do |s| %>
+        <thead>
+           <tr>
+             <th>SKU</th>
+             <th>Units</th>
+             <th>Amount</th>
+             <th>Total</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td><%= s.item %></td>
+             <td><%= s.unit %></td>
+             <td><%= number_to_currency s.amount %></td>
+             <td>Total</td>
+           </tr>
+         </tbody>
+         <% end %>
+       </table>
+      </div>
+
+    <hr>
 
     <%= simple_form_for @order do |f| %>
       <div id='skus'>
         <%= f.simple_fields_for :skus do |r| %>
           <%= render 'sku_fields', f: r %>
-        <% end %>
-        <div class="links">
-          <%= link_to_add_association 'Add SKU', f, :skus %>
-        </div>
       </div>
+      <% end %>
 
-      <%= f.submit class: 'btn btn-primary' %>
+      <div class="ui labeled icon button links">
+      <!-- <button class="ui labeled icon button"> -->
+        <%= link_to_add_association 'Add SKU', f, :skus %>
+        <i class="add icon"></i>
+      <!-- </button> -->
+    </div>
+    <%= f.submit class: 'ui primary button' %>
+
+    </div>
       <% end %>
 
       </div>
