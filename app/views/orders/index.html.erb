@@ -75,6 +75,7 @@
             <th><i class="sort icon"></i>Client Name</th>
             <th><i class="sort icon"></i>Company</th>
             <th><i class="sort icon"></i>Created Date</th>
+            <th><i class="sort icon"></i>Due Date</th>
           </tr>
         </thead>
         <tbody>
@@ -82,13 +83,19 @@
           <!-- need order with invoice state here -->
           <tr>
             <td class="collapsing">
-              <i class="file text outline icon"></i> <%= o.id %>
+              <i class="file dollar icon"></i> <%= o.id %>
+            </td>
+            <td class='collpapsing'>
+              Good
             </td>
             <td>
               <%= link_to "#{o.user.full_name}", order_path(o) %>
             </td>
             <td class="right aligned collapsing">
               <%= o.user.company %>
+            </td>
+            <td class="right aligned collapsing">
+              <%= o.created_at %>
             </td>
             <td class="right aligned collapsing">
               <%= o.created_at %>

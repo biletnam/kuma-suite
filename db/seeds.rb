@@ -109,6 +109,7 @@ puts 'Clientbase created!'
   Ticket.create(title: Faker::Commerce.product_name,
                 body: Faker::Hipster.paragraph,
                 department_id: department.id,
+                # created_at: Faker::Date.between(2.days.ago, Date.today),
                 user_id: user.id
                 )
 end

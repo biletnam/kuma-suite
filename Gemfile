@@ -7,7 +7,7 @@ end
 
 gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 gem 'jquery-tablesorter'
-# gem 'open-weather'
+gem "chartkick"
 gem 'aasm'
 gem 'cocoon'
 gem 'simple_form'

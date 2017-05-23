@@ -6,10 +6,12 @@
 //= require semantic-ui/dropdown
 //= require semantic-ui/tab
 //= require cocoon
+//= require Chart.bundle
+//= require chartkick
 //= require_tree .
 
 $(document).ready(function(){
-  $('.menu .item').tab();
+
   $('select.dropdown').dropdown();
   $('#dropdownmenu').dropdown();
 
@@ -17,6 +19,9 @@ $(document).ready(function(){
   $('.special.cards .image').dimmer({
     on: 'hover'
   });
+
+// data tabs
+  $('.menu .item').tab();
 
 // ticket department select
   $('.ui.dropdown ').dropdown();
@@ -28,4 +33,5 @@ $(document).ready(function(){
       .closest('.message')
       .transition('fade');
   });
+
 });

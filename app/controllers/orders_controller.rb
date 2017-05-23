@@ -3,7 +3,6 @@ class OrdersController < ApplicationController
   before_action :user_is_staff?
   before_action :find_order, only: [:show, :edit, :update, :destroy]
 
-
   def index
     @orders = Order.last(20)
   end
@@ -32,6 +31,23 @@ class OrdersController < ApplicationController
     @order = Order.find params[:id]
     @orders = Order.last(20)
     @duedate = Order.find(params[:id]).created_at+60.day
+    @clients = User.all.where(is_client: true)
+    @staff = User.all.where(is_staff: true)
+  end
+
+  def update
+    @order = Order.find params[:id]
+    @clients = User.all.where(is_client: true)
+
+    if @order.save
+      redirect_to order_path(@order)
+      flash[:notice] = 'Order updated successfully'
+    else
+      render :new
+      # render 'support/orders/show'
+      flash[:alert] = 'Order not created'
+    end
+
   end
 
 

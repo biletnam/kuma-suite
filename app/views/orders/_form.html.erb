@@ -12,7 +12,7 @@
 <%#= o.input :amount %>
 
 <div id= 'skus'>
-<%= f.simple_fields_for :skus do |r| %>
+<%= f.form_for :skus do |r| %>
 <%= render 'sku_fields', f: r %>
 <div class="links">
 <%= link_to_add_association 'Add SKU', f, :skus %>

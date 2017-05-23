@@ -20,8 +20,8 @@
           <div class="float-left">
             <h3>
               <% if @ticket.flag? %>
-              <%= @ticket.flag %>
-              <!-- <i class='red warning sign icon'></i> -->
+              <%#= @ticket.flag %>
+              <i class='red warning sign icon'></i>
               <% end %>
               TICKET ID #<%= @ticket.id %>
               <div class="ui teal label">Open</div></h3>
@@ -100,9 +100,14 @@
           <strong>Not Set</span></p></strong>
         <p>Assigned Staff: <span class='float-right'>
 
-<% form_for @ticket :url => { :action => "update" } do |f| %>
-<%= f.select %>
-<% end %>
+
+          <%# staff_array = @staff.all.map { |s| [s.full_name, s.id] } %>
+          <%#= options_for_select(staff_array) do |s| %>
+          <div class="menu">
+
+          <div class="item"><%#= s.full_name %> </div>
+<%# end %>
+
 
           <strong>Not Set</span></p></strong>
         <hr />

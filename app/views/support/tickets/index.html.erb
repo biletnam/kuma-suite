@@ -76,47 +76,14 @@
         Submit a Support Ticket
       </div>
       <div class="content">
-        <em>When submitting a ticket, please give a full description of the problem to help us serve you better. Please bear in mind that the average wait time is 1 to 2 business days. For emergency assistance please call 911.</em>
+        <%= render 'form' %>
       </div>
       <div class="content">
-        hing into  a layout for modal </h1>
-
-        <div class="ui special cards">
-          <div class="card">
-            <div class="dimmable image">
-              <%= image_tag("/avatars/#{@user.profile_pic}")  %>
-            </div>
-            <div class="content">
-              <a class="header"><%= @user.full_name %>
-                <small class='muted-text float-right'>
-                  <% if @user.is_admin %>
-                    <i class="star icon"></i>Admin
-                  <% elsif @user.is_staff %>
-                    <i class="user icon"></i>Staff
-                  <% elsif @user.is_client %>
-                    <i class="smile icon"></i>Client
-                  <% end %>
-                </small>
-              </a>
-              <div class="meta">
-                <span class="date">
-                  Joined: <%= @user.created_at.strftime("%b %d, %Y") %>
-                </span>
-              </div>
-            </div>
-            <div class="extra content">
-              <a>
-                <i class="check circle green icon"></i>
-                Rep: +42
-              </a>
-            </div>
-          </div>
-        </div>
-
+        <em>When submitting a ticket, please give a full description of the problem to help us serve you better. Please bear in mind that the average wait time is 1 to 2 business days. For emergency assistance please call 911.</em>
       </div>
     </div>
 
-    <div class="ui modal">
+    <d  iv class="ui modal">
       <i class="close icon"></i>
     </div>
 <!--  -->

@@ -3,6 +3,12 @@ $(document).ready(function() {
   $("#ticket-table").tablesorter();
   $("#order-table").tablesorter();
 
+// progress bars
+  $('#invoice-target').progress();
+  $('#ticket-target').progress();
+  $('#tickettime-target').progress();
+  $('#satisfaction-target').progress();
+
   function updateTicket(id, ticketParams) {
     $.ajax({
       url: '/tickets/' + id + '.json',

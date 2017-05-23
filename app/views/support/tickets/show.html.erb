@@ -4,17 +4,14 @@
 
 <!-- ticket header -->
       <div class="float-right">
+        <p>By: <%= @ticket.user.full_name %></p>
         <p>Ticket created on:
           <%= standard_date_format(@ticket.created_at) %></p>
         <p>Department: <%= @ticket.department.name %></p>
-        <p><%= @ticket.user.full_name %></p>
       </div>
       <br>
       <div class="float-left">
         <h2>
-          <% if @ticket.flag? %>
-          <i class='red warning sign icon'></i>
-          <% end %>
           TICKET ID #<%= @ticket.id %>
           <sup class="ui teal label">
             <%= @ticket.status %>
@@ -24,8 +21,14 @@
       <div class="ui clearing divider"></div>
 
 <!-- ticket title  -->
+<div class="float-left" style="margin-right:20px; padding-bottom:20px;">
+
+<%= image_tag("/avatars/#{@ticket.user.profile_pic}")  %>
+
+</div>
       <h2 class='ui teal block'>Subject: <%= @ticket.title %> </h1>
       <p><%= @ticket.body %></p>
+      <br><br>
     </div>
 
   <!-- comments segment -->

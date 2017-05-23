@@ -1,7 +1,6 @@
 class TicketsController < ApplicationController
   before_action :authenticate_user!
   before_action :user_is_staff?
-  validates :skus, length: { minimum: 1, maximum: 10, message: 'Please supply 1 to 10 SKUs' }
 
   before_action :find_ticket, only: [:show, :edit, :update, :destroy]
 
@@ -29,6 +28,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find params[:id]
     @tickets = Ticket.last(20)
     @comment = Comment.new
+    @staff = User.all.where(is_staff: true)
     # comment_params
   end
 

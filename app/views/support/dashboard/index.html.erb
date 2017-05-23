@@ -1,49 +1,88 @@
   <div class="ui fullcontainer">
-  <div class="pusher">
-  <div class="ui container">
-    <h1 class=''>
-      Support Dashboard for <%= current_user.first_name %>
-    </h1>
-
-
-
-  <div style="margin:50px 0px 50px 0px" class="ui centered three column grid">
-    <div class="ui fluid special cards">
-      <div class="column squares blurring dimmable image">
-        <div class="ui dimmer">
-          <div class="content">
-            <div class="center">
-              <h1>
-                <%= link_to "Tickets", support_tickets_path, class:'white' %>
-              </h1>
-            </div>
+    <div class="pusher">
+      <div class="ui container">
+        <div class="ui info message">
+          <i class="close icon"></i>
+          <div class="header">
+            Hello <%= current_user.first_name %>, you have 3 new messages!
           </div>
         </div>
-        <i style="font-size:100px;" class="bordered inverted olive ticket icon"></i>
-      </div>
-      <div class="column squares blurring dimmable image">
-        <div class="ui dimmer">
-          <div class="content">
-            <div class="center">
-              <h1>
-                <%= link_to "Orders", user_path(current_user), class:'white' %>
-              </h1>
+        <h1  style="margin-bottom:20px;">
+          Support Dashboard for <%= current_user.first_name %>
+        </h1>
+        <hr>
+        <br><br><br>
+
+        <div class="ui four column grid">
+
+          <div class="column">
+            <div class="ui fluid special cards">
+              <div id="squares" class="blurring dimmable image">
+                <div class="ui dimmer">
+                  <div class="content">
+                    <div class="center">
+                      <h2>
+                        <%= link_to "Tickets", support_tickets_path, class:'white' %>
+                      </h2>
+                    </div>
+                  </div>
+                </div>
+                <i class="bordered inverted olive ticket massive icon"></i>
+              </div>
             </div>
           </div>
-        </div>
-        <i style="font-size:100px" class="bordered inverted blue file text outline icon"></i>
-      </div>
-      <div class="column squares blurring dimmable image">
-        <div class="ui dimmer">
-          <div class="content">
-            <div class="center">
-              <h1>
-                <%= link_to "Invoices", user_path(current_user), class:'white' %>
-              </h1>
+
+          <div class="column">
+            <div class="ui fluid special cards">
+              <div id="squares" class="blurring dimmable image">
+                <div class="ui dimmer">
+                  <div class="content">
+                    <div class="center">
+                      <h2>
+                        <%= link_to "Orders", user_path(current_user), class:'white' %>
+                      </h2>
+                    </div>
+                  </div>
+                </div>
+                <i class="bordered inverted blue file text outline massive icon"></i>
+              </div>
             </div>
           </div>
-        </div>
-        <i style="font-size:100px" class="bordered inverted teal dollar massive icon"></i>
+
+          <div class="column">
+            <div class="ui fluid special cards">
+              <div id="squares" class="blurring dimmable image">
+                <div class="ui dimmer">
+                  <div class="content">
+                    <div class="center">
+                      <h2>
+                        <%= link_to "Invoices", user_path(current_user), class:'white' %>
+                      </h2>
+                    </div>
+                  </div>
+                </div>
+                <i class="bordered inverted teal dollar massive icon"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="ui fluid special cards">
+              <div id="squares" class="blurring dimmable image">
+                <div class="ui dimmer">
+                  <div class="content">
+                    <div class="center">
+                      <h2>
+                        <%= link_to "Leave a Feedback", user_path(current_user), class:'white' %>
+                      </h2>
+                    </div>
+                  </div>
+                </div>
+                <i class="bordered inverted yellow smile massive icon"></i>
+              </div>
+            </div>
+          </div>
+
       </div>
     </div>
   </div>
