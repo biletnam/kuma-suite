@@ -10,5 +10,4 @@ module ApplicationHelper
     when :notice then "ui blue message"
     end
   end
-
 end
