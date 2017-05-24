@@ -40,6 +40,8 @@ Kuma Suite is built with Rails, jQuery, and AJAX. UI styled with SASS and Semant
 <!-- - flags display -->
 - to do list
 - ticket status dropdown
+- total of unit * amount = total, total column + tax = invoice total
+
 
 ### Ticketing
 <!-- - aasm states for status -->
