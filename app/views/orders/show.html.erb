@@ -2,13 +2,13 @@
   <div class="ui segment">
 
     <% if @order.may_publish? %>
-    <div class="ui left action input float-right">
-      <button class="ui teal labeled icon button">
-      <%= link_to "Generate Order", order_invoices_path(@order), class: 'white', method: :post %>
-        <i class="dollar icon"></i>
-      </button>
-      <input type="total" value="$52.03">
-    </div>
+      <div class="ui left action input float-right">
+        <button class="ui teal labeled icon button">
+        <%= link_to "Generate Order", order_invoices_path(@order), class: 'white', method: :post %>
+          <i class="dollar icon"></i>
+        </button>
+        <input type="total" value="$52.03">
+      </div>
     <% end %>
 
     <h1>Work Order #00<%= @order.id %></h1>
@@ -38,53 +38,47 @@
       </div>
     </div>
 
-
     <div class="ui segment">
       <h3>Work Order Items</h3>
       <table class="ui very basic table">
         <% @order.skus.each do |s| %>
-        <thead>
-           <tr>
-             <th>SKU</th>
-             <th>Units</th>
-             <th>Amount</th>
-             <th>Total</th>
-           </tr>
-         </thead>
-         <tbody>
-           <tr>
-             <td><%= s.item %></td>
-             <td><%= s.unit %></td>
-             <td><%= number_to_currency s.amount %></td>
-             <td>Total</td>
-           </tr>
-         </tbody>
-         <% end %>
-       </table>
-      </div>
+          <thead>
+            <tr>
+              <th>SKU</th>
+              <th>Units</th>
+              <th>Amount</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= s.item %></td>
+              <td><%= s.unit %></td>
+              <td><%= number_to_currency s.amount %></td>
+              <td>Total</td>
+            </tr>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
 
     <hr>
 
     <%= simple_form_for @order do |f| %>
       <div id='skus'>
         <%= f.simple_fields_for :skus do |r| %>
-        <%= render 'sku_fields', f: r %>
+          <%= render 'sku_fields', f: r %>
+        <% end %>
       </div>
-      <% end %>
 
-      <div class="ui labeled icon button links">
-      <!-- <button class="ui labeled icon button"> -->
-        <%= link_to_add_association 'Add SKU', f, :skus %>
-        <i class="add icon"></i>
-      <!-- </button> -->
-    </div>
-    <%= f.submit class: 'ui primary button' %>
+      <span>
+        <%= link_to_add_association '<i class="add icon"></i> Add SKU'.html_safe, f, :skus, partial: 'sku_fields', class: "ui icon button" %>
+      </span>
 
-    </div>
-      <% end %>
-
-      </div>
-    </div>
+      <%= f.submit class: 'ui primary button' %>
+    <% end %>
+  </div>
+</div>
 
 
 <%#= simple_form_for [@order, @pledge] do |f|  %>
