@@ -68,7 +68,7 @@
     <%= simple_form_for @order do |f| %>
       <div id='skus'>
         <%= f.simple_fields_for :skus do |r| %>
-          <%= render 'sku_fields', f: r %>
+        <%= render 'sku_fields', f: r %>
       </div>
       <% end %>
 
