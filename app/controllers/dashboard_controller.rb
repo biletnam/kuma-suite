@@ -14,5 +14,4 @@ class DashboardController < ApplicationController
       redirect_to root_path, alert: 'Unauthorized access'
     end
   end
-
 end
