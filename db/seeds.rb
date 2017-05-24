@@ -148,7 +148,7 @@ puts "Comments created!"
 
 10.times do
   user = User.all.where(is_client: true).sample
-  o= Order.create(grand_total: "",
+  o = Order.create(grand_total: "",
                user_id: user.id
               )
               o.errors.messages
@@ -161,8 +161,9 @@ Order.all.each do |order|
                       unit: rand(5),
                       amount: Faker::Commerce.price
                      )
+                     order.grand_total = order.skus.unit * order.skus.amount
   end
-  Order.grand_total = Order.skus.unit * Order.skus.amount
+  # order.grand_total.save
 end
 puts 'SKUs for orders created'
 

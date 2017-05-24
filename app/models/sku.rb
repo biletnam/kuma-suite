@@ -1,5 +1,5 @@
 class Sku < ApplicationRecord
-  belongs_to :order, optional: true
+  belongs_to :order
 
   validates :item, presence: true
   validates :unit, presence: true
