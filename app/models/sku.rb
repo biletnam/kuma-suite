@@ -4,6 +4,4 @@ class Sku < ApplicationRecord
   validates :item, presence: true
   validates :unit, presence: true
   validates :amount, presence: true
-  
-
 end

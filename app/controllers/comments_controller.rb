@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   def new
     @comment = Comment.new
   end
-  
+
   def index
   end
 
@@ -20,14 +20,14 @@ class CommentsController < ApplicationController
       else
         format.html { render '/tickets/show' }
         format.js   { render :failure }
-        end
       end
     end
-
+  end
 
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
+
     respond_to do |format|
       format.html { redirect_to ticket_path(comment.ticket), notice: "Comment deleted!" }
       format.js { render }
@@ -35,7 +35,8 @@ class CommentsController < ApplicationController
   end
 
   private
+
   def comment_params
-    params.require(:comment).permit([:body, :user])
+    params.require(:comment).permit(:body, :user)
   end
 end

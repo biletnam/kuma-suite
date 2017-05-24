@@ -1,16 +1,16 @@
 class SupportController < ApplicationController
   before_action :authenticate_user!
   before_action :user_is_client?
+  before_action :find_ticket, only: [:show, :edit, :destroy]
 
   def index
     @last_ticket = Ticket.last
-    @ticket = Ticket.new
     @tickets = Ticket.all
+    @ticket = Ticket.new
     @ticket.user = current_user
   end
 
   def show
-    @ticket = Ticket.find params[:id]
     @tickets = Ticket.last(20)
     @comment = Comment.new
   end
@@ -24,21 +24,18 @@ class SupportController < ApplicationController
     @ticket.user = current_user
 
     if @ticket.save
-      redirect_to support_ticket_path(@ticket)
       flash[:notice] = 'Ticket posted successfully'
+      redirect_to support_ticket_path(@ticket)
     else
-      render :new
       flash[:alert] = 'Ticket not created'
+      render :new
     end
   end
 
   def edit
-    # redirect_to root_path, alert: 'Access denied!' unless can? :edit, @ticket
-    # @ticket = Ticket.find params[:id]
   end
 
   def destroy
-    ticket = Ticket.find params[:id]
     if can? :destroy, @ticket
       @ticket.destroy
       redirect_to support_tickets_path, notice: 'Ticket Deleted'
@@ -60,5 +57,4 @@ class SupportController < ApplicationController
   def ticket_params
     params.require(:ticket).permit([:title, :body, :department_id, :user])
   end
-
 end

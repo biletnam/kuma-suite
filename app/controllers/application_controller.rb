@@ -8,4 +8,5 @@ class ApplicationController < ActionController::Base
   #     redirect_to new_user_session_path, alert: 'error!! change this error to flash later'
   #   end
   # end
+
 end

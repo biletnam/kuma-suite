@@ -5,8 +5,6 @@ class Order < ApplicationRecord
   accepts_nested_attributes_for :skus, reject_if: :all_blank, allow_destroy: true
 
   validates :skus, length: { minimum: 1, maximum: 10, message: 'Please supply 1 to 10 SKUs' }
-
-
   validates :amount, numericality: { greater_than: 0 }
 
   include AASM
@@ -28,6 +26,4 @@ class Order < ApplicationRecord
       transitions from: :invoice, to: :cancelled
     end
   end
-
-
 end

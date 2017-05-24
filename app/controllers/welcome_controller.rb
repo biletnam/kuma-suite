@@ -11,7 +11,6 @@ class WelcomeController < ApplicationController
     redirect_to dashboard_index_path if user_signed_in?
   end
 
-
   def already_signed_in?
     if user_signed_in? && current_user.is_staff?
       redirect_to dashboard_index_path
@@ -24,6 +23,4 @@ class WelcomeController < ApplicationController
   #     flash[:notice] = 'welcome else error'
     end
   end
-
-
 end

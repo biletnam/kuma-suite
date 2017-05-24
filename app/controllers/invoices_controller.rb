@@ -4,6 +4,7 @@ class InvoicesController < ApplicationController
 
   def create
     order = Order.find params[:order_id]
+
     if order.publish!
       redirect_to order, notice: 'Order is invoiced!'
     else
@@ -18,5 +19,4 @@ class InvoicesController < ApplicationController
       redirect_to root_path, alert: 'Unauthorized access'
     end
   end
-
 end

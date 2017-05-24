@@ -6,6 +6,4 @@ class Ticket < ApplicationRecord
   validates :title, { presence: true }
   validates :body, { presence: true}
   validates :department, { presence: true }
-
-
 end

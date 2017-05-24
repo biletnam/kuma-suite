@@ -27,5 +27,4 @@ class PaymentsController < ApplicationController
       @invoice.update stripe_charge_id: charge.id
       redirect_to @invoice, notice: 'Thanks for the money lol'
   end
-
 end

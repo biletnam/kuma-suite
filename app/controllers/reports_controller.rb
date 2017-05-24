@@ -1,5 +1,4 @@
 class ReportsController < ApplicationController
-
   before_action :authenticate_user!
   before_action :user_is_staff?
 
@@ -7,7 +6,6 @@ class ReportsController < ApplicationController
   end
 
   private
-
 
   def user_is_staff?
     unless current_user.is_staff?

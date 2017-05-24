@@ -12,6 +12,8 @@ class UsersController < ApplicationController
     @clients = User.all.where(is_client: true)
   end
 
+  private
+
   def user_is_staff?
     unless current_user.is_staff?
       redirect_to root_path, alert: 'Unauthorized access'
