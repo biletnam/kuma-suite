@@ -1,11 +1,11 @@
 class Order < ApplicationRecord
   belongs_to :user
-  has_many :items
+  # has_many :items
   has_many :skus, dependent: :destroy
   accepts_nested_attributes_for :skus, reject_if: :all_blank, allow_destroy: true
 
-  validates :skus, length: { minimum: 1, maximum: 10, message: 'Please supply 1 to 10 SKUs' }
-  validates :amount, numericality: { greater_than: 0 }
+  # validates :skus, length: { minimum: 1, maximum: 10, message: 'Please supply 1 to 10 SKUs' }
+  # validates :grand_total, numericality: { greater_than: 0 }
 
   include AASM
   aasm whiny_transitions: false do

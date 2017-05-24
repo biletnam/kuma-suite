@@ -18,8 +18,8 @@ class OrdersController < ApplicationController
     @order.user = current_user
 
     if @order.save
-      redirect_to order_path(@order)
       flash[:notice] = 'Order posted successfully'
+      redirect_to order_path(@order)
     else
       flash[:alert] = 'Order not created'
       render :new
@@ -38,8 +38,8 @@ class OrdersController < ApplicationController
     @clients = User.all.where(is_client: true)
 
     if @order.save
-      redirect_to order_path(@order)
       flash[:notice] = 'Order updated successfully'
+      redirect_to order_path(@order)
     else
       flash[:alert] = 'Order not created'
       render :new

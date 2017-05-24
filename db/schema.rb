@@ -36,11 +36,10 @@ ActiveRecord::Schema.define(version: 20170522220251) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string   "item"
-    t.integer  "amount"
+    t.integer  "grand_total"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "aasm_state"
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
@@ -58,7 +57,6 @@ ActiveRecord::Schema.define(version: 20170522220251) do
   create_table "tickets", force: :cascade do |t|
     t.string   "title"
     t.string   "body"
-    t.string   "department"
     t.string   "rep",           default: "Unassigned"
     t.string   "flag",          default: "square"
     t.string   "status",        default: "Open"
