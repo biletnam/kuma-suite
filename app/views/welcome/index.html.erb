@@ -1,18 +1,18 @@
 <div class="ui transition information">
   <div class="headermain pads">
 
-  <h1 class="ui inverted centered header">
+  <h1 id='header1' class="ui inverted centered header">
     Introducing Kuma Suite
   </h1>
-  <p class="ui centered lead">
+  <p id='header2' class="ui centered lead">
     The little big all-in-one SMB management software
   </p>
-  <a href="#" class="large basic inverted animated fade ui button">
+  <a id='header3' href="#" class="large basic inverted animated fade ui button">
     <div class="visible content">Client-Side Support</div>
     <div class="hidden content">Register Now</div>
   </a>
 </div>
-  <div class="ui centerted image">
+  <div id='header4' class="ui centerted image">
     <%= link_to(image_tag("kumaheart"), root_path) %>
   </div>
 </div>
@@ -30,21 +30,21 @@
   <div class="ui centered page grid">
     <div class="fourteen wide column">
       <div class="ui three column center aligned stackable divided grid">
-        <div class="column column-feature">
+        <div id='icon1' class="column column-feature">
           <div class="ui icon header">
             <i class="comments outline icon"></i>
             CRM
           </div>
           <p>Manage customer support interactions with the internal ticketing system. <strong>Real time response</strong> to tickets using AJAX. </p>
           </div>
-          <div class="column column-feature">
+          <div id='icon2' class="column column-feature">
             <div class="ui icon header">
               <i class=" users icon"></i>
               Staff Management
             </div>
             <p>On top of keeping track of all your customers, allow staff to manage themselves using an integrated <strong>Google Calendar</strong> with staff scheduling and appointments.</p>
           </div>
-          <div class="column column-feature">
+          <div id='icon3' class="column column-feature">
             <div class="ui icon header">
               <i class="payment icon"></i>
               Invoicing
@@ -58,29 +58,29 @@
 
 <!--  -->
 
-<div class="ui recent_works pads">
-  <div class="ui  vertical segment">
-    <div class="ui very relaxed stackable centered page grid">
-      <div class="row">
-        <div class="eight wide centered column">
-          <h1 class="center aligned ui inverted header">
-            Want to learn more?
-          </h1>
-            <div class="ui horizontal divider"><i class="white flaticon-camera icon"></i></div>
-            <p class="ui centered lead">Submit your email to request more information about Kuma Suite.</p>
+  <div class="ui recent_works pads">
+    <div class="ui  vertical segment">
+      <div class="ui very relaxed stackable centered page grid">
+        <div class="row">
+          <div class="eight wide centered column">
+            <h1 class="center aligned ui inverted header">
+              Want to learn more?
+            </h1>
+              <div class="ui horizontal divider"><i class="white flaticon-camera icon"></i></div>
+              <p class="ui centered lead">Submit your email to request more information about Kuma Suite.</p>
+          </div>
         </div>
-      </div>
-      <div class="ui form eight wide subscribe column">
-        <div class="field">
-          <div class="ui fluid action input">
-            <input placeholder="Susbcribe..." type="text">
-            <div class="ui button">Susbcribe</div>
+        <div class="ui form eight wide subscribe column">
+          <div class="field">
+            <div class="ui fluid action input">
+              <input placeholder="Susbcribe..." type="text">
+              <div class="ui button">Susbcribe</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
 
   <div class="ui vertical segment pads">
@@ -105,21 +105,20 @@
         <div class="column">
           <div class="ui">
             <%= image_tag "iconsemantic",  class:"brandlogo" %>
-
           </div>
         </div>
         <div class="column">
           <div class="ui">
             <%= image_tag "iconsass",  class:"brandlogo" %>
-
           </div>
         </div>
         <div class="column">
           <div class="ui">
             <%= image_tag "iconjq",  class:"brandlogo"%>
-
           </div>
         </div>
-        </div>
-        </div>
-        </div>
+      </div>
+      </div>
+    </div>
+
+<%= render 'layouts/footer' %>
