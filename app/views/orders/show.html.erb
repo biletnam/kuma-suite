@@ -9,9 +9,18 @@
         </button>
         <input type="total" value="Due: $<%= @grand_total %>">
       </div>
+
+    <% elsif @order.may_paid? %>
+      <button class="ui teal float-right icon button">
+        <i class="dollar icon"></i>
+      </button>
     <% end %>
 
-    <h1>Work Order #00<%= @order.id %></h1>
+    <% if @order.may_paid? %>
+      <h1>Invoice #00<%= @order.id %></h1>
+    <% elsif %>
+      <h1>Work Order #00<%= @order.id %></h1>
+    <% end %>
     <hr>
 
     <div class="ui three column grid">
@@ -71,8 +80,8 @@
       </table>
     </div>
 
+    <% if @order.may_publish? %>
     <hr>
-
     <%= simple_form_for @order do |f| %>
       <div id='skus'>
         <%= f.simple_fields_for :skus do |r| %>
@@ -85,6 +94,8 @@
       </span>
 
       <%= f.submit class: 'ui primary button' %>
+    <% end %>
+    <% elsif @order.may_paid? %>
     <% end %>
   </div>
 </div>
