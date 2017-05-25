@@ -32,11 +32,13 @@ class OrdersController < ApplicationController
     @duedate = @order.created_at + 60.day
     @clients = User.all.where(is_client: true)
     @staff = User.all.where(is_staff: true)
-    @grand_total = @order.skus.sum(:total)
+    @grand_total = @order.grand_total
   end
 
   def update
     @clients = User.all.where(is_client: true)
+    @order.assign_attributes(order_params)
+    @order.calculate_total
 
     if @order.save
       flash[:notice] = 'Order updated successfully'
@@ -55,7 +57,8 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:user, {sku_attributes: [:item, :unit, :amount, :id, :_destroy]})
+    byebug
+    params.require(:order).permit(:user, skus_attributes: [:item, :unit, :amount, :id, :_destroy])
   end
 
   def user_is_staff?
