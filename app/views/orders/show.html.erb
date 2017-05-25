@@ -4,7 +4,7 @@
     <% if @order.may_publish? %>
       <div class="ui left action input float-right">
         <button class="ui teal labeled icon button">
-        <%= link_to "Generate Order", order_invoices_path(@order), class: 'white', method: :post %>
+        <%= link_to "Generate Order", order_invoices_path(@order), class: 'white', method: :post, data: {confirm: "Commit work order?"} %>
           <i class="dollar icon"></i>
         </button>
         <input type="total" value="Due: $<%= @grand_total %>">

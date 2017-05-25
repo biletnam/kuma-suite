@@ -11,7 +11,6 @@
           <input type="text" placeholder="Search staff...">
           <i class="search link icon"></i>
         </div>
-        <div class="item"></div>
       </div>
     </div>
   </div>
@@ -41,6 +40,7 @@
       <div id='modalclient_<%= client.id %>' class="ui modal">
         <i class="close icon"></i>
         <div class="header"><%= client.first_name %></div>
+        <div style="padding:10px">
         <div class="ui special cards">
           <div class="card">
             <div class="dimmable image">
@@ -69,6 +69,7 @@
         <div class="ui modal">
           <i class="close icon"></i>
         </div>
+      </div>
       </div>
       <% end %>
       </tbody>
@@ -106,6 +107,8 @@
       <div id='modalstaff_<%= staff.id %>' class="ui modal">
         <i class="close icon"></i>
         <div class="header"><%= staff.first_name %></div>
+        <div style="padding:10px">
+
         <div class="ui special cards">
           <div class="card">
             <div class="dimmable image">
@@ -135,6 +138,8 @@
             </div>
           </div>
         </div>
+
+      </div>
         <div class="ui modal">
           <i class="close icon"></i>
         </div>
