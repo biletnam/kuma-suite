@@ -124,7 +124,7 @@ puts 'Client created!'
 end
 puts 'Clientbase created!'
 
-10.times do
+20.times do
   department = Department.all.sample
   user = User.all.sample
   Ticket.create(title: Faker::Commerce.product_name,
@@ -163,10 +163,6 @@ Order.all.each do |order|
                      )
   end
 end
-
-# need sku.total = unit * amount
-# order.grand_total =  sum of order.skuy
-
 puts 'SKUs for orders created'
 
 puts '>>>>>> Seeding complete <<<<<<'

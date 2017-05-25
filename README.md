@@ -36,9 +36,9 @@ Kuma Suite is built with Rails, jQuery, and AJAX. UI styled with SASS and Semant
 ## CURRENT TODO
 <!-- done items are commented out -->
 <!-- - redesign everything -->
-- dropdown if rep.is_present
+<!-- - dropdown if rep.is_present -->
 <!-- - flags display -->
-- to do list
+- task list for dashboard
 - ticket status dropdown
 - total of unit * amount = total, total column + tax = invoice total
 
