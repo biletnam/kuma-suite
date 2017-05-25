@@ -6,19 +6,18 @@ class PaymentsController < ApplicationController
   end
 
   def create
-    customer = create_stripe_customer
-    card_info = customer.sources.data[0]
-    card_exp = "#{card_info.exp_month}/#{card_info.exp_year}"
-    charge = create_stripe_charge(customer)
+    stripe_payment_service = Payments::CreatePayment.new(
+      user:         current_user,
+      stripe_token: params[:stripe_token],
+      invoice:      @invoice
+    )
 
-    update_user(customer, card_info, card_exp)
-
-    if @invoice.update(stripe_charge_id: charge.id)
+    if stripe_payment_service.call
       flash[:notice] = 'Thanks for the money lol'
       redirect_to @invoice
     else
       flash[:alert] = 'Problem processing Payment'
-      redirect_to @invoice
+      render :new
     end
   end
 
@@ -26,30 +25,5 @@ class PaymentsController < ApplicationController
 
   def find_invoice
     @invoice = Invoice.find(params[:invoice_id])
-  end
-
-  def create_stripe_customer
-    Stripe::Customer.create(
-      description: "Customer for #{current_user.id} | #{current_user.email}",
-      source: params[:stripe_token]
-    )
-  end
-
-  def create_stripe_charge(customer)
-    Stripe::Charge.create(
-      amount: @invoice.amount * 100,
-      currency: "cad",
-      customer: customer.id,
-      description: "Invoice ID #{@invoice.id} payment"
-    )
-  end
-
-  def update_user(customer, card_info, card_exp)
-    current_user.update(
-      stripe_customer_id: customer.id,
-      stripe_card_brand: card_info.brand,
-      stripe_last4: card_info.last4,
-      stripe_card_expiry: card_exp
-    )
   end
 end
