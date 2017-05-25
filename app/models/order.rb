@@ -7,6 +7,8 @@ class Order < ApplicationRecord
   # validates :skus, length: { minimum: 1, maximum: 10, message: 'Please supply 1 to 10 SKUs' }
   # validates :grand_total, numericality: { greater_than: 0 }
 
+  after_find :calculate_total
+
   include AASM
   aasm whiny_transitions: false do
     state :work_order, initial: true
@@ -27,10 +29,7 @@ class Order < ApplicationRecord
     end
   end
 
-  private
-
-  def total
-    price * quantity
+  def calculate_total
+    self.grand_total = self.skus&.sum(:total)
   end
-
 end
