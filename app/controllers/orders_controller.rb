@@ -28,10 +28,11 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @orders = Order.last(20)
+    @order = Order.find params[:id]
     @duedate = @order.created_at + 60.day
     @clients = User.all.where(is_client: true)
     @staff = User.all.where(is_staff: true)
+    @grand_total = @order.skus.sum(:total)
   end
 
   def update

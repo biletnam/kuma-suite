@@ -26,4 +26,11 @@ class Order < ApplicationRecord
       transitions from: :invoice, to: :cancelled
     end
   end
+
+  private
+
+  def total
+    price * quantity
+  end
+
 end

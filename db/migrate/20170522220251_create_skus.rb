@@ -4,6 +4,7 @@ class CreateSkus < ActiveRecord::Migration[5.0]
       t.string :item
       t.float :unit
       t.float :amount
+      t.float :total
       t.references :order, foreign_key: true
 
       t.timestamps

@@ -148,23 +148,25 @@ puts "Comments created!"
 
 10.times do
   user = User.all.where(is_client: true).sample
-  o = Order.create(grand_total: "",
-               user_id: user.id
-              )
-              o.errors.messages
+  o = Order.create(grand_total: 0,
+                   user_id: user.id
+                  )
 end
 puts 'Orders created'
 
 Order.all.each do |order|
   rand(5).times do
     order.skus.create(item: Faker::Company.catch_phrase,
-                      unit: rand(5),
-                      amount: Faker::Commerce.price
+                      unit: rand(1..10),
+                      amount: Faker::Commerce.price,
+                      total: 0
                      )
-                     order.grand_total = order.skus.unit * order.skus.amount
   end
-  # order.grand_total.save
 end
+
+# need sku.total = unit * amount
+# order.grand_total =  sum of order.skuy
+
 puts 'SKUs for orders created'
 
 puts '>>>>>> Seeding complete <<<<<<'

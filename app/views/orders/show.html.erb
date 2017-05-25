@@ -7,7 +7,7 @@
         <%= link_to "Generate Order", order_invoices_path(@order), class: 'white', method: :post %>
           <i class="dollar icon"></i>
         </button>
-        <input type="total" value="$52.03">
+        <input type="total" value="Due: $<%= @grand_total %>">
       </div>
     <% end %>
 
@@ -18,8 +18,8 @@
 
       <div class="column">
         <div class="ui segment">
-          <p>Bill to: <strong><%= @clients.sample.full_name %></strong></p>
-          <p><%= @clients.sample.company %></p>
+          <p>Bill to: <strong><%= @order.user.full_name %></strong></p>
+          <p><%= @order.user.company %></p>
           <p>123 Fake Street, Vancouver</p>
           <p>BC CAN V6V-8Y7</p>
         </div>
@@ -28,12 +28,11 @@
       <div class="column"></div>
 
       <div class="column">
-        <div class="ui right aligned">
+        <div class="ui segment right aligned">
           <p>Work Order #00<%= @order.id %></p>
           <p> Work order date: <%= @order.created_at %></p>
           <p>Customer ID <%= @order.user.id %></p>
           <p>Sales Rep: <%= @staff.sample.full_name %></p>
-          <p>Due Date: <%= @duedate %></p>
         </div>
       </div>
     </div>
@@ -41,24 +40,34 @@
     <div class="ui segment">
       <h3>Work Order Items</h3>
       <table class="ui very basic table">
-        <% @order.skus.each do |s| %>
-          <thead>
-            <tr>
-              <th>SKU</th>
-              <th>Units</th>
-              <th>Amount</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><%= s.item %></td>
-              <td><%= s.unit %></td>
-              <td><%= number_to_currency s.amount %></td>
-              <td>Total</td>
-            </tr>
-          </tbody>
-        <% end %>
+        <thead>
+          <tr>
+            <th>SKU</th>
+            <th>Units</th>
+            <th>Amount</th>
+            <th class="right aligned">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order.skus.each do |s| %>
+          <tr>
+            <td><%= s.item %></td>
+            <td><%= s.unit %></td>
+            <td><%= number_to_currency s.amount %></td>
+            <td class="right aligned"><%= s.total %></td>
+          </tr>
+          <% end %>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th class="right aligned">
+              <h4><%= @grand_total %></h4>
+          </th>
+        </tr>
+        </tfoot>
       </table>
     </div>
 

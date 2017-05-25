@@ -3,9 +3,8 @@
   <form class="ui form">
     <div class="fields">
       <div class="field">
-        <button class="ui icon button">
-          <%= link_to_remove_association ("Remove"), f, :class => "" %>
         </button>
+        <%= link_to_remove_association '<i class="minus icon"></i>'.html_safe, f, :class => "ui icon button" %>
       </div>
 
       <div class="nine wide field">
@@ -19,7 +18,8 @@
       </div>
       <div class="two wide field">
         <label for="total">Total</label>
-        <input type="text" placeholder="0.00">
+        <input class="disabled" value="<%= f.object.total%>">
+      </input>
       </div>
     </div>
   </form>

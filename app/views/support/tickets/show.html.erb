@@ -21,11 +21,12 @@
       <div class="ui clearing divider"></div>
 
 <!-- ticket title  -->
-<div class="float-left" style="margin-right:20px; padding-bottom:20px;">
-
-<%= image_tag("/avatars/#{@ticket.user.profile_pic}")  %>
-
-</div>
+      <div class="float-left" style="margin-right:20px; padding-bottom:20px;">
+        <%= image_tag("/avatars/#{@ticket.user.profile_pic}")  %>
+      </div>
+      <button class="ui float-right basic icon button">
+        <i class="x icon"></i>
+      </button>
       <h2 class='ui teal block'>Subject: <%= @ticket.title %> </h1>
       <p><%= @ticket.body %></p>
       <br><br>

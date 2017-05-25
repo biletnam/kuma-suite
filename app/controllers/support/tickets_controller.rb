@@ -4,7 +4,7 @@ class Support::TicketsController < ApplicationController
 
   def index
     @user = current_user
-    @last_ticket = Ticket.last params[:id]
+
     @ticket = Ticket.new
     @tickets = current_user.tickets params[:id]
     @ticket.user = current_user
@@ -25,11 +25,11 @@ class Support::TicketsController < ApplicationController
     @ticket.user = current_user
 
     if @ticket.save
-      redirect_to support_ticket_path(@ticket)
       flash[:notice] = 'Ticket posted successfully'
+      redirect_to support_ticket_path(@ticket)
     else
-      render :index
       flash[:alert] = 'Ticket not created'
+      render :index
     end
   end
 
@@ -43,6 +43,8 @@ class Support::TicketsController < ApplicationController
     if can? :destroy, @ticket
       @ticket.destroy
       redirect_to support_tickets_path, notice: 'Ticket Deleted'
+    else
+      redirect_to root_path, alert: 'Access denied'
     end
   end
 

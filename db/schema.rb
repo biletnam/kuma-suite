@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20170522220251) do
     t.string   "item"
     t.float    "unit"
     t.float    "amount"
+    t.float    "total"
     t.integer  "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
