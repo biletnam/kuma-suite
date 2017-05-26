@@ -2,7 +2,6 @@
 
 # KUMA SUITE
 is an all-in-one support interface for SMB to manage tickets, invoices, payments, work orders, staff performance and customer relations.
-<!-- for the interest of time, I have aimed my focus on only a couple key features. -->
 
 ## KEY FEATURES
 Client-side of the site gives access to support pages to submit tickets and speak to company reps to answer their questions. Client invoices are available to make payment with **Stripe**.
@@ -33,14 +32,12 @@ Kuma Suite is built with Rails, jQuery, and AJAX. UI styled with SASS and Semant
 **Notable gems used**: Devise, Cancancan, AASM, Cocoon, Avatarly, TableSorter
 
 
+
 ## CURRENT TODO
 <!-- done items are commented out -->
 <!-- - redesign everything -->
 <!-- - dropdown if rep.is_present -->
 <!-- - flags display -->
-- task list for dashboard
-- ticket status dropdown
-- total of unit * amount = total, total column + tax = invoice total
 
 
 ### Ticketing
@@ -55,15 +52,23 @@ Kuma Suite is built with Rails, jQuery, and AJAX. UI styled with SASS and Semant
 - reviews are only available after ticket is closed
 - once ticket is closed, cannot post any more replies, unless internal notes
 <!-- - flag 'request manager assistance' for ticket -->
-- last field 'management replied' for any tickets that manager has replied to
+- change everything to single line
 <!-- - ticket page to complete -->
 <!-- - ticket show to complete -->
 <!-- - new ticket default to open flag  -->
 <!-- - change ticket flags -->
 <!-- - change ticket status -->
 <!-- - change resources to support/ticket/id instead. -->
+- ticket status dropdown
+
+### Work Orders / Invoice
+- total of unit * amount = total, total column + tax = invoice total
+- finish Stripe API integration
+- add payment option for client side
+- add invoice and order links for client side
 
 ### Users
+- work on users model to add more fields
 <!-- - pretty up user pages -->
 <!-- - users to complete [admin, agents, clients] -->
 <!-- - add user types: user roles -->
@@ -73,22 +78,18 @@ Kuma Suite is built with Rails, jQuery, and AJAX. UI styled with SASS and Semant
 <!-- - implement avatarly, migrated -->
 
 ### Dashboard
-- implement Dashboard
-- graphs and stuff, need more eye candy
+- implement Dashboard, more placeholders
+- task list for dashboard
+<!-- - graphs and stuff, need more eye candy -->
 
 ### CSS / Design
 <!-- - change active highlight color to teal -->
 <!-- - add logo to application -->
 <!-- - change name -->
 <!-- - background color -->
-<!-- - implement consistent design across app -->
+- implement consistent design across app
 <!-- - redo design and color -->
-- for errors and notifications use code below instead
-```
-<div class="ui button" data-inverted="" data-tooltip="Add users to your feed" data-position="bottom right">
-  Bottom Right
-</div>
-```
+
 
 ## BUGS
 <!-- - when submit ticket from client, redirects to /ticket/id which is only for staff -->
@@ -96,19 +97,18 @@ Kuma Suite is built with Rails, jQuery, and AJAX. UI styled with SASS and Semant
 <!-- - login/sign up needs adjust size -->
 
 <!-- - everything -->
-- flash/alert outer margin does not apply background color
-- tickets/filter posts change second navbar tab border height
+<!-- - flash/alert outer margin does not apply background color -->
+<!-- - tickets/filter posts change second navbar tab border height -->
 <!-- - seeds crash when adding profile_pic, something devise model -->
 <!-- - might need to add table profile pic to user? -->
 
 ## FUTURE FEATURES TO COVER
 <!-- - user types -->
-- would an activity feed accomplish anything?
+- feedback
 <!-- - change name -->
 <!-- - possibly slack integration for messaging -->
-- ajax internal notes aka messaging sytem
+- ajax internal notes aka messaging system
 <!-- - implement sorting for tickets -->
-
 <!-- - create a client side controller only for submitting tickets -->
 <!-- - 3000/ is landing, has page info -->
 <!-- - 3000/support for client side only, submit ticket -->
