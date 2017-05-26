@@ -27,7 +27,7 @@ Reports give a detailed analysis of the staff member's overall performance and a
 Admin options to manage users are made available through **Devise**. User authentication through Devise and **CanCan**.
 
 ## About the project
-Kuma Suite is built with Rails, jQuery, and AJAX. UI styled with SASS and Semantic UI.
+Kuma Suite was built in 2 weeks, with Rails, jQuery, and AJAX. UI styled with SASS and Semantic UI. 
 
 **Notable gems used**: Devise, Cancancan, AASM, Cocoon, Avatarly, TableSorter
 
