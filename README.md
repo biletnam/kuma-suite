@@ -27,7 +27,7 @@ Reports give a detailed analysis of the staff member's overall performance and a
 Admin options to manage users are made available through **Devise**. User authentication through Devise and **CanCan**.
 
 ## About the project
-Kuma Suite was built in 2 weeks, with Rails, jQuery, and AJAX. UI styled with SASS and Semantic UI. 
+Kuma Suite was built in 2 weeks, with Rails, jQuery, and AJAX. UI styled with SASS and Semantic UI.
 
 **Notable gems used**: Devise, Cancancan, AASM, Cocoon, Avatarly, TableSorter
 
@@ -118,7 +118,14 @@ Kuma Suite was built in 2 weeks, with Rails, jQuery, and AJAX. UI styled with SA
 - flags (use icons) [urgent warning, important flag, no flag (default) ]
 - status [blank (default), in progress, delayed, completed (once completed, clears out of queue and sends to completed page)]
 
-flags
+
+## Screenshots
+![front](https://github.com/nTamura/kuma-suite/tree/master/public/screen/front.png)
+![dash](https://github.com/nTamura/kuma-suite/tree/master/public/screen/dash.png)
+![tickets](https://github.com/nTamura/kuma-suite/tree/master/public/screen/tickets.png)
+![report](https://github.com/nTamura/kuma-suite/tree/master/public/screen/report.png)
+
+<!-- flags
 ```
 <i class='red warning sign icon'></i>
 <i class='yellow flag icon'></i>
@@ -129,7 +136,7 @@ status
 <div class="ui yellow label">In progress</div>
 <div class="ui red label">Delayed</div>
 <div class="ui grey label">Completed</div>
-```
+``` -->
 
 <!--
 
