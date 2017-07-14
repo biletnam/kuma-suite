@@ -121,9 +121,9 @@ Kuma Suite was built in 2 weeks, with Rails, jQuery, and AJAX. UI styled with SA
 
 ## Screenshots
 ![front](https://raw.githubusercontent.com/nTamura/kuma-suite/master/public/screen/front.png)
-![dash](https://github.com/nTamura/kuma-suite/tree/master/public/screen/dash.png)
-![tickets](https://github.com/nTamura/kuma-suite/tree/master/public/screen/tickets.png)
-![report](https://github.com/nTamura/kuma-suite/tree/master/public/screen/report.png)
+![dash](https://raw.githubusercontent.com/nTamura/kuma-suite/master/public/screen/dash.png)
+![tickets](https://raw.githubusercontent.com/nTamura/kuma-suite/master/public/screen/tickets.png)
+![report](https://raw.githubusercontent.com/nTamura/kuma-suite/master/public/screen/report.png)
 
 <!-- flags
 ```
